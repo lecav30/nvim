@@ -92,8 +92,8 @@ return require('packer').startup(function()
   -- Better comments for neovim 
   use "terrortylor/nvim-comment"
 
--- --   -- Close tag HTML
--- --   use 'alvan/vim-closetag'
+  -- Close tag HTML
+  use 'alvan/vim-closetag'
 
  -- Rename tag HTML
    use 'AndrewRadev/tagalong.vim'
