@@ -51,8 +51,18 @@ return require('packer').startup(function()
 
   -- Completion engine plugin 
   use 'neovim/nvim-lspconfig'
+  
   -- Better performant UI
-  use 'glepnir/lspsaga.nvim'
+  -- use 'glepnir/lspsaga.nvim'
+  -- glepnir/lspsaga.nvim give me the following error:
+  --
+  -- Error detected while processing CursorHold Autocommands for "*": method textDocument/codeAction is 
+  -- not supported by any of the servers registered for the current buffer
+  --
+  -- That's why I decided to use tami5/lspsaga.nvim
+  -- A maintained fork of glepnir/lspsaga.nvim.
+  use { 'tami5/lspsaga.nvim' }  -- nightly
+
   -- CMP - Completation engine plugin 
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
