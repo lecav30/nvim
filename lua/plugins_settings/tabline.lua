@@ -3,11 +3,11 @@ require('tabline').setup {
   enable = true,
   options = {
       -- Normal
-      section_separators = { '', ''},
-      component_separators = { '', ''},
+      -- section_separators = { '', ''},
+      -- component_separators = { '', ''},
       -- Square
-      -- section_separators = {'', ''},
-      -- component_separators = {'', ''},
+      section_separators = {'', ''},
+      component_separators = {'', ''},
 
       max_bufferline_percent = 66,
       show_tabs_always = true,
