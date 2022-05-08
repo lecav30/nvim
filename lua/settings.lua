@@ -3,14 +3,16 @@ local opt = vim.opt
 local cmd = vim.cmd
 
 -- Enable syntax highlighting and filetype plugins
-vim.cmd 'syntax enable'
-vim.cmd 'filetype plugin on'
+-- vim.cmd 'syntax enable'
+-- vim.cmd 'filetype plugin on'
+cmd('syntax enable')
+cmd('filetype plugin on')
 
 -- Buffer options
 o.autoindent = true
 o.expandtab = true
-o.shiftwidth = 4
 o.smartindent = true
+o.shiftwidth = 4
 o.softtabstop = 4
 o.tabstop = 4
 
@@ -44,9 +46,9 @@ o.background = 'dark'
 o.termguicolors = true
 
 -- Themes and configs
-cmd('colorscheme rose-pine')
-vim.g.rose_pine_variant = 'below'
--- cmd('colorscheme nord')
+-- cmd('colorscheme rose-pine')
+-- vim.g.rose_pine_variant = 'below'
+cmd('colorscheme nord')
 -- cmd('colorscheme monokai_pro')
 
 -- Set completeopt to have a better completion experience
