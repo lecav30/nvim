@@ -33,6 +33,10 @@ o.splitright = true
 o.swapfile = true
 o.updatetime = 2000
 o.clipboard = 'unnamedplus'
+o.showmatch = true
+o.ruler = true
+o.showcmd = true
+o.encoding = 'utf-8'
 
 -- Window options
 o.foldmethod = 'manual' -- indentation folds
