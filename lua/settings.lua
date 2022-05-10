@@ -48,7 +48,7 @@ o.termguicolors = true
 -- Themes and configs
 -- cmd('colorscheme rose-pine')
 -- vim.g.rose_pine_variant = 'below'
-cmd('colorscheme nord')
+cmd('colorscheme github_*')
 -- cmd('colorscheme monokai_pro')
 
 -- Set completeopt to have a better completion experience

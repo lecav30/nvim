@@ -18,8 +18,8 @@ return require('packer').startup(function()
       as = 'rose-pine',
    })
 
-  -- Nord-vim theme
-  use 'arcticicestudio/nord-vim'
+ -- Github theme
+  use "projekt0n/github-nvim-theme"
 
   -- Indentation guides to all lines
   use "lukas-reineke/indent-blankline.nvim"
