@@ -10,7 +10,7 @@ mapper("n", "<Leader>ww", ":w<CR>")
 mapper("n", "<Leader>wq", ":wq<CR>")
 mapper("n", "<Leader>qq", ":q!<CR>")
 
--- Change Buffer
+-- Change Tabs
 mapper("n", "<Tab>", ":tabnext<Return>")
 mapper("n", "<S-Tab>", ":tabprev<Return>")
 
