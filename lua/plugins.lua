@@ -63,8 +63,6 @@ return require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip'
   -- Icons for lsp
   use 'onsails/lspkind.nvim'
-  -- Light bulb
-  use 'kosayoda/nvim-lightbulb'
 
   -- Start screen 
   use {
@@ -100,5 +98,8 @@ return require('packer').startup(function()
 
  -- Rename tag HTML
    use 'AndrewRadev/tagalong.vim'
+
+ -- Lorem ipsum for neovim
+   use 'vim-scripts/loremipsum'
 
 end)
