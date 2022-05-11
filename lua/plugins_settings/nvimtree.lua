@@ -3,7 +3,7 @@ require'nvim-tree'.setup {
   disable_netrw = false,
   hijack_cursor = false,
   hijack_netrw = true,
-  hijack_unnamed_buffer_when_opening = false,
+  hijack_unnamed_buffer_when_opening = true,
   ignore_buffer_on_setup = false,
   open_on_setup = false,
   open_on_setup_file = false,
@@ -22,7 +22,8 @@ require'nvim-tree'.setup {
     mappings = {
       custom_only = false,
       list = {
-        -- user mappings go here
+        { key = { '<CR>', 'o', '<2-LeftMouse>' }, action = 'edit_in_place' },
+        { key = '<C-e>', action = 'edit' },
       },
     },
   },
@@ -54,8 +55,9 @@ require'nvim-tree'.setup {
     cmd = "",
     args = {},
   },
+  -- diagnostics of lsp
   diagnostics = {
-    enable = false,
+    enable = true,
     show_on_dirs = false,
     icons = {
       hint = "",
