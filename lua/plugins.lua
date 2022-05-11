@@ -48,7 +48,6 @@ return require('packer').startup(function()
     requires = {
       'kyazdani42/nvim-web-devicons',
     },
-    tag = 'nightly'
   }
 
   -- Completion engine plugin 
