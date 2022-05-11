@@ -22,8 +22,6 @@ require'nvim-tree'.setup {
     mappings = {
       custom_only = false,
       list = {
-        { key = { '<CR>', 'o', '<2-LeftMouse>' }, action = 'edit_in_place' },
-        { key = '<C-e>', action = 'edit' },
       },
     },
   },
