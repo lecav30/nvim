@@ -10,7 +10,7 @@ require('lualine').setup {
     -- section_separators = { left = '', right = ''},
     -- component_separators = { left = '', right = ''},
 
-    disabled_filetypese= {},
+    disabled_filetypese= {'packer', ''},
     always_divide_middle = true,
     symbols = {
         added = '+',
