@@ -14,7 +14,8 @@ require('lualine').setup {
     section_separators = {left = '', right = ''},
     component_separators = {left = '', right = ''},
      
-    disabled_filetypese= {'packer', ''},
+    disabled_filetypese = {'packer'},
+
     always_divide_middle = true,
     symbols = {
         added = '+',
@@ -51,9 +52,9 @@ require('lualine').setup {
             update_in_insert = false,
             always_visible = false,
         }
-  },
-  lualine_c = { "require'lsp-status'.status()" },
-  lualine_x = { 
+    },
+    lualine_c = { "require'lsp-status'.status()" },
+    lualine_x = { 
       {
           'diff',
           diff_color = {
@@ -62,18 +63,18 @@ require('lualine').setup {
               removed  = 'DiffDelete',
           },
       }
-  },
-    lualine_y = { 'progress' },
-    lualine_z = { "os.date('%F')", 'location' },
-  },
-  inactive_sections = {
-    lualine_a = {},
+    },
+      lualine_y = { 'progress' },
+      lualine_z = { "os.date('%F')", 'location' },
+    },
+    inactive_sections = {
     lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  extensions = {}
+      lualine_a = {},
+      lualine_c = {'filename'},
+      lualine_x = {'location'},
+      lualine_y = {},
+      lualine_z = {}
+    },
+    extensions = {'nvim-tree'}
 }
 
