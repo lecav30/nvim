@@ -64,6 +64,8 @@ return require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip'
   -- Icons for lsp
   use 'onsails/lspkind.nvim'
+  -- Better performance for lsp
+  use 'tami5/lspsaga.nvim'
 
   -- Start screen 
   use {
