@@ -5,10 +5,10 @@ local cmd = vim.cmd
 -- Set leader key to space
 vim.g.mapleader = ' '
 
-require('settings')
-require('keymappings')
 require('plugins')
 require('plugins_settings')
+require('keymappings')
+require('settings')
 
 -- Mapping helper
 -- local mapper = function(mode, key, result)
