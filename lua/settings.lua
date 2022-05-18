@@ -50,10 +50,11 @@ o.background = 'dark'
 o.termguicolors = true
 
 -- Themes and configs
--- cmd('colorscheme rose-pine')
--- vim.g.rose_pine_variant = 'below'
 -- cmd('colorscheme github_*')
-cmd('colorscheme monokai_pro')
+-- cmd('colorscheme monokai_pro')
+cmd('colorscheme material')
+-- Lua initialization file
+-- vim.cmd [[colorscheme moonfly]]
 
 -- Set completeopt to have a better completion experience
 o.completeopt = 'menuone,noselect'
