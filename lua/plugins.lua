@@ -12,14 +12,14 @@ return require('packer').startup(function()
   -- Monokai theme
   use 'tanvirtin/monokai.nvim'
 
-  -- Rose-Pine theme
-  use({
-      'rose-pine/neovim',
-      as = 'rose-pine',
-   })
-
  -- Github theme
   use "projekt0n/github-nvim-theme"
+
+  -- Moonfly theme
+  use 'bluz71/vim-moonfly-colors'
+  
+  -- Material theme
+  use 'marko-cerovac/material.nvim'
 
   -- Indentation guides to all lines
   use "lukas-reineke/indent-blankline.nvim"
