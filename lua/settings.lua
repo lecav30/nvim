@@ -58,5 +58,3 @@ cmd('colorscheme material')
 
 -- Set completeopt to have a better completion experience
 o.completeopt = 'menuone,noselect'
-
-
