@@ -1,12 +1,28 @@
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
-local function footer()
-  local datetime = os.date("%d-%m-%Y ☠ %H:%M:%S")
-  return datetime
-end
+math.randomseed(os.time()) -- For random header.
 
-math.randomseed( os.time() ) -- For random header.
+-- ┌──────────────────────────────────────────────────────────┐
+-- │                  /                                       │
+-- │    header_padding                                        │
+-- │                  \  ┌──────────────┐ ____                │
+-- │                     │    header    │     \               │
+-- │                  /  └──────────────┘      \              │
+-- │ head_butt_padding                          \             │
+-- │                  \                          occu_        │
+-- │                  ┌────────────────────┐     height       │
+-- │                  │       button       │    /             │
+-- │                  │       button       │   /              │
+-- │                  │       button       │  /               │
+-- │                  └────────────────────┘‾‾                │
+-- │                  /                                       │
+-- │ foot_butt_padding                                        │
+-- │                  \  ┌──────────────┐                     │
+-- │                     │    footer    │                     │
+-- │                     └──────────────┘                     │
+-- │                                                          │
+-- └──────────────────────────────────────────────────────────┘
 
 Headers = {
 
@@ -60,20 +76,71 @@ Headers = {
     [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
     [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
     [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
-  }
+  },
+  {
+    [[╭╮╭┬─╮╭─╮┬  ┬┬╭┬╮]],
+    [[│││├┤ │ │╰┐┌╯││││]],
+    [[╯╰╯╰─╯╰─╯ ╰╯ ┴┴ ┴]]
+  },
+  {
+    [[┌┐┌┬─┐┌─┐┬  ┬┬┌┬┐]],
+    [[│││├┤ │ │└┐┌┘││││]],
+    [[┘└┘└─┘└─┘ └┘ ┴┴ ┴]]
+  },
+  {
+    [[╔╗╔╦═╗╔═╗╦  ╦╦╔╦╗]],
+    [[║║║╠╣ ║ ║╚╗╔╝║║║║]],
+    [[╝╚╝╚═╝╚═╝ ╚╝ ╩╩ ╩]]
+  },
+  {
+    [[ooooo      ooo oooooooooooo   .oooooo.   oooooo     oooo ooooo ooo        ooooo]],
+    [[`888b.     `8' `888'     `8  d8P'  `Y8b   `888.     .8'  `888' `88.       .888']],
+    [[ 8 `88b.    8   888         888      888   `888.   .8'    888   888b     d'888 ]],
+    [[ 8   `88b.  8   888oooo8    888      888    `888. .8'     888   8 Y88. .P  888 ]],
+    [[ 8     `88b.8   888    "    888      888     `888.8'      888   8  `888'   888 ]],
+    [[ 8       `888   888       o `88b    d88'      `888'       888   8    Y     888 ]],
+    [[o8o        `8  o888ooooood8  `Y8bood8P'        `8'       o888o o8o        o888o]]
+  },
+	{
+			'                                   ',
+			'                                   ',
+			'                                   ',
+			'   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ',
+			'    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ',
+			'          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄     ',
+			'           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ',
+			'          ⢠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ',
+			'   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘  ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ',
+			'  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ',
+			' ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ',
+			' ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ ',
+			'      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
+			'       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
+			'                                   ',
+	},
 }
 
- dashboard.section.header.val = Headers[math.random(#Headers)] 
+dashboard.section.header.val = Headers[math.random(#Headers)] 
 
- dashboard.section.buttons.val = {
-     dashboard.button( "e", "  > New file" , ":ene <CR>"),
-     dashboard.button( "f", "  > Find file", ":Telescope find_files<CR>"),
-     dashboard.button( "r", "  > Recent"   , ":Telescope oldfiles<CR>"),
-     dashboard.button( "s", "  > Settings" , ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
-     dashboard.button( "q", "  > Quit NVIM", ":qa<CR>"),
- }
+dashboard.section.buttons.val = {
+	 dashboard.button( "e", "  > New file" , ":ene <CR>"),
+	 dashboard.button( "f", "  > Find file", ":Telescope find_files<CR>"),
+	 dashboard.button( "r", "  > Recent"   , ":Telescope oldfiles<CR>"),
+	 dashboard.button( "s", "  > Settings" , ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
+	 dashboard.button( "q", "  > Quit NVIM", ":qa<CR>"),
+}
 
- dashboard.section.footer.val = footer()
- dashboard.section.footer.opts.hl = "Constant"
+local function footer()
+	-- local total_plugins = #vim.tbl_keys(packer_plugins) 
+	local datetime = os.date(" %d-%m-%Y  %H:%M:%S")
+	local version = vim.version()
+	local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
+
+	-- return datetime .. "   " .. total_plugins .. " plugins" .. nvim_version_info
+	return datetime .. nvim_version_info
+end
+
+dashboard.section.footer.val = footer()
+dashboard.section.footer.opts.hl = "Constant"
 
 alpha.setup(dashboard.opts)
