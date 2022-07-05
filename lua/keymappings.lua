@@ -31,4 +31,4 @@ mapper("x", "K", ":move '<-2<CR>gv-gv")
 mapper("x", "J", ":move '>+1<CR>gv-gv")
 
 -- Compiler C++
-vim.api.nvim_command('autocmd filetype cpp nnoremap <Leader>cp :w <bar> !g++ % -o %:r<CR>')
+vim.api.nvim_command('autocmd filetype cpp nnoremap <f5> :w <bar> !g++ % -o %:r <cr> :terminal %:r<cr>')
