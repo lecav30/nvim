@@ -1,4 +1,5 @@
 require 'nvim-treesitter.install'.compilers = { "clang" }
+
 require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
@@ -8,7 +9,7 @@ require'nvim-treesitter.configs'.setup {
     },
   },
   indent = {
-    enable = true,
+    enable = false,
     disable = {},
   },
   ensure_installed = {
