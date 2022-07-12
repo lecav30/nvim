@@ -12,12 +12,12 @@ return require('packer').startup(function()
   -- Monokai theme
   use 'tanvirtin/monokai.nvim'
 
- -- Github theme
+  -- Github theme
   use "projekt0n/github-nvim-theme"
 
   -- Moonfly theme
   use 'bluz71/vim-moonfly-colors'
-  
+
   -- Material theme
   use 'marko-cerovac/material.nvim'
 
@@ -29,8 +29,8 @@ return require('packer').startup(function()
 
   -- Treesitter - Highlight and indent
   use {
-      'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate'
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
   }
 
   -- Icons for nerd fonts
@@ -38,8 +38,8 @@ return require('packer').startup(function()
 
   -- File explorer
   use {
-      'nvim-telescope/telescope.nvim',
-      requires = { {'nvim-lua/plenary.nvim'} }
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
   }
 
   -- Tree file explorer
@@ -69,28 +69,28 @@ return require('packer').startup(function()
 
   -- Start screen 
   use {
-      'goolord/alpha-nvim',
-      config = function ()
-          require'alpha'.setup(require'alpha.themes.dashboard'.opts)
-      end
+    'goolord/alpha-nvim',
+    config = function ()
+      require'alpha'.setup(require'alpha.themes.dashboard'.opts)
+    end
   }
 
   -- Tab and Buffer tabline
   use {
-      'kdheepak/tabline.nvim',
-      config = function()
-        vim.cmd[[
-          set guioptions-=e " Use showtabline in gui vim
-          set sessionoptions+=tabpages,globals " store tabpages and globals in session
-        ]]
-      end,
-      requires = { { 'hoob3rt/lualine.nvim', opt=true }, {'kyazdani42/nvim-web-devicons', opt = true} }
-    }
+    'kdheepak/tabline.nvim',
+    config = function()
+      vim.cmd[[
+      set guioptions-=e " Use showtabline in gui vim
+      set sessionoptions+=tabpages,globals " store tabpages and globals in session
+      ]]
+    end,
+    requires = { { 'hoob3rt/lualine.nvim', opt=true }, {'kyazdani42/nvim-web-devicons', opt = true} }
+  }
 
   -- Lualine, best statusline in lua
   use {
-      'nvim-lualine/lualine.nvim',
-      requires = {'kyazdani42/nvim-web-devicons', opt = true}
+    'nvim-lualine/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
 
   -- Better comments for neovim 
@@ -99,10 +99,14 @@ return require('packer').startup(function()
   -- Close tag HTML
   use 'alvan/vim-closetag'
 
- -- Rename tag HTML
-   use 'AndrewRadev/tagalong.vim'
+  -- Rename tag HTML
+  use 'AndrewRadev/tagalong.vim'
 
- -- Lorem ipsum for neovim
-   use 'vim-scripts/loremipsum'
+  -- Lorem ipsum for neovim
+  use 'vim-scripts/loremipsum'
+
+  -- Easymotion
+  use 'easymotion/vim-easymotion'
 
 end)
+
