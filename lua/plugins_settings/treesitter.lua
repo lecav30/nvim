@@ -19,7 +19,8 @@ require'nvim-treesitter.configs'.setup {
     "css",
     "javascript",
     "lua",
-    "json"
+    "json",
+    "markdown"
   }
 }
 
