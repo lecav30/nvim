@@ -31,27 +31,27 @@ local webdev_dash_keywords = {
 
 -- TELESCOPE CONFIG
 require('telescope').setup {
-    color_devicons = true,
-    prompt_prefix = '🔍 ',
-    scroll_strategy = 'cycle',
-    sorting_strategy = 'ascending',
-    file_ignore_patterns = ignore_these,
-    layout_config = {
-      prompt_position = 'top',
-      horizontal = {
-        mirror = true,
-        preview_cutoff = 100,
-        preview_width = 0.5,
-      },
-      vertical = {
-        mirror = true,
-        preview_cutoff = 0.4,
-      },
-      flex = {
-        flip_columns = 110,
-      },
-      height = 0.94,
-      width = 0.86,
+  color_devicons = true,
+  prompt_prefix = '🔍 ',
+  scroll_strategy = 'cycle',
+  sorting_strategy = 'ascending',
+  file_ignore_patterns = ignore_these,
+  layout_config = {
+    prompt_position = 'top',
+    horizontal = {
+      mirror = true,
+      preview_cutoff = 100,
+      preview_width = 0.5,
+    },
+    vertical = {
+      mirror = true,
+      preview_cutoff = 0.4,
+    },
+    flex = {
+      flip_columns = 110,
+    },
+    height = 0.94,
+    width = 0.86,
   },
 }
 
