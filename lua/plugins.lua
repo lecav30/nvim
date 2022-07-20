@@ -108,5 +108,11 @@ return require('packer').startup(function()
   -- Easymotion
   use 'easymotion/vim-easymotion'
 
+  -- Markdown previewer
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
+  -- Discord presence
+  use 'andweeb/presence.nvim'
+
 end)
 
