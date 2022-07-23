@@ -52,9 +52,9 @@ o.termguicolors = true
 -- Themes and configs
 -- cmd('colorscheme github_*')
 -- cmd('colorscheme monokai_pro')
-cmd('colorscheme material')
+-- cmd('colorscheme material')
 -- Lua initialization file
--- vim.cmd [[colorscheme moonfly]]
+vim.cmd [[colorscheme moonfly]]
 
 -- Set completeopt to have a better completion experience
 o.completeopt = 'menuone,noselect'
