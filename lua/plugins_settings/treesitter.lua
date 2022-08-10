@@ -8,6 +8,11 @@ require'nvim-treesitter.configs'.setup {
       ["foo.bar"] = "Identifier",
     },
   },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = nil,
+  },
   indent = {
     enable = false,
     disable = {},
