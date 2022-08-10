@@ -9,17 +9,16 @@ return require('packer').startup(function()
   use 'lewis6991/impatient.nvim'
 
   -- THEMES
-  -- Monokai theme
-  use 'tanvirtin/monokai.nvim'
-
-  -- Github theme
-  use "projekt0n/github-nvim-theme"
-
-  -- Moonfly theme
+  -- Moonfly
   use 'bluz71/vim-moonfly-colors'
-
-  -- Material theme
+  -- Material
   use 'marko-cerovac/material.nvim'
+  -- Neon
+  use 'rafamadriz/neon'
+  -- Roshnivim
+  use 'shaeinst/roshnivim-cs'
+  -- Nightfly
+  use 'bluz71/vim-nightfly-guicolors'
 
   -- Indentation guides to all lines
   use "lukas-reineke/indent-blankline.nvim"
@@ -32,6 +31,8 @@ return require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  -- Rainbow
+  use 'p00f/nvim-ts-rainbow'
 
   -- Icons for nerd fonts
   use 'kyazdani42/nvim-web-devicons'

@@ -50,11 +50,15 @@ o.background = 'dark'
 o.termguicolors = true
 
 -- Themes and configs
--- cmd('colorscheme github_*')
--- cmd('colorscheme monokai_pro')
 -- cmd('colorscheme material')
--- Lua initialization file
-vim.cmd [[colorscheme moonfly]]
+-- vim.cmd [[colorscheme moonfly]]
+-- vim.cmd [[colorscheme rvcs]]
+-- vim.g.neon_style = "default"
+-- vim.g.neon_italic_keyword = true
+-- vim.g.neon_italic_function = true
+-- vim.g.neon_transparent = true
+-- vim.cmd[[colorscheme neon]]
+vim.cmd [[colorscheme nightfly]]
 
 -- Set completeopt to have a better completion experience
 o.completeopt = 'menuone,noselect'
