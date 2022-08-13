@@ -31,6 +31,10 @@ return require('packer').startup(function()
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  
+  -- Format
+  use 'sbdchd/neoformat'
+
   -- Rainbow
   use 'p00f/nvim-ts-rainbow'
 
