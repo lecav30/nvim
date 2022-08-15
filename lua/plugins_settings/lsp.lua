@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
 end
 
 
-local servers = { 'clangd', 'html', 'cssls', 'pyright' }
+local servers = { 'clangd', 'html', 'cssls', 'pyright', 'eslint' }
 
   -- SetUp without CMP
 -- for _, lsp in ipairs(servers) do
