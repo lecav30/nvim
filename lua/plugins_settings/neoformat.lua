@@ -4,6 +4,8 @@
 vim.g.neoformat_enabled_cpp = clangformat
 vim.g.neoformat_enabled_c = clangformat
 vim.g.neoformat_cpp_clangformat = {
-  exe = "clang-format",
-  args = {"--style=\"{BasedOnStyle: Google, IndentWidth: 4}\"",},
+    exe = "clang-format",
+    args = {'--style="{BasedOnStyle: Google, IndentWidth: 4}"'}
 }
+
+vim.g.neoformat_enabled_lua = luafmt

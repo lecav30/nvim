@@ -1,4 +1,4 @@
-vim.g.mapleader = ' '
+vim.g.mapleader = " "
 
 -- Mapping helper
 local mapper = function(mode, key, result)
@@ -31,4 +31,4 @@ mapper("x", "K", ":move '<-2<CR>gv-gv")
 mapper("x", "J", ":move '>+1<CR>gv-gv")
 
 -- Compiler C++
-vim.api.nvim_command('autocmd filetype cpp nnoremap <f5> :w <bar> !g++ % -o %:r <cr> :terminal %:r<cr>')
+vim.api.nvim_command("autocmd filetype cpp nnoremap <f5> :w <bar> !g++ % -o %:r <cr> :terminal %:r<cr>")
