@@ -8,7 +8,7 @@ vim.g.neoformat_cpp_clangformat = {
     args = {'--style="{BasedOnStyle: Google, IndentWidth: 4}"'}
 }
 
-vim.g.neoformat_enabled_lua = luafmt
+  vim.g.neoformat_enabled_lua = luafmt
 
 local mapper = function(mode, key, result)
     vim.api.nvim_set_keymap(mode, key, result, {noremap = true, silent = true})
