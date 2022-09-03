@@ -1,6 +1,10 @@
 local nvim_lsp = require("lspconfig")
 local protocol = require "vim.lsp.protocol"
 
+-- require("nvim-lsp-installer").setup({
+--     ensure_installed = { "clangd", "html", "cssls", "pyright", "eslint" }
+-- })
+
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -33,8 +37,6 @@ local on_attach = function(client, bufnr)
     -- end
 end
 
-local servers = {"clangd", "html", "cssls", "pyright", "eslint"}
-
 -- SetUp without CMP
 -- for _, lsp in ipairs(servers) do
 --   nvim_lsp[lsp].setup {
@@ -54,12 +56,46 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 -- }
 
 -- SetUp with CMP
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
-        on_attach = on_attach,
-        flags = {
-            debounce_text_changes = 150
-        },
-        capabilities = capabilities
-    }
-end
+-- local servers = {"clangd", "html", "cssls", "pyright", "eslint"}
+
+-- for _, lsp in ipairs(servers) do
+--     nvim_lsp[lsp].setup {
+--         on_attach = on_attach,
+--         flags = {
+--             debounce_text_changes = 150
+--         },
+--         capabilities = capabilities
+--     }
+-- end
+
+nvim_lsp["clangd"].setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+nvim_lsp["pyright"].setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+}
+
+nvim_lsp["eslint"].setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+    filetypes = {"typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx"},
+    capabilities = capabilities
+}
+
+nvim_lsp["tsserver"].setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+    filetypes = {"typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx"},
+    capabilities = capabilities
+}
+
+nvim_lsp["html"].setup {
+    capabilities = capabilities
+}
+
+nvim_lsp["cssls"].setup {
+    capabilities = capabilities
+}
