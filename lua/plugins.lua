@@ -16,8 +16,6 @@ return require("packer").startup(
         use "marko-cerovac/material.nvim"
         -- Neon
         use "rafamadriz/neon"
-        -- Roshnivim
-        use "shaeinst/roshnivim-cs"
         -- Nightfly
         use "bluz71/vim-nightfly-guicolors"
 
