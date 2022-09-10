@@ -50,14 +50,8 @@ o.wrap = false -- text autofit in a line
 o.termguicolors = true
 
 -- Themes and configs
--- cmd('colorscheme material')
-vim.cmd [[colorscheme moonfly]]
--- vim.g.neon_style = "default"
--- vim.g.neon_italic_keyword = true
--- vim.g.neon_italic_function = true
--- vim.g.neon_transparent = true
--- vim.cmd[[colorscheme neon]]
--- vim.cmd [[colorscheme nightfly]]
+-- cmd ('colorscheme material')
+-- cmd ('colorscheme moonfly')
 
 -- Set completeopt to have a better completion experience
 o.completeopt = "menuone,noselect"

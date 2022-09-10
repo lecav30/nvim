@@ -14,10 +14,14 @@ return require("packer").startup(
         use "bluz71/vim-moonfly-colors"
         -- Material
         use "marko-cerovac/material.nvim"
-        -- Neon
-        use "rafamadriz/neon"
-        -- Nightfly
-        use "bluz71/vim-nightfly-guicolors"
+        -- Themer
+        use(
+            {
+                "themercorp/themer.lua",
+                config = function()
+                end
+            }
+        )
 
         -- Indentation guides to all lines
         use "lukas-reineke/indent-blankline.nvim"
@@ -79,17 +83,15 @@ return require("packer").startup(
             end
         }
 
-        -- Tab and Buffer tabline
-        use {
-            "kdheepak/tabline.nvim",
-            config = function()
-                vim.cmd [[
-      set guioptions-=e " Use showtabline in gui vim
-      set sessionoptions+=tabpages,globals " store tabpages and globals in session
-      ]]
-            end,
-            requires = {{"hoob3rt/lualine.nvim", opt = true}, {"kyazdani42/nvim-web-devicons", opt = true}}
-        }
+        use(
+            {
+                "noib3/nvim-cokeline",
+                requires = "kyazdani42/nvim-web-devicons",
+                config = function()
+                    require("cokeline").setup()
+                end
+            }
+        )
 
         -- Lualine, best statusline in lua
         use {
@@ -110,7 +112,14 @@ return require("packer").startup(
         use "vim-scripts/loremipsum"
 
         -- Easymotion
-        use "easymotion/vim-easymotion"
+        use {
+            "phaazon/hop.nvim",
+            branch = "v2", -- optional but strongly recommended
+            config = function()
+                -- you can configure Hop the way you like here; see :h hop-config
+                require "hop".setup {keys = "etovxqpdygfblzhckisuran"}
+            end
+        }
 
         -- Markdown previewer
         use(
