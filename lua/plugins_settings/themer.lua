@@ -1,6 +1,6 @@
 require("themer").setup(
     {
-        colorscheme = "kurai",
+        colorscheme = "catppuccin",
         styles = {
             ["function"] = {style = "italic"},
             functionbuiltin = {style = "italic"},
