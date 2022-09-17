@@ -83,6 +83,7 @@ return require("packer").startup(
             end
         }
 
+        -- Bufferline
         use(
             {
                 "noib3/nvim-cokeline",
