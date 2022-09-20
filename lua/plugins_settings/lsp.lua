@@ -99,3 +99,11 @@ nvim_lsp["html"].setup {
 nvim_lsp["cssls"].setup {
     capabilities = capabilities
 }
+
+nvim_lsp["angularls"].setup {
+    capabilities = capabilities
+}
+
+nvim_lsp["volar"].setup {
+    capabilities = capabilities
+}
