@@ -10,35 +10,46 @@ local grey = get_hex("ColorColumn", "bg")
 local light = get_hex("Comment", "fg")
 local high = "#a6d120"
 
-local padding = setmetatable({
-    text = " ",
-    truncation = { priority = 1 },
-}, {
-    __call = function(_, n)
-        return {
-            text = string.rep(" ", n),
-            truncation = { priority = 1 },
-        }
-    end,
-})
+local padding =
+    setmetatable(
+    {
+        text = " ",
+        truncation = {priority = 1}
+    },
+    {
+        __call = function(_, n)
+            return {
+                text = string.rep(" ", n),
+                truncation = {priority = 1}
+            }
+        end
+    }
+)
 
 require("cokeline").setup(
     {
         default_hl = {
             fg = function(buffer)
                 if buffer.is_focused then
-                    return dark
+                    -- return dark
+                    return high
                 end
                 return text
             end,
             bg = function(buffer)
                 if buffer.is_focused then
-                    return high
+                    -- return high
+                    return dark
                 end
                 return grey
             end
         },
         components = {
+            {
+                text = function(buffer)
+                    return (buffer.index ~= 1) and "▏" or ""
+                end,
+            },
             {
                 text = function(buffer)
                     if buffer.index ~= 1 then
@@ -72,7 +83,8 @@ require("cokeline").setup(
                     end
 
                     if buffer.is_focused then
-                        return dark
+                        -- return dark
+                        return high
                     else
                         return light
                     end
@@ -99,17 +111,7 @@ require("cokeline").setup(
                 end,
                 truncation = {priority = 1}
             },
-            padding(1),
-            {
-                text = "",
-                fg = function(buffer)
-                    if buffer.is_focused then
-                        return high
-                    end
-                    return grey
-                end,
-                bg = dark
-            }
+            padding(1)
         }
     }
 )
