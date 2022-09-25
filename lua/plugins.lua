@@ -22,6 +22,13 @@ return require("packer").startup(
                 end
             }
         )
+        -- Light theme
+        -- use "shaunsingh/solarized.nvim"
+        -- Neosolarized
+        use {
+            "svrana/neosolarized.nvim",
+            requires = {"tjdevries/colorbuddy.nvim"}
+        }
 
         -- Indentation guides to all lines
         use "lukas-reineke/indent-blankline.nvim"
