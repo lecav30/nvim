@@ -13,7 +13,6 @@ vim.opt.listchars:append("eol:↴")
 require("indent_blankline").setup {
     buftype_exclude = {"terminal", "man", "nofile"},
     filetype_exclude = {"help", "man", "startuptime", "qf", "lspinfo"},
-    char = "|",
     show_end_of_line = true,
     space_char_blankline = " ",
     show_current_context = true,
