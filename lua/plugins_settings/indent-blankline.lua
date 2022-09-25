@@ -14,6 +14,7 @@ require("indent_blankline").setup {
     buftype_exclude = {"terminal", "man", "nofile"},
     filetype_exclude = {"help", "man", "startuptime", "qf", "lspinfo"},
     show_end_of_line = true,
+    -- char = "│",
     space_char_blankline = " ",
     show_current_context = true,
     show_current_context_start = true,
