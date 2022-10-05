@@ -7,6 +7,7 @@ vim.g.mapleader = " "
 
 require("plugins")
 require("plugins_settings")
+require("lsp")
 require("keymappings")
 require("settings")
 
