@@ -67,6 +67,8 @@ return require("packer").startup(
 
         -- Completion engine plugin
         use "neovim/nvim-lspconfig"
+        use "williamboman/mason.nvim"
+        use "jose-elias-alvarez/null-ls.nvim"
 
         -- CMP - Completation engine plugin
         use "hrsh7th/cmp-nvim-lsp"
