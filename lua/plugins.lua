@@ -22,12 +22,15 @@ return require("packer").startup(
                 end
             }
         )
-        -- Light theme
-        -- use "shaunsingh/solarized.nvim"
-        -- Neosolarized
         use {
-            "svrana/neosolarized.nvim",
-            requires = {"tjdevries/colorbuddy.nvim"}
+            "catppuccin/nvim",
+            as = "catppuccin",
+            config = function()
+                require("catppuccin").setup {
+                    flavour = "macchiato" -- mocha, macchiato, frappe, latte
+                }
+                vim.api.nvim_command "colorscheme catppuccin"
+            end
         }
 
         -- Indentation guides to all lines
