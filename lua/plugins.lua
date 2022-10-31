@@ -144,6 +144,15 @@ return require("packer").startup(
             }
         )
 
+        -- Toggle Term
+        use {
+            "akinsho/toggleterm.nvim",
+            tag = "*",
+            config = function()
+                require("toggleterm").setup()
+            end
+        }
+
         -- Discord presence
         use "andweeb/presence.nvim"
     end

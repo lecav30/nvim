@@ -52,7 +52,7 @@ o.termguicolors = true
 -- Themes and configs
 -- cmd ('colorscheme material')
 -- cmd ('colorscheme moonfly')
-cmd ('colorscheme catppuccin-latte')
+cmd ('colorscheme catppuccin-mocha')
 
 -- Set completeopt to have a better completion experience
 o.completeopt = "menuone,noselect"
