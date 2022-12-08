@@ -5,5 +5,10 @@ require("mason").setup({
             package_pending = "➜",
             package_uninstalled = "✗"
         }
-    }
+    },
+    PATH = "prepend",
+})
+
+require("mason-lspconfig").setup({
+  ensure_installed = {"sumneko_lua", "cssls", "html", "tsserver", "tailwindcss"}
 })

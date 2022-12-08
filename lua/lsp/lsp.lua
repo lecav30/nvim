@@ -39,7 +39,7 @@ end
 -- local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-local servers = {"tsserver", "clangd", "pyright", "html", "cssls", "sumneko_lua"}
+local servers = {"tsserver", "clangd", "pyright", "html", "cssls", "sumneko_lua", "tailwindcss"}
 
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
@@ -47,3 +47,15 @@ for _, lsp in ipairs(servers) do
         capabilities = capabilities
     }
 end
+
+nvim_lsp.angularls.setup {
+    filetypes = {"typescript", "html", "typescriptreact", "typescript.tsx"},
+    cmd = {"ngserver", "--stdio", "--tsProbeLocations", "", "--ngProbeLocations", ""},
+    root_dir = function(fname)
+        return vim.loop.cwd()
+    end,
+    autostart = false
+}
+
+vim.o.updatetime = 250
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
