@@ -24,13 +24,7 @@ return require("packer").startup(
         )
         use {
             "catppuccin/nvim",
-            as = "catppuccin",
-            -- config = function()
-            --     require("catppuccin").setup {
-            --         flavour = "latte" -- mocha, macchiato, frappe, latte
-            --     }
-            --     vim.api.nvim_command "colorscheme catppuccin"
-            -- end
+            as = "catppuccin"
         }
 
         -- Indentation guides to all lines
@@ -76,11 +70,13 @@ return require("packer").startup(
         }
 
         -- CMP - Completation engine plugin
-        use "hrsh7th/cmp-nvim-lsp"
-        use "hrsh7th/cmp-buffer"
-        use "hrsh7th/cmp-path"
-        use "hrsh7th/cmp-cmdline"
-        use "hrsh7th/nvim-cmp"
+        use {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/nvim-cmp"
+        }
         -- LuaSnip
         use "L3MON4D3/LuaSnip"
         use "saadparwaiz1/cmp_luasnip"
@@ -136,16 +132,6 @@ return require("packer").startup(
             end
         }
 
-        -- Markdown previewer
-        use(
-            {
-                "iamcco/markdown-preview.nvim",
-                run = function()
-                    vim.fn["mkdp#util#install"]()
-                end
-            }
-        )
-
         -- Toggle Term
         use {
             "akinsho/toggleterm.nvim",
@@ -154,6 +140,9 @@ return require("packer").startup(
                 require("toggleterm").setup()
             end
         }
+
+        -- Latex
+        use "lervag/vimtex"
 
         -- Discord presence
         use "andweeb/presence.nvim"
