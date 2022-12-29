@@ -50,14 +50,28 @@ lspsaga.setup {
 }
 
 --- In lsp attach function
-local map = vim.api.nvim_buf_set_keymap
-map(0, "n", "<leader>rn", "<cmd>Lspsaga rename<cr>", {silent = true, noremap = true})
-map(0, "n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", {silent = true, noremap = true})
-map(0, "x", "gx", ":<c-u>Lspsaga range_code_action<cr>", {silent = true, noremap = true})
-map(0, "n", "K", "<cmd>Lspsaga hover_doc<cr>", {silent = true, noremap = true})
-map(0, "n", "<leader>dg", "<cmd>Lspsaga show_line_diagnostics<cr>", {silent = true, noremap = true})
-map(0, "n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", {silent = true, noremap = true})
-map(0, "n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", {silent = true, noremap = true})
-map(0, "n", "<c-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
-map(0, "n", "<c-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})
-map(0, "n", "gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", {silent = true, noremap = true})
+local keymap = vim.keymap.set
+
+-- Rename
+keymap("n", "<leader>rn", "<cmd>Lspsaga rename<cr>", {silent = true})
+-- Code action
+keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", {silent = true})
+-- Range code action (visual mode)
+keymap("x", "gx", ":<c-u>Lspsaga range_code_action<cr>", {silent = true})
+-- Hover Doc
+keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", {silent = true})
+-- Show line diagnostics
+keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+-- Show cursor diagnostics
+keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+-- Jump diagnostic next
+keymap("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", {silent = true})
+-- Jump diagnostic previous
+keymap("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", {silent = true})
+-- Finder
+keymap("n", "gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", {silent = true})
+-- Float terminal
+-- keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
+
+keymap("n", "<c-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
+keymap("n", "<c-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})

@@ -20,14 +20,16 @@ require "nvim-treesitter.configs".setup {
     ensure_installed = {
         "cpp",
         "python",
+        "java",
         "html",
         "css",
         "javascript",
+        "typescript",
+        "vue",
+        "tsx",
+        "fish",
         "lua",
         "json",
         "markdown",
-        "tsx",
-        "typescript",
-        "fish"
     }
 }

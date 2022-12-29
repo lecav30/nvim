@@ -43,7 +43,7 @@ o.foldmethod = "manual" -- indentation folds
 o.relativenumber = true
 o.number = true
 o.signcolumn = "yes" -- make sure this is on for gitsigns.nvim, otherwise the signcolumn changes size constantly
-o.wrap = false -- text autofit in a line
+o.wrap = true -- text autofit in a line
 
 -- colorscheme global defaults
 -- o.background = "dark"
@@ -51,8 +51,9 @@ o.termguicolors = true
 
 -- Themes and configs
 -- cmd ('colorscheme material')
--- cmd ('colorscheme moonfly')
-cmd ('colorscheme catppuccin-frappe')
+cmd ('colorscheme moonfly')
+-- cmd ('colorscheme catppuccin-mocha')
+-- cmd ('colorscheme themer_uwu')
 
 -- Set completeopt to have a better completion experience
 o.completeopt = "menuone,noselect"
