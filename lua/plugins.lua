@@ -12,16 +12,7 @@ return require("packer").startup(
         -- THEMES
         -- Moonfly
         use "bluz71/vim-moonfly-colors"
-        -- Material
-        use "marko-cerovac/material.nvim"
-        -- Themer
-        use(
-            {
-                "themercorp/themer.lua",
-                config = function()
-                end
-            }
-        )
+        -- Catppuccin
         use {
             "catppuccin/nvim",
             as = "catppuccin"
