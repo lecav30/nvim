@@ -13,7 +13,7 @@ require("mason").setup(
 
 require("mason-lspconfig").setup(
     {
-        ensure_installed = {"sumneko_lua", "cssls", "html", "tsserver", "tailwindcss", "clangd", "pyright"}
+        ensure_installed = {"sumneko_lua", "cssls", "html", "tsserver", "tailwindcss", "pyright", "clangd"}
     }
 )
 
@@ -24,7 +24,7 @@ local nvim_lsp = require("lspconfig")
 local on_attach = function(client, bufnr)
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    -- local bufopts = {noremap = true, silent = true, buffer = bufnr}
+    local bufopts = {noremap = true, silent = true, buffer = bufnr}
 
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -47,7 +47,7 @@ end
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local servers = {"tsserver", "clangd", "pyright", "html", "cssls", "sumneko_lua", "tailwindcss"}
+local servers = {"tsserver", "pyright", "html", "cssls", "sumneko_lua", "tailwindcss"}
 
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
@@ -56,14 +56,21 @@ for _, lsp in ipairs(servers) do
     }
 end
 
-nvim_lsp.angularls.setup {
-    filetypes = {"typescript", "html", "typescriptreact", "typescript.tsx"},
-    cmd = {"ngserver", "--stdio", "--tsProbeLocations", "", "--ngProbeLocations", ""},
-    root_dir = function(fname)
-        return vim.loop.cwd()
-    end,
-    autostart = false
+capabilities.offsetEncoding = {"utf-16"}
+
+nvim_lsp.clangd.setup{ 
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
+
+-- nvim_lsp.angularls.setup {
+--     filetypes = {"typescript", "html", "typescriptreact", "typescript.tsx"},
+--     cmd = {"ngserver", "--stdio", "--tsProbeLocations", "", "--ngProbeLocations", ""},
+--     root_dir = function(fname)
+--         return vim.loop.cwd()
+--     end,
+--     autostart = false
+-- }
 
 vim.o.updatetime = 250
 vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
