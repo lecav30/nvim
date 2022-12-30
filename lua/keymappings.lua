@@ -7,8 +7,8 @@ end
 
 -- Save and Close
 mapper("n", "<Leader>ww", ":w<CR>")
-mapper("n", "<Leader>wq", ":wq<CR>")
-mapper("n", "<Leader>qq", ":q!<CR>")
+mapper("n", "<Leader>wq", ":wqa<CR>")
+mapper("n", "<Leader>qq", ":qa!<CR>")
 
 -- Change Tabs
 mapper("n", "<Tab>", ":tabnext<Return>")
