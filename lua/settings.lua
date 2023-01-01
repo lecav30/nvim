@@ -8,6 +8,10 @@ local cmd = vim.cmd
 cmd("syntax enable")
 cmd("filetype plugin on")
 
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Buffer options
 o.autoindent = true
 o.expandtab = true
@@ -51,7 +55,7 @@ o.termguicolors = true
 
 -- Themes and configs
 -- cmd ('colorscheme material')
-cmd ('colorscheme moonfly')
+cmd("colorscheme moonfly")
 -- cmd ('colorscheme catppuccin-mocha')
 -- cmd ('colorscheme themer_uwu')
 
