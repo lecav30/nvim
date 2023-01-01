@@ -71,6 +71,8 @@ return require("packer").startup(
         -- LuaSnip
         use "L3MON4D3/LuaSnip"
         use "saadparwaiz1/cmp_luasnip"
+        -- Friendly snippets
+        use "rafamadriz/friendly-snippets"
         -- Icons for lsp
         use "onsails/lspkind.nvim"
         -- Better performance for lsp
