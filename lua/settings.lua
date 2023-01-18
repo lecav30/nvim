@@ -50,14 +50,16 @@ o.signcolumn = "yes" -- make sure this is on for gitsigns.nvim, otherwise the si
 o.wrap = true -- text autofit in a line
 
 -- colorscheme global defaults
--- o.background = "dark"
 o.termguicolors = true
 
 -- Themes and configs
--- cmd ('colorscheme material')
-cmd("colorscheme moonfly")
--- cmd ('colorscheme catppuccin-mocha')
--- cmd ('colorscheme themer_uwu')
+-- cmd("colorscheme material")
+-- cmd("colorscheme moonfly")
+-- cmd("colorscheme catppuccin-mocha")
+-- cmd("colorscheme themer_uwu")
+o.background = "dark"
+cmd("colorscheme NeoSolarized")
+vim.g.neosolarized_contrast = "low"
 
 -- Set completeopt to have a better completion experience
 o.completeopt = "menuone,noselect"

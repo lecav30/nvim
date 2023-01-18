@@ -17,6 +17,11 @@ return require("packer").startup(
             "catppuccin/nvim",
             as = "catppuccin"
         }
+        -- Solarized
+        -- Light
+        -- use "shaunsingh/solarized.nvim"
+        -- Dark
+        use "overcache/NeoSolarized"
 
         -- Indentation guides to all lines
         use "lukas-reineke/indent-blankline.nvim"
