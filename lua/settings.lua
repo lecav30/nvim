@@ -51,15 +51,14 @@ o.wrap = true -- text autofit in a line
 
 -- colorscheme global defaults
 o.termguicolors = true
+-- o.winblend = 0
 
 -- Themes and configs
 -- cmd("colorscheme material")
 -- cmd("colorscheme moonfly")
 -- cmd("colorscheme catppuccin-mocha")
--- cmd("colorscheme themer_uwu")
 o.background = "dark"
 cmd("colorscheme NeoSolarized")
-vim.g.neosolarized_contrast = "low"
 
 -- Set completeopt to have a better completion experience
 o.completeopt = "menuone,noselect"

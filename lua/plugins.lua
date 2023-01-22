@@ -9,19 +9,12 @@ return require("packer").startup(
         -- Better time loading lua modules
         use "lewis6991/impatient.nvim"
 
-        -- THEMES
-        -- Moonfly
+        -- Moonfly theme
         use "bluz71/vim-moonfly-colors"
-        -- Catppuccin
-        use {
-            "catppuccin/nvim",
-            as = "catppuccin"
-        }
-        -- Solarized
-        -- Light
-        -- use "shaunsingh/solarized.nvim"
-        -- Dark
+        -- Solarized theme
         use "overcache/NeoSolarized"
+        -- Catppuccin theme
+        use {"catppuccin/nvim", as = "catppuccin"}
 
         -- Indentation guides to all lines
         use "lukas-reineke/indent-blankline.nvim"
@@ -38,7 +31,7 @@ return require("packer").startup(
         -- Format
         use "sbdchd/neoformat"
 
-        -- Rainbow
+        -- Rainbow brackets
         use "p00f/nvim-ts-rainbow"
 
         -- Icons for nerd fonts
@@ -83,6 +76,9 @@ return require("packer").startup(
         -- Better performance for lsp
         use "tami5/lspsaga.nvim"
 
+        -- COC to fronted
+        -- use {"neoclide/coc.nvim", branch = "release"}
+
         -- Start screen
         use {
             "goolord/alpha-nvim",
@@ -111,14 +107,11 @@ return require("packer").startup(
         -- Better comments for neovim
         use "terrortylor/nvim-comment"
 
-        -- Close tag HTML
-        use "alvan/vim-closetag"
-
-        -- Rename tag HTML
-        use "AndrewRadev/tagalong.vim"
-
-        -- Lorem ipsum for neovim
-        use "vim-scripts/loremipsum"
+        -- HTML tag
+        use {
+            "alvan/vim-closetag",
+            "AndrewRadev/tagalong.vim"
+        }
 
         -- Easymotion
         use {
