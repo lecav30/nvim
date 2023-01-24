@@ -13,7 +13,17 @@ require("mason").setup(
 
 require("mason-lspconfig").setup(
     {
-        ensure_installed = {"sumneko_lua", "cssls", "html", "tsserver", "tailwindcss", "pyright", "clangd"}
+        ensure_installed = {
+            "sumneko_lua",
+            "cssls",
+            "html",
+            "tsserver",
+            "tailwindcss",
+            "pyright",
+            "clangd",
+            "volar",
+            "angularls"
+        }
     }
 )
 
@@ -43,11 +53,10 @@ local on_attach = function(client, bufnr)
     -- vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 end
 
--- local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local servers = {"tsserver", "pyright", "html", "cssls", "sumneko_lua", "tailwindcss"}
+local servers = {"tsserver", "pyright", "html", "cssls", "sumneko_lua", "tailwindcss", "volar", "angularls"}
 
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
@@ -58,19 +67,10 @@ end
 
 capabilities.offsetEncoding = {"utf-16"}
 
-nvim_lsp.clangd.setup{ 
-  on_attach = on_attach,
-  capabilities = capabilities,
+nvim_lsp.clangd.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
 }
-
--- nvim_lsp.angularls.setup {
---     filetypes = {"typescript", "html", "typescriptreact", "typescript.tsx"},
---     cmd = {"ngserver", "--stdio", "--tsProbeLocations", "", "--ngProbeLocations", ""},
---     root_dir = function(fname)
---         return vim.loop.cwd()
---     end,
---     autostart = false
--- }
 
 vim.o.updatetime = 250
 vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
