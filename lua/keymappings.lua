@@ -7,6 +7,7 @@ end
 
 -- Save and Close
 mapper("n", "<Leader>ww", ":w<CR>")
+mapper("n", "<Leader>wa", ":wa<CR>")
 mapper("n", "<Leader>wq", ":wqa<CR>")
 mapper("n", "<Leader>qq", ":qa!<CR>")
 

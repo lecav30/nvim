@@ -10,6 +10,7 @@ vim.g.mapleader = " "
 require("plugins_settings.impatient")
 require("plugins_settings.screen")
 require("plugins_settings.devicons")
+require("plugins_settings.which-key")
 require("plugins_settings.neoformat")
 require("plugins_settings.cmp")
 require("plugins_settings.lualine")
