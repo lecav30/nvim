@@ -27,6 +27,7 @@ require "nvim-treesitter.configs".setup {
         "typescript",
         "vue",
         "tsx",
+        "php",
         "fish",
         "lua",
         "json",

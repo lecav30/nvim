@@ -22,7 +22,8 @@ require("mason-lspconfig").setup(
             "pyright",
             "clangd",
             "volar",
-            "angularls"
+            "angularls",
+            "intelephense"
         }
     }
 )
@@ -56,7 +57,18 @@ end
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local servers = {"tsserver", "pyright", "html", "cssls", "sumneko_lua", "tailwindcss", "volar", "angularls"}
+local servers = {
+    "sumneko_lua",
+    "cssls",
+    "html",
+    "tsserver",
+    "tailwindcss",
+    "pyright",
+    "clangd",
+    "volar",
+    "angularls",
+    "intelephense"
+}
 
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
