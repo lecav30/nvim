@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 -- Mapping helper
 local mapper = function(mode, key, result)
     vim.api.nvim_set_keymap(mode, key, result, {noremap = true, silent = true})
@@ -9,7 +7,8 @@ end
 mapper("n", "<Leader>ww", ":w<CR>")
 mapper("n", "<Leader>wa", ":wa<CR>")
 mapper("n", "<Leader>wq", ":wqa<CR>")
-mapper("n", "<Leader>qq", ":qa!<CR>")
+mapper("n", "<Leader>qq", ":q!<CR>")
+mapper("n", "<Leader>qa", ":qa!<CR>")
 
 -- Change Tabs
 mapper("n", "<Tab>", ":tabnext<Return>")

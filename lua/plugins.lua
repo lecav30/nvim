@@ -1,151 +1,111 @@
---Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git", "clone", "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git", "--branch=stable", -- latest stable release
+        lazypath
+    })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require("packer").startup(
-    function()
-        -- Packer can manage itself
-        use "wbthomason/packer.nvim"
+-- Set leader key to space
+vim.g.mapleader = " "
 
-        -- Better time loading lua modules
-        use "lewis6991/impatient.nvim"
+require("lazy").setup({
 
-        -- Moonfly theme
-        use "bluz71/vim-moonfly-colors"
-        -- Solarized theme
-        use "overcache/NeoSolarized"
-        -- Catppuccin theme
-        use {"catppuccin/nvim", as = "catppuccin"}
+    -- Themes
+    "lewis6991/impatient.nvim", -- Better time loading lua modules
+    "bluz71/vim-moonfly-colors", -- Moonfly theme
+    "overcache/NeoSolarized", -- Solarized theme
+    { "catppuccin/nvim", name = "catppuccin" }, -- Catppuccin theme
 
-        -- Indentation guides to all lines
-        use "lukas-reineke/indent-blankline.nvim"
+    "lukas-reineke/indent-blankline.nvim", -- Indentation guides to all lines
+    "windwp/nvim-autopairs", -- Autopairs
+    "p00f/nvim-ts-rainbow", -- Rainbow brackets
 
-        -- Autopairs
-        use "windwp/nvim-autopairs"
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }, -- Treesitter (Highlighting)
+    "sbdchd/neoformat", -- Format
 
-        -- Treesitter - Highlight and indent
-        use {
-            "nvim-treesitter/nvim-treesitter",
-            run = ":TSUpdate"
-        }
+    "kyazdani42/nvim-web-devicons", -- Icons for nerd fonts
 
-        -- Format
-        use "sbdchd/neoformat"
+    -- File explorer
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" }
+    }, -- Telescope
+    {
+        "kyazdani42/nvim-tree.lua",
+        dependencies = { "kyazdani42/nvim-web-devicons" }
+    }, -- Tree
 
-        -- Rainbow brackets
-        use "p00f/nvim-ts-rainbow"
+    -- Mason
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
 
-        -- Icons for nerd fonts
-        use "kyazdani42/nvim-web-devicons"
+    -- LSP / CMP Snippets
+    "neovim/nvim-lspconfig",
+    "hrsh7th/cmp-nvim-lsp", -- Snippets LSP
+    "hrsh7th/cmp-buffer", -- Buffer Snippets
+    "hrsh7th/cmp-path", -- Path Snippets
+    "hrsh7th/cmp-cmdline", -- Cmdline Snippets
+    "hrsh7th/nvim-cmp", -- Completion engine
 
-        -- File explorer
-        use {
-            "nvim-telescope/telescope.nvim",
-            requires = {{"nvim-lua/plenary.nvim"}}
-        }
+    "L3MON4D3/LuaSnip", -- Snippets
+    "saadparwaiz1/cmp_luasnip", -- Snippets with cmp
+    "rafamadriz/friendly-snippets", -- Friendly snippets
 
-        -- Tree file explorer
-        use {
-            "kyazdani42/nvim-tree.lua",
-            requires = {
-                "kyazdani42/nvim-web-devicons"
-            }
-        }
+    -- Better performance LSP
+    "onsails/lspkind.nvim", -- Icons
+    "tami5/lspsaga.nvim", -- UI
 
-        -- Completion engine plugin
-        use {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-            "neovim/nvim-lspconfig"
-        }
+    -- COC to fronted
+    -- {"neoclide/coc.nvim", branch = "release"}
 
-        -- CMP - Completation engine plugin
-        use {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
-            "hrsh7th/nvim-cmp"
-        }
-        -- LuaSnip
-        use "L3MON4D3/LuaSnip"
-        use "saadparwaiz1/cmp_luasnip"
-        -- Friendly snippets
-        use "rafamadriz/friendly-snippets"
-        -- Icons for lsp
-        use "onsails/lspkind.nvim"
-        -- Better performance for lsp
-        use "tami5/lspsaga.nvim"
+    -- Screen
+    {
+        "goolord/alpha-nvim",
+        config = function()
+            require "alpha".setup(require "alpha.themes.dashboard".opts)
+        end
+    }, -- Start
+    {
+        "noib3/nvim-cokeline",
+        dependencies = "kyazdani42/nvim-web-devicons",
+        config = function() require("cokeline").setup() end
+    }, -- Bufferline
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "kyazdani42/nvim-web-devicons", lazy = true }
+    }, -- Lualine
 
-        -- COC to fronted
-        -- use {"neoclide/coc.nvim", branch = "release"}
+    "terrortylor/nvim-comment", -- Better comments for neovim
 
-        -- Start screen
-        use {
-            "goolord/alpha-nvim",
-            config = function()
-                require "alpha".setup(require "alpha.themes.dashboard".opts)
-            end
-        }
+    -- HTML tag
+    "alvan/vim-closetag", -- Close
+    "AndrewRadev/tagalong.vim", -- Rename
 
-        -- Bufferline
-        use(
-            {
-                "noib3/nvim-cokeline",
-                requires = "kyazdani42/nvim-web-devicons",
-                config = function()
-                    require("cokeline").setup()
-                end
-            }
-        )
+    {
+        "phaazon/hop.nvim",
+        branch = "v2", -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require "hop".setup { keys = "etovxqpdygfblzhckisuran" }
+        end
+    }, -- Easymotion
+    {
+        "akinsho/toggleterm.nvim",
+        version = "*",
+        config = function() require("toggleterm").setup() end
+    }, -- Toggle Term
+    {
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup({})
+        end
+    }, -- Which key
 
-        -- Lualine, best statusline in lua
-        use {
-            "nvim-lualine/lualine.nvim",
-            requires = {"kyazdani42/nvim-web-devicons", opt = true}
-        }
-
-        -- Better comments for neovim
-        use "terrortylor/nvim-comment"
-
-        -- HTML tag
-        use {
-            "alvan/vim-closetag",
-            "AndrewRadev/tagalong.vim"
-        }
-
-        -- Easymotion
-        use {
-            "phaazon/hop.nvim",
-            branch = "v2", -- optional but strongly recommended
-            config = function()
-                -- you can configure Hop the way you like here; see :h hop-config
-                require "hop".setup {keys = "etovxqpdygfblzhckisuran"}
-            end
-        }
-
-        -- Toggle Term
-        use {
-            "akinsho/toggleterm.nvim",
-            tag = "*",
-            config = function()
-                require("toggleterm").setup()
-            end
-        }
-
-        -- Which key
-        use {
-            "folke/which-key.nvim",
-            config = function()
-                vim.o.timeout = true
-                vim.o.timeoutlen = 300
-                require("which-key").setup {}
-            end
-        }
-
-        -- Latex
-        use "lervag/vimtex"
-
-        -- Discord presence
-        use "andweeb/presence.nvim"
-    end
-)
+    "lervag/vimtex", -- Latex
+    "andweeb/presence.nvim", -- Discord presence
+})

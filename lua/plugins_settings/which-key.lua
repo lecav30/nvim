@@ -34,7 +34,11 @@ wk.register(
                 i = {"Go to Implementation"}
             },
             of = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
-            q = {"Quit"},
+            q = {
+              name = "+quit",
+              q = {"Quit current file"},
+              a = {"Quit all"},
+            },
             rn = {"<cmd>Lspsaga rename<cr>", "Rename"},
             w = {
                 name = "+save",

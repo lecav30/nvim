@@ -1,7 +1,5 @@
 require("nvim-tree").setup(
     {
-        -- Start when you open a file
-        open_on_setup_file = true,
         -- Keep the cursor on the first letter of the file
         hijack_cursor = true,
         sort_by = "case_sensitive",

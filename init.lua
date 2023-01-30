@@ -6,9 +6,6 @@ else
     local fn = vim.fn
     local cmd = vim.cmd
 
-    -- Set leader key to space
-    vim.g.mapleader = " "
-
     require("plugins")
     require("plugins_settings")
     require("lsp")
