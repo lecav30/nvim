@@ -34,6 +34,17 @@ g.neoformat_javascript_prettier = {
 }
 
 g.neoformat_enabled_php = {"prettier"}
+g.neoformat_php_prettier = {
+    exe = "prettier",
+    args = {
+        "--stdin-filepath",
+        vim.api.nvim_buf_get_name(0),
+        "--print-width",
+        "120",
+        "--tab-width 2"
+    },
+    stdin = 1
+}
 
 g.neoformat_enabled_typescript = {"prettier"}
 g.neoformat_enabled_markdown = {"prettier"}
