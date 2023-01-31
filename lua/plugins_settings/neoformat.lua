@@ -33,6 +33,8 @@ g.neoformat_javascript_prettier = {
     stdin = 1
 }
 
+g.neoformat_enabled_php = {"prettier"}
+
 g.neoformat_enabled_typescript = {"prettier"}
 g.neoformat_enabled_markdown = {"prettier"}
 

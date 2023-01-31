@@ -19,6 +19,7 @@ require("lazy").setup({
     "overcache/NeoSolarized", -- Solarized theme
     { "catppuccin/nvim", name = "catppuccin" }, -- Catppuccin theme
 
+    -- Indent, color
     "lukas-reineke/indent-blankline.nvim", -- Indentation guides to all lines
     "windwp/nvim-autopairs", -- Autopairs
     "p00f/nvim-ts-rainbow", -- Rainbow brackets
@@ -108,4 +109,6 @@ require("lazy").setup({
 
     "lervag/vimtex", -- Latex
     "andweeb/presence.nvim", -- Discord presence
+
+    "github/copilot.vim", -- Github copilot
 })
