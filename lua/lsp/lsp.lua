@@ -77,6 +77,15 @@ for _, lsp in ipairs(servers) do
     }
 end
 
+nvim_lsp.intelephense.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = {"php"},
+    root_dir = function()
+        return vim.loop.cwd()
+    end
+}
+
 capabilities.offsetEncoding = {"utf-16"}
 
 nvim_lsp.clangd.setup {
