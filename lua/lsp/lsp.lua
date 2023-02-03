@@ -17,6 +17,7 @@ require("mason-lspconfig").setup(
             "cssls",
             "html",
             "tsserver",
+            "eslint",
             "tailwindcss",
             "pyright",
             "clangd",
@@ -60,9 +61,9 @@ local servers = {
     "cssls",
     "html",
     "tsserver",
+    "eslint",
     "tailwindcss",
     "pyright",
-    "clangd",
     "volar",
     "angularls",
     "intelephense"
@@ -73,16 +74,14 @@ for _, lsp in ipairs(servers) do
         on_attach = on_attach,
         capabilities = capabilities
     }
-end
-
-nvim_lsp.intelephense.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = {"php"},
-    root_dir = function()
-        return vim.loop.cwd()
+    if lsp == 'intelephense' or lsp == 'eslint' then
+      nvim_lsp[lsp].setup {
+        root_dir = function()
+          return vim.loop.cwd()
+        end,
+      }
     end
-}
+end
 
 capabilities.offsetEncoding = {"utf-16"}
 
