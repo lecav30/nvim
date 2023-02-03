@@ -14,7 +14,6 @@ require("mason").setup(
 require("mason-lspconfig").setup(
     {
         ensure_installed = {
-            "sumneko_lua",
             "cssls",
             "html",
             "tsserver",
@@ -23,7 +22,7 @@ require("mason-lspconfig").setup(
             "clangd",
             "volar",
             "angularls",
-            "intelephense",
+            "intelephense"
         }
     }
 )
@@ -58,7 +57,6 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local servers = {
-    "sumneko_lua",
     "cssls",
     "html",
     "tsserver",
@@ -67,7 +65,7 @@ local servers = {
     "clangd",
     "volar",
     "angularls",
-    "intelephense",
+    "intelephense"
 }
 
 for _, lsp in ipairs(servers) do
