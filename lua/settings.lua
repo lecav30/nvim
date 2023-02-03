@@ -8,6 +8,8 @@ local cmd = vim.cmd
 cmd("syntax enable")
 cmd("filetype plugin on")
 
+opt.colorcolumn = "90"
+
 -- Disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

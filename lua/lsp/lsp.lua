@@ -23,7 +23,7 @@ require("mason-lspconfig").setup(
             "clangd",
             "volar",
             "angularls",
-            "intelephense"
+            "intelephense",
         }
     }
 )
@@ -67,7 +67,7 @@ local servers = {
     "clangd",
     "volar",
     "angularls",
-    "intelephense"
+    "intelephense",
 }
 
 for _, lsp in ipairs(servers) do
