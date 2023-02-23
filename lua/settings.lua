@@ -58,9 +58,9 @@ o.termguicolors = true
 -- Themes and configs
 -- cmd("colorscheme material")
 -- cmd("colorscheme moonfly")
-cmd("colorscheme catppuccin-mocha")
+-- cmd("colorscheme catppuccin-mocha")
 o.background = "dark"
--- cmd("colorscheme NeoSolarized")
+cmd("colorscheme NeoSolarized")
 
 -- Set completeopt to have a better completion experience
 o.completeopt = "menuone,noselect"
