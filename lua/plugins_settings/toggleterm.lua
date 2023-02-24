@@ -9,7 +9,7 @@ require("toggleterm").setup{
   open_mapping = [[<c-j>]],
   hide_numbers = true,
   autochdir = true,
-  direction = 'horizontal',
+  direction = 'float',
   close_on_exit = true,
   auto_scroll = true,
   shell = vim.o.shell,

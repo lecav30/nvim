@@ -3,14 +3,13 @@ if vim.g.vscode then
     require("settings")
 else
     -- aliases
-    local fn = vim.fn
-    local cmd = vim.cmd
-
-    require("plugins")
-    require("plugins_settings")
-    require("lsp")
-    require("keymappings")
+    vim.g.mapleader = " "
     require("settings")
+    require("keymappings")
+    require("plugins")
+    require("lsp")
+    require("plugins_settings")
+    require("color")
 end
 
 -- Mapping helper

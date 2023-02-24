@@ -118,13 +118,7 @@ require("lazy").setup(
                 require "hop".setup {keys = "etovxqpdygfblzhckisuran"}
             end
         }, -- Easymotion
-        {
-            "akinsho/toggleterm.nvim",
-            version = "*",
-            config = function()
-                require("toggleterm").setup()
-            end
-        }, -- Toggle Term
+        {"akinsho/toggleterm.nvim", version = "*", config = true}, -- Toggle Term
         {
             "folke/which-key.nvim",
             config = function()

@@ -1,10 +1,23 @@
 local o = vim.o
 local opt = vim.opt
 local cmd = vim.cmd
+local fn = vim.fn
+local cmd = vim.cmd
+
+local powershell_options = {
+    shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell",
+    shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+    shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+    shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+    shellquote = "",
+    shellxquote = ""
+}
+
+for option, value in pairs(powershell_options) do
+    vim.opt[option] = value
+end
 
 -- Enable syntax highlighting and filetype plugins
--- vim.cmd 'syntax enable'
--- vim.cmd 'filetype plugin on'
 cmd("syntax enable")
 cmd("filetype plugin on")
 
@@ -51,16 +64,6 @@ o.number = true
 o.signcolumn = "yes" -- make sure this is on for gitsigns.nvim, otherwise the signcolumn changes size constantly
 o.wrap = true -- text autofit in a line
 
--- colorscheme global defaults
-o.termguicolors = true
--- o.winblend = 0
-
--- Themes and configs
--- cmd("colorscheme material")
--- cmd("colorscheme moonfly")
--- cmd("colorscheme catppuccin-mocha")
-o.background = "dark"
-cmd("colorscheme NeoSolarized")
-
 -- Set completeopt to have a better completion experience
 o.completeopt = "menuone,noselect"
+
