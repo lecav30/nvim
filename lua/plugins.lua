@@ -23,8 +23,6 @@ require("lazy").setup(
         ----------------------------------- Themes --------------------------------------
         ---------------------------------------------------------------------------------
         "bluz71/vim-moonfly-colors", -- Moonfly theme
-        "overcache/NeoSolarized", -- Solarized theme
-        {"catppuccin/nvim", name = "catppuccin"}, -- Catppuccin theme
         ---------------------------------------------------------------------------------
         ----------------------------- Indent, color, icons ------------------------------
         ---------------------------------------------------------------------------------
@@ -73,8 +71,6 @@ require("lazy").setup(
         ---------------------------------------------------------------------------------
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        -- COC to fronted
-        -- {"neoclide/coc.nvim", branch = "release"}
 
         ---------------------------------------------------------------------------------
         ------------------------------------ Git ----------------------------------------
@@ -110,14 +106,6 @@ require("lazy").setup(
         ---------------------------------------------------------------------------------
         ---------------------------------- Extras ---------------------------------------
         ---------------------------------------------------------------------------------
-        {
-            "phaazon/hop.nvim",
-            branch = "v2", -- optional but strongly recommended
-            config = function()
-                -- you can configure Hop the way you like here; see :h hop-config
-                require "hop".setup {keys = "etovxqpdygfblzhckisuran"}
-            end
-        }, -- Easymotion
         {"akinsho/toggleterm.nvim", version = "*", config = true}, -- Toggle Term
         {
             "folke/which-key.nvim",
@@ -128,7 +116,6 @@ require("lazy").setup(
             end
         }, -- Which key
         "lervag/vimtex", -- Latex
-        "andweeb/presence.nvim", -- Discord presence
-        "github/copilot.vim" -- Github copilot
+        "github/copilot.vim", -- Github copilot
     }
 )

@@ -4,6 +4,7 @@
 local g = vim.g
 
 g.neoformat_try_formatprg = 1
+g.neoformat_run_all_formatters = 1
 
 g.neoformat_enabled_cpp = {"clangformat"}
 g.neoformat_cpp_clangformat = {
@@ -48,9 +49,3 @@ g.neoformat_php_prettier = {
 
 g.neoformat_enabled_typescript = {"prettier"}
 g.neoformat_enabled_markdown = {"prettier"}
-
-local mapper = function(mode, key, result)
-    vim.api.nvim_set_keymap(mode, key, result, {noremap = true, silent = true})
-end
-
-mapper("n", "<Leader>fn", ":Neoformat<CR>")

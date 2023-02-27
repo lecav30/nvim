@@ -17,7 +17,6 @@ require("mason-lspconfig").setup(
             "cssls",
             "html",
             "tsserver",
-            "eslint",
             "tailwindcss",
             "pyright",
             "clangd",
@@ -74,7 +73,7 @@ for _, lsp in ipairs(servers) do
         on_attach = on_attach,
         capabilities = capabilities
     }
-    if lsp == 'intelephense' or lsp == 'eslint' then
+    if lsp == 'intelephense' then
       nvim_lsp[lsp].setup {
         root_dir = function()
           return vim.loop.cwd()

@@ -10,9 +10,6 @@ mapper("n", "<Leader>wq", ":wqa<CR>")
 mapper("n", "<Leader>qq", ":q!<CR>")
 mapper("n", "<Leader>qa", ":qa!<CR>")
 
--- Change Tabs
-mapper("n", "<Tab>", ":tabnext<Return>")
-mapper("n", "<S-Tab>", ":tabprev<Return>")
 -- Change Buffers
 mapper("n", "<C-n>", ":bnext<CR>")
 mapper("n", "<C-p>", ":bprevious<Return>")
@@ -31,5 +28,4 @@ mapper("x", "K", ":move '<-2<CR>gv-gv")
 mapper("x", "J", ":move '>+1<CR>gv-gv")
 
 -- Compiler C++
--- vim.api.nvim_command("autocmd filetype cpp nnoremap <f5> :w <bar> !g++ % -o %:r <cr> :terminal %:r<cr>")
 vim.api.nvim_command("autocmd filetype cpp nnoremap <f5> :w <bar> !g++ % <cr>")
