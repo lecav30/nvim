@@ -14,13 +14,15 @@ wk.register(
                 name = "+code",
                 a = {"<cmd>Lspsaga code_action<cr>", "Code Action"},
                 d = {"Code Diagnostics"},
+                f = {"<cmd>lua vim.lsp.buf.format({ timeout_ms = 2000 })<cr>", "Format Code"},
                 l = {"Comment Line"}
             },
-            e = {"Explorer"},
+            e = {"<cmd>NvimTreeToggle<cr>", "Explorer"},
             f = {
                 name = "+find",
                 f = {"<cmd>Telescope find_files<cr>", "Find File"},
                 w = {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "Find Word"},
+                o = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
             },
             g = {
                 name = "+git & lsp",
@@ -32,7 +34,6 @@ wk.register(
                 d = {"Go to Definition"},
                 i = {"Go to Implementation"}
             },
-            of = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
             q = {
               name = "+quit",
               q = {"Quit current file"},

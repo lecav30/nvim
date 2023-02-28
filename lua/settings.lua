@@ -53,4 +53,3 @@ o.wrap = true -- text autofit in a line
 
 -- Set completeopt to have a better completion experience
 o.completeopt = "menuone,noselect"
-

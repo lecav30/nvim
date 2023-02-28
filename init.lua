@@ -1,23 +1,22 @@
 if vim.g.vscode then
-    require("keymappings")
-    require("settings")
+	require("keymappings")
+	require("settings")
 else
-    vim.g.mapleader = " "
-    require("plugins")
-    require("plugins_settings")
-    require("lsp")
-    require("keymappings")
-    require("settings")
+	vim.g.mapleader = " "
+	require("plugins")
+	require("plugins_settings")
+	require("lsp")
+	require("keymappings")
+	require("settings")
 
-    local o = vim.o
-    local cmd = vim.cmd
+	local o = vim.o
+	local cmd = vim.cmd
 
-    o.termguicolors = true
-    o.background = "dark"
+	o.termguicolors = true
+	o.background = "dark"
 
-    -- Themes and configs
-    cmd("colorscheme moonfly")
-    -- cmd("colorscheme catppuccin-mocha")
+	-- Themes and configs
+	cmd("colorscheme moonfly")
 end
 
 -- Mapping helper
