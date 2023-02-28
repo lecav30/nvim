@@ -21,7 +21,6 @@ wk.register(
                 name = "+find",
                 f = {"<cmd>Telescope find_files<cr>", "Find File"},
                 w = {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "Find Word"},
-                n = {"<cmd>Neoformat<cr>", "Format code"}
             },
             g = {
                 name = "+git & lsp",

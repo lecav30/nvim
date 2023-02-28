@@ -29,28 +29,13 @@ require("mason-lspconfig").setup(
 
 local nvim_lsp = require("lspconfig")
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
     -- Mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
     local bufopts = {noremap = true, silent = true, buffer = bufnr}
 
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
-    -- vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-    -- vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-    -- vim.keymap.set(
-    --     "n",
-    --     "<space>wl",
-    --     function()
-    --         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    --     end,
-    --     bufopts
-    -- )
-    -- vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
-    -- vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -73,12 +58,12 @@ for _, lsp in ipairs(servers) do
         on_attach = on_attach,
         capabilities = capabilities
     }
-    if lsp == 'intelephense' then
-      nvim_lsp[lsp].setup {
-        root_dir = function()
-          return vim.loop.cwd()
-        end,
-      }
+    if lsp == "intelephense" then
+        nvim_lsp[lsp].setup {
+            root_dir = function()
+                return vim.loop.cwd()
+            end
+        }
     end
 end
 
@@ -91,3 +76,4 @@ nvim_lsp.clangd.setup {
 
 vim.o.updatetime = 250
 vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
