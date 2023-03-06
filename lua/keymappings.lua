@@ -29,3 +29,7 @@ mapper("x", "J", ":move '>+1<CR>gv-gv")
 
 -- Compiler C++
 vim.api.nvim_command("autocmd filetype cpp nnoremap <f5> :w <bar> !g++ % <cr>")
+-- Compiler C
+vim.api.nvim_command("autocmd filetype c nnoremap <f5> :w <bar> !gcc % <cr>")
+-- Compiler Python
+vim.api.nvim_command("autocmd filetype python nnoremap <f5> :w <bar> !python % <cr>")

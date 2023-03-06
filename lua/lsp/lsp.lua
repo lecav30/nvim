@@ -13,6 +13,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"cssls",
 		"html",
+    "emmet_ls",
 		"tsserver",
 		"tailwindcss",
 		"pyright",
@@ -40,6 +41,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local servers = {
 	"cssls",
 	"html",
+	"emmet_ls",
 	"tsserver",
 	"eslint",
 	"tailwindcss",
@@ -54,6 +56,29 @@ for _, lsp in ipairs(servers) do
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
+  if lsp == "html" then
+    nvim_lsp[lsp].setup({
+      filetypes = {
+        "html",
+        "htmldjango"
+      },
+    })
+  end
+	if lsp == "emmet_ls" then
+		nvim_lsp[lsp].setup({
+			filetypes = {
+				"html",
+				"htmldjango",
+				"typescriptreact",
+				"javascriptreact",
+				"css",
+				"sass",
+				"scss",
+				"less",
+				"eruby",
+			},
+		})
+	end
 	if lsp == "intelephense" then
 		nvim_lsp[lsp].setup({
 			root_dir = function()

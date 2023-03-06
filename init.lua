@@ -17,8 +17,8 @@ else
 
 	-- Themes and configs
 	-- cmd("colorscheme moonfly")
-  cmd("colorscheme nord")
-  -- cmd("colorscheme tender")
+  -- cmd("colorscheme nord")
+  cmd("colorscheme tender")
   -- cmd("colorscheme catppuccin-mocha")
 end
 
