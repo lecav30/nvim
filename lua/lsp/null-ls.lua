@@ -10,6 +10,11 @@ null_ls.setup({
 				"javascriptreact",
 				"typescript",
 				"typescriptreact",
+			},
+		}), -- JavaScript, TypeScript
+		null_ls.builtins.formatting.prettier.with({
+			extra_args = { "--tab-width", "2" },
+			filetypes = {
 				"vue",
 				"css",
 				"scss",
@@ -23,7 +28,7 @@ null_ls.setup({
 				"graphql",
 				"handlebars",
 			},
-		}), -- JavaScript, TypeScript, Vue, CSS, HTML, JSON, YAML, Markdown
+		}), -- Vue, CSS, HTML, JSON, YAML, Markdown
 		null_ls.builtins.formatting.clang_format.with({
 			extra_args = {
 				"--style",

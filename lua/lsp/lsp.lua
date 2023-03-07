@@ -22,6 +22,10 @@ require("mason-lspconfig").setup({
 		"angularls",
 		"intelephense",
 		"diagnosticls",
+		-- formatters
+		-- "black",
+		-- "isort",
+		-- "prettier",
 	},
 })
 
