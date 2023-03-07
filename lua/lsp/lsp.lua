@@ -13,7 +13,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"cssls",
 		"html",
-    "emmet_ls",
+		"emmet_ls",
 		"tsserver",
 		"tailwindcss",
 		"pyright",
@@ -21,6 +21,7 @@ require("mason-lspconfig").setup({
 		"volar",
 		"angularls",
 		"intelephense",
+		"diagnosticls",
 	},
 })
 
@@ -49,6 +50,7 @@ local servers = {
 	"volar",
 	"angularls",
 	"intelephense",
+	"diagnosticls",
 }
 
 for _, lsp in ipairs(servers) do
@@ -56,14 +58,14 @@ for _, lsp in ipairs(servers) do
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
-  if lsp == "html" then
-    nvim_lsp[lsp].setup({
-      filetypes = {
-        "html",
-        "htmldjango"
-      },
-    })
-  end
+	if lsp == "html" then
+		nvim_lsp[lsp].setup({
+			filetypes = {
+				"html",
+				"htmldjango",
+			},
+		})
+	end
 	if lsp == "emmet_ls" then
 		nvim_lsp[lsp].setup({
 			filetypes = {
