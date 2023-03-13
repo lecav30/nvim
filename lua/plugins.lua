@@ -23,7 +23,7 @@ require("lazy").setup({
 	"jacoborus/tender.vim", -- Tender theme
 	{ "catppuccin/nvim", name = "catppuccin" }, -- Catppuccin theme
 	"shaunsingh/nord.nvim", -- Nord theme
-  "sainnhe/sonokai", -- Sonokai theme
+	"sainnhe/sonokai", -- Sonokai theme
 	---------------------------------------------------------------------------------
 	----------------------------- Indent, color, icons ------------------------------
 	---------------------------------------------------------------------------------
@@ -78,7 +78,7 @@ require("lazy").setup({
 	------------------------------------ Git ----------------------------------------
 	---------------------------------------------------------------------------------
 	"lewis6991/gitsigns.nvim", -- Git signs
-	{ "TimUntersberger/neogit", dependencies = "nvim-lua/plenary.nvim" }, -- Magit
+	"kdheepak/lazygit.nvim", -- LazyGit
 	---------------------------------------------------------------------------------
 	----------------------------------- Screen --------------------------------------
 	---------------------------------------------------------------------------------

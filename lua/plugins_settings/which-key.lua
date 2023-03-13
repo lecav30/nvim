@@ -30,6 +30,7 @@ wk.register(
                 c = {"<cmd>Telescope git_commits<cr>", "Git Commits"},
                 s = {"<cmd>Telescope git_status<cr>", "Git Status"},
                 h = {"<cmd>Telescope help_tags<cr>", "Help Tags"},
+                g = {"<cmd>LazyGit<cr>", "Lazy Git"},
                 D = {"Go to Declaration"},
                 d = {"Go to Definition"},
                 i = {"Go to Implementation"}
