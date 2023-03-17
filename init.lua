@@ -18,8 +18,12 @@ else
 	-- Themes and configs
 	-- cmd("colorscheme moonfly")
   -- cmd("colorscheme nord")
-  cmd("colorscheme tender")
+  -- cmd("colorscheme tender")
   -- cmd("colorscheme catppuccin-mocha")
+  cmd("colorscheme sonokai")
+  -- cmd("colorscheme gruvbox-baby")
+  -- cmd("colorscheme oh-lucy")
+  -- cmd("colorscheme oh-lucy-evening")
 end
 
 -- Mapping helper

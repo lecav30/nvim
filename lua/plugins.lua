@@ -24,6 +24,8 @@ require("lazy").setup({
 	{ "catppuccin/nvim", name = "catppuccin" }, -- Catppuccin theme
 	"shaunsingh/nord.nvim", -- Nord theme
 	"sainnhe/sonokai", -- Sonokai theme
+	"Yazeed1s/oh-lucy.nvim", -- Oh Lucy theme
+	"luisiacc/gruvbox-baby", -- Gruvbox baby theme
 	---------------------------------------------------------------------------------
 	----------------------------- Indent, color, icons ------------------------------
 	---------------------------------------------------------------------------------
