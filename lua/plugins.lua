@@ -21,7 +21,7 @@ require("lazy").setup({
 	---------------------------------------------------------------------------------
 	"bluz71/vim-moonfly-colors", -- Moonfly theme
 	"jacoborus/tender.vim", -- Tender theme
-	{ "catppuccin/nvim", name = "catppuccin" }, -- Catppuccin theme
+	-- { "catppuccin/nvim", name = "catppuccin" }, -- Catppuccin theme
 	"shaunsingh/nord.nvim", -- Nord theme
 	"sainnhe/sonokai", -- Sonokai theme
 	"Yazeed1s/oh-lucy.nvim", -- Oh Lucy theme
@@ -80,7 +80,6 @@ require("lazy").setup({
 	------------------------------------ Git ----------------------------------------
 	---------------------------------------------------------------------------------
 	"lewis6991/gitsigns.nvim", -- Git signs
-	"kdheepak/lazygit.nvim", -- LazyGit
 	---------------------------------------------------------------------------------
 	----------------------------------- Screen --------------------------------------
 	---------------------------------------------------------------------------------
