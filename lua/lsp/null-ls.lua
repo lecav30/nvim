@@ -36,8 +36,8 @@ null_ls.setup({
 			},
 		}), -- C/C++
 		null_ls.builtins.formatting.latexindent, -- LaTeX
-		null_ls.builtins.formatting.black, -- Python
 		null_ls.builtins.formatting.isort, -- Python
+    null_ls.builtins.formatting.autopep8, -- Python
 		null_ls.builtins.formatting.stylua, -- Lua
 		null_ls.builtins.code_actions.gitsigns,
 	},
