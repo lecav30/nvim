@@ -33,5 +33,6 @@ require("nvim-treesitter.configs").setup({
 		"markdown",
 		"help",
     "latex",
+    "kotlin",
 	},
 })
