@@ -4,7 +4,6 @@ local mappings = require("cokeline/mappings")
 local comments_fg = get_hex("Comment", "fg")
 local errors_fg = get_hex("DiagnosticError", "fg")
 local warnings_fg = get_hex("DiagnosticWarn", "fg")
-
 local red = vim.g.terminal_color_1
 local yellow = vim.g.terminal_color_3
 
@@ -18,27 +17,6 @@ local components = {
 		text = "  ",
 		truncation = { priority = 1 },
 	},
-
-	separatorSquare = {
-		text = function(buffer)
-			return buffer.index ~= 1 and "▏" or ""
-		end,
-		truncation = { priority = 1 },
-	},
-
-  separatorCircle = {
-    text = function(buffer)
-      return buffer.index ~= 1 and "" or ""
-    end,
-    truncation = { priority = 1 },
-  },
-
-  separatorTriangle = {
-    text = function(buffer)
-      return buffer.index ~= 1 and "" or ""
-    end,
-    truncation = { priority = 1 },
-  },
 
 	devicon = {
 		text = function(buffer)
@@ -130,14 +108,14 @@ require("cokeline").setup({
 
 	default_hl = {
 		fg = function(buffer)
-			return buffer.is_focused and get_hex("Normal", "fg") or get_hex("Comment", "fg")
+			return buffer.is_focused and get_hex("ColorColumn", "bg") or get_hex("Normal", "fg")
 		end,
-		bg = get_hex("ColorColumn", "bg"),
+		bg = function(buffer)
+			return buffer.is_focused and get_hex("Normal", "fg") or get_hex("ColorColumn", "bg")
+		end,
 	},
 
 	components = {
-		components.space,
-		components.separatorCircle,
 		components.space,
 		components.devicon,
 		components.space,
