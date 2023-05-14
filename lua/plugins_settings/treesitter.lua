@@ -31,7 +31,7 @@ require("nvim-treesitter.configs").setup({
 		"lua",
 		"json",
 		"markdown",
-		"help",
+		-- "help",
     "latex",
     "kotlin",
 	},
