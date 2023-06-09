@@ -26,13 +26,14 @@ require("nvim-treesitter.configs").setup({
 		"typescript",
 		"vue",
 		"tsx",
-		"php",
-		"fish",
 		"lua",
 		"json",
 		"markdown",
-		-- "help",
     "latex",
-    "kotlin",
+		-- "fish",
+    -- "kotlin",
+    -- "dart"
+		-- "help",
+		-- "php",
 	},
 })
