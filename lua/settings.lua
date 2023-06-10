@@ -9,6 +9,7 @@ cmd("syntax enable")
 cmd("filetype plugin on")
 
 opt.colorcolumn = "90"
+opt.fillchars = { eob = " " } -- Remove tilde (~) at EndOfBuffer
 
 -- Disable netrw
 vim.g.loaded_netrw = 1
