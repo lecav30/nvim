@@ -13,17 +13,17 @@ else
 	local cmd = vim.cmd
 
 	o.termguicolors = true
-	-- o.background = "dark"
-	o.background = "light"
+	o.background = "dark"
 
 	-- Themes and configs
 	-- cmd("colorscheme moonfly")
-  -- cmd("colorscheme nord")
-  -- cmd("colorscheme tender")
-  -- cmd("colorscheme catppuccin-mocha")
-  -- cmd("colorscheme sonokai")
-  -- cmd("colorscheme gruvbox-baby")
-  cmd("colorscheme solarized")
+	-- cmd("colorscheme nord")
+	-- cmd("colorscheme tender")
+	-- cmd("colorscheme catppuccin-mocha")
+	-- cmd("colorscheme sonokai")
+	-- cmd("colorscheme gruvbox-baby")
+	cmd("colorscheme NeoSolarized")
+  vim.g.neosolarized_italic = 1
 end
 
 -- Mapping helper
