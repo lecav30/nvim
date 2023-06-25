@@ -22,8 +22,8 @@ else
 	-- cmd("colorscheme catppuccin-mocha")
 	-- cmd("colorscheme sonokai")
 	-- cmd("colorscheme gruvbox-baby")
+	  vim.g.neosolarized_italic = 1
 	cmd("colorscheme NeoSolarized")
-  vim.g.neosolarized_italic = 1
 end
 
 -- Mapping helper
