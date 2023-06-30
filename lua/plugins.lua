@@ -21,7 +21,7 @@ require("lazy").setup({
 	---------------------------------------------------------------------------------
 	"bluz71/vim-moonfly-colors", -- Moonfly theme
 	"jacoborus/tender.vim", -- Tender theme
-	-- { "catppuccin/nvim", name = "catppuccin" }, -- Catppuccin theme
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- catppuccin theme
   "overcache/NeoSolarized", -- NeoSolarized theme
 	"shaunsingh/nord.nvim", -- Nord theme
 	"sainnhe/sonokai", -- Sonokai theme
