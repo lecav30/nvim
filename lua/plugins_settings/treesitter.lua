@@ -14,7 +14,6 @@ require("nvim-treesitter.configs").setup({
 	},
 	indent = {
 		enable = false,
-		disable = {},
 	},
 	ensure_installed = {
 		"cpp",
@@ -29,10 +28,10 @@ require("nvim-treesitter.configs").setup({
 		"lua",
 		"json",
 		"markdown",
-    "latex",
+		"latex",
 		-- "fish",
-    -- "kotlin",
-    -- "dart"
+		-- "kotlin",
+		-- "dart"
 		-- "help",
 		-- "php",
 	},
