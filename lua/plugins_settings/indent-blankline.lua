@@ -42,8 +42,9 @@ require("indent_blankline").setup({
 		"TelescopePrompt",
 		"TelescopeResults",
 		"NvimTree",
-    "checkhealth",
-    "",
+		"checkhealth",
+		"",
+		"gitignore",
 	},
 	context_patterns = {
 		"class",

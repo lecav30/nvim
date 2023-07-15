@@ -22,10 +22,7 @@ require("mason-lspconfig").setup({
 		"angularls",
 		"intelephense",
 		"diagnosticls",
-    -- formatters
-		-- "black",
-		-- "isort",
-		-- "prettier",
+    "eslint",
 	},
 })
 
@@ -62,6 +59,18 @@ for _, lsp in ipairs(servers) do
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
+  if lsp == "eslint" then
+    nvim_lsp[lsp].setup({
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+      },
+    })
+  end
 	if lsp == "html" then
 		nvim_lsp[lsp].setup({
 			filetypes = {

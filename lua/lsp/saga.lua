@@ -80,7 +80,8 @@ keymap("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { silent = true })
 -- Finder
 keymap("n", "gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", { silent = true })
 -- Float terminal
--- keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
+-- keymap("n", "<A-t>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
+-- keymap("n", "<A-c>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 
 keymap("n", "<c-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
 keymap("n", "<c-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})

@@ -3,18 +3,12 @@ require("nvim-treesitter.install").compilers = { "clang" }
 require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
-		custom_captures = {
-			["foo.bar"] = "Identifier",
-		},
-	},
-	rainbow = {
-		enable = true,
-		extended_mode = true,
-		max_file_lines = nil,
 	},
 	indent = {
 		enable = false,
 	},
+	auto_install = true,
+	sync_install = false,
 	ensure_installed = {
 		"cpp",
 		"python",
@@ -29,10 +23,10 @@ require("nvim-treesitter.configs").setup({
 		"json",
 		"markdown",
 		"latex",
-		-- "fish",
-		-- "kotlin",
-		-- "dart"
+		"fish",
+		"kotlin",
+		"dart",
 		-- "help",
-		-- "php",
+		"php",
 	},
 })
