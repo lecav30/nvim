@@ -26,7 +26,8 @@ require("nvim-treesitter.configs").setup({
 		"fish",
 		"kotlin",
 		"dart",
-		-- "help",
 		"php",
+		"astro",
+		-- "help",
 	},
 })

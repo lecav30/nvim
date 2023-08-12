@@ -20,9 +20,10 @@ require("mason-lspconfig").setup({
 		"clangd",
 		"volar",
 		"angularls",
+		"astro",
 		"intelephense",
 		"diagnosticls",
-    "eslint",
+		"eslint",
 	},
 })
 
@@ -50,6 +51,7 @@ local servers = {
 	"pyright",
 	"volar",
 	"angularls",
+	"astro",
 	"intelephense",
 	"diagnosticls",
 }
@@ -59,18 +61,18 @@ for _, lsp in ipairs(servers) do
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
-  if lsp == "eslint" then
-    nvim_lsp[lsp].setup({
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-      },
-    })
-  end
+	if lsp == "eslint" then
+		nvim_lsp[lsp].setup({
+			filetypes = {
+				"javascript",
+				"javascriptreact",
+				"javascript.jsx",
+				"typescript",
+				"typescriptreact",
+				"typescript.tsx",
+			},
+		})
+	end
 	if lsp == "html" then
 		nvim_lsp[lsp].setup({
 			filetypes = {

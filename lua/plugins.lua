@@ -22,7 +22,7 @@ require("lazy").setup({
 	"bluz71/vim-moonfly-colors", -- Moonfly theme
 	"jacoborus/tender.vim", -- Tender theme
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- catppuccin theme
-  "overcache/NeoSolarized", -- NeoSolarized theme
+	"overcache/NeoSolarized", -- NeoSolarized theme
 	"shaunsingh/nord.nvim", -- Nord theme
 	"sainnhe/sonokai", -- Sonokai theme
 	"luisiacc/gruvbox-baby", -- Gruvbox baby theme
@@ -100,6 +100,7 @@ require("lazy").setup({
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons", lazy = true },
 	}, -- Lualine
+	-- "Bekaboo/dropbar.nvim", -- BreadCrumb ONLY WORKING in Neovim Nightly
 	"terrortylor/nvim-comment", -- Better comments for neovim
 	---------------------------------------------------------------------------------
 	--------------------------------- HTML tag --------------------------------------
