@@ -24,6 +24,7 @@ require("mason-lspconfig").setup({
 		"intelephense",
 		"diagnosticls",
 		"eslint",
+    "csharp_ls",
 	},
 })
 
@@ -54,6 +55,7 @@ local servers = {
 	"astro",
 	"intelephense",
 	"diagnosticls",
+  "csharp_ls",
 }
 
 for _, lsp in ipairs(servers) do

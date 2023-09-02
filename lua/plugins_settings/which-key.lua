@@ -32,7 +32,8 @@ wk.register(
                 h = {"<cmd>Telescope help_tags<cr>", "Help Tags"},
                 D = {"Go to Declaration"},
                 d = {"Go to Definition"},
-                i = {"Go to Implementation"}
+                i = {"Go to Implementation"}, 
+								I = {"<cmd>Gitignore<cr>"}
             },
             q = {
               name = "+quit",
