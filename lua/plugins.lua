@@ -35,7 +35,7 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 	}, -- Treesitter (Highlighting)
-	"kyazdani42/nvim-web-devicons", -- Icons for nerd fonts
+	"nvim-tree/nvim-web-devicons", -- Icons for nerd fonts
 	---------------------------------------------------------------------------------
 	------------------------------- File explorer -----------------------------------
 	---------------------------------------------------------------------------------
@@ -44,8 +44,8 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 	}, -- Telescope
 	{
-		"kyazdani42/nvim-tree.lua",
-		dependencies = { "kyazdani42/nvim-web-devicons" },
+		"nvim-tree/nvim-tree.lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 	}, -- Tree
 	---------------------------------------------------------------------------------
 	------------------------------ LSP / CMP Snippets -------------------------------
@@ -94,15 +94,13 @@ require("lazy").setup({
 		end,
 	}, -- Start
 	{
-		"noib3/nvim-cokeline",
-		dependencies = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("cokeline").setup()
-		end,
+		"akinsho/bufferline.nvim",
+		version = "*",
+		dependencies = "nvim-tree/nvim-web-devicons",
 	}, -- Bufferline
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons", lazy = true },
+		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
 	}, -- Lualine
 	-- "Bekaboo/dropbar.nvim", -- BreadCrumb ONLY WORKING in Neovim Nightly
 	"terrortylor/nvim-comment", -- Better comments for neovim
