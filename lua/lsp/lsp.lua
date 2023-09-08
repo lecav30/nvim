@@ -21,10 +21,8 @@ require("mason-lspconfig").setup({
 		"volar",
 		"angularls",
 		"astro",
-		"intelephense",
 		"diagnosticls",
 		"eslint",
-    "csharp_ls",
 	},
 })
 
@@ -53,9 +51,7 @@ local servers = {
 	"volar",
 	"angularls",
 	"astro",
-	"intelephense",
 	"diagnosticls",
-  "csharp_ls",
 }
 
 for _, lsp in ipairs(servers) do
