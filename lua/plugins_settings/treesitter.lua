@@ -24,10 +24,10 @@ require("nvim-treesitter.configs").setup({
 		"markdown",
 		"latex",
 		"fish",
-		"kotlin",
-		"dart",
-		"php",
 		"astro",
+		-- "php",
+		-- "kotlin",
+		-- "dart",
 		-- "help",
 	},
 })

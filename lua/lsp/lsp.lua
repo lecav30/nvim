@@ -22,7 +22,6 @@ require("mason-lspconfig").setup({
 		"angularls",
 		"astro",
 		"diagnosticls",
-		"eslint",
 	},
 })
 
@@ -45,7 +44,7 @@ local servers = {
 	"html",
 	"emmet_ls",
 	"tsserver",
-	"eslint",
+	"eslint", -- https://github.com/hrsh7th/vscode-langservers-extracted
 	"tailwindcss",
 	"pyright",
 	"volar",

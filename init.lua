@@ -16,16 +16,8 @@ else
 	o.background = "dark"
 
 	-- Themes and configs
-	-- cmd("colorscheme moonfly")
-	-- cmd("colorscheme nord")
-	-- cmd("colorscheme tender")
-	-- cmd("colorscheme catppuccin-mocha")
-	-- cmd("colorscheme sonokai")
-	-- cmd("colorscheme gruvbox-baby")
 	--   vim.g.neosolarized_italic = 1
-	-- cmd("colorscheme NeoSolarized")
-  -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
-  cmd("colorscheme catppuccin-macchiato")
+  cmd("colorscheme catppuccin-mocha")
 end
 
 -- Mapping helper

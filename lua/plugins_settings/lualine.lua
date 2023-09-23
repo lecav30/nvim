@@ -3,12 +3,12 @@ require("lualine").setup({
 		icons_enabled = true,
 		theme = "auto",
 		-- Square
-		-- section_separators = { left = "", right = "" },
-		-- component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
+		component_separators = { left = "", right = "" },
 		--
 		-- Circle
-		section_separators = { left = "", right = "" },
-		component_separators = { left = "", right = "" },
+		-- section_separators = { left = "", right = "" },
+		-- component_separators = { left = "", right = "" },
 		--
 		-- Triangle
 		-- section_separators = {left = '', right = ''},

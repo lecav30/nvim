@@ -20,12 +20,12 @@ require("lazy").setup({
 	----------------------------------- Themes --------------------------------------
 	---------------------------------------------------------------------------------
 	"bluz71/vim-moonfly-colors", -- Moonfly theme
-	"jacoborus/tender.vim", -- Tender theme
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- catppuccin theme
 	"overcache/NeoSolarized", -- NeoSolarized theme
-	"shaunsingh/nord.nvim", -- Nord theme
-	"sainnhe/sonokai", -- Sonokai theme
-	"luisiacc/gruvbox-baby", -- Gruvbox baby theme
+	-- "shaunsingh/nord.nvim", -- Nord theme
+	-- "luisiacc/gruvbox-baby", -- Gruvbox baby theme
+	-- "sainnhe/sonokai", -- Sonokai theme
+	-- "jacoborus/tender.vim", -- Tender theme
 	---------------------------------------------------------------------------------
 	----------------------------- Indent, color, icons ------------------------------
 	---------------------------------------------------------------------------------

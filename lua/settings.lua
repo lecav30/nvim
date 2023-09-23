@@ -53,7 +53,7 @@ o.foldmethod = "manual" -- indentation folds
 o.relativenumber = true
 o.number = true
 o.signcolumn = "yes" -- make sure this is on for gitsigns.nvim, otherwise the signcolumn changes size constantly
-o.wrap = true -- text autofit in a line
+o.wrap = false -- text autofit in a line
 
 -- Set completeopt to have a better completion experience
 o.completeopt = "menuone,noselect"
