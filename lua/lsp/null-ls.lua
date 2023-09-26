@@ -7,14 +7,14 @@ null_ls.setup({
 			extra_args = { "--single-quote", "--tab-width", "4", "--trailing-comma", "all" },
 			filetypes = {
 				"javascript",
-				"javascriptreact",
 				"typescript",
-				"typescriptreact",
 			},
 		}), -- JavaScript, TypeScript
 		null_ls.builtins.formatting.prettier.with({
 			extra_args = { "--tab-width", "2" },
 			filetypes = {
+				"typescriptreact",
+				"javascriptreact",
 				"vue",
 				"css",
 				"scss",
@@ -40,8 +40,8 @@ null_ls.setup({
 		null_ls.builtins.formatting.autopep8, -- Python
 		null_ls.builtins.formatting.stylua, -- Lua
 		null_ls.builtins.code_actions.gitsigns,
-    null_ls.builtins.code_actions.eslint, -- JavaScript, TypeScript
-    null_ls.builtins.diagnostics.pylint, -- Python
+		null_ls.builtins.code_actions.eslint, -- JavaScript, TypeScript
+		null_ls.builtins.diagnostics.pylint, -- Python
 	},
 	diagnostics_format = "[#{c}] #{m} (#{s})",
 })

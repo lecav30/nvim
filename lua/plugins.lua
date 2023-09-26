@@ -94,9 +94,12 @@ require("lazy").setup({
 		end,
 	}, -- Start
 	{
-		"akinsho/bufferline.nvim",
-		version = "*",
-		dependencies = "nvim-tree/nvim-web-devicons",
+		"willothy/nvim-cokeline",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- Required for v0.4.0+
+			"nvim-tree/nvim-web-devicons", -- If you want devicons
+		},
+		config = true,
 	}, -- Bufferline
 	{
 		"nvim-lualine/lualine.nvim",
