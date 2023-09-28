@@ -29,7 +29,7 @@ require("lazy").setup({
 	---------------------------------------------------------------------------------
 	----------------------------- Indent, color, icons ------------------------------
 	---------------------------------------------------------------------------------
-	"lukas-reineke/indent-blankline.nvim", -- Indentation guides
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- Indentation guides
 	"p00f/nvim-ts-rainbow", -- Rainbow brackets
 	{
 		"nvim-treesitter/nvim-treesitter",
