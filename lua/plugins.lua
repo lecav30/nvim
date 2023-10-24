@@ -47,6 +47,9 @@ require("lazy").setup({
 		"nvim-tree/nvim-tree.lua",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	}, -- Tree
+	-- {
+	-- 	"ldelossa/nvim-ide",
+	-- }, -- IDE views
 	---------------------------------------------------------------------------------
 	------------------------------ LSP / CMP Snippets -------------------------------
 	---------------------------------------------------------------------------------
@@ -106,7 +109,13 @@ require("lazy").setup({
 		dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
 	}, -- Lualine
 	-- "Bekaboo/dropbar.nvim", -- BreadCrumb ONLY WORKING in Neovim Nightly
-	"terrortylor/nvim-comment", -- Better comments for neovim
+	{
+		"numToStr/Comment.nvim",
+		opts = {
+			-- add any options here
+		},
+		lazy = false,
+	}, -- Better comments for neovim
 	---------------------------------------------------------------------------------
 	--------------------------------- HTML tag --------------------------------------
 	---------------------------------------------------------------------------------
