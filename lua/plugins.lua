@@ -34,6 +34,9 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		}, -- Comments for tsx and jsx
 	}, -- Treesitter (Highlighting)
 	"nvim-tree/nvim-web-devicons", -- Icons for nerd fonts
 	---------------------------------------------------------------------------------
