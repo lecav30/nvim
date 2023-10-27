@@ -11,8 +11,8 @@ mapper("n", "<Leader>qq", ":q!<CR>")
 mapper("n", "<Leader>qa", ":qa!<CR>")
 
 -- Change Buffers
-mapper("n", "<C-n>", ":bnext<CR>")
-mapper("n", "<C-p>", ":bprevious<Return>")
+mapper("n", "<Tab>", ":bnext<CR>")
+mapper("n", "<S-Tab>", ":bprevious<Return>")
 
 -- Delete buffers
 mapper("n", "<Leader>bd", ":bdelete<CR>")
