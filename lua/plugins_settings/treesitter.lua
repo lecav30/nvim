@@ -22,6 +22,7 @@ require("nvim-treesitter.configs").setup({
 		"lua",
 		"json",
 		"markdown",
+		"markdown_inline",
 		"latex",
 		"fish",
 		"astro",

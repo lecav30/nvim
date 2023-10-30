@@ -1,87 +1,120 @@
 local lspsaga = require("lspsaga")
 
 lspsaga.setup({
-	debug = false,
-	use_saga_diagnostic_sign = true,
-	-- diagnostic sign
-	error_sign = "",
-	-- uea87
-	warn_sign = "",
-	-- uea6c
-	hint_sign = "",
-	-- uf0eb
-	infor_sign = "",
-	-- uea74
-	diagnostic_header_icon = "   ",
-	-- uf188
-	-- code action title icon
-	code_action_icon = " ",
-	-- ueac4
-	code_action_prompt = {
-		enable = true,
-		sign = true,
-		sign_priority = 40,
-		virtual_text = true,
-	},
-	finder_definition_icon = "  ",
-	-- ue612
-	finder_reference_icon = "  ",
-	-- ueb36
-	max_preview_lines = 10,
-	finder_action_keys = {
-		open = "o",
-		vsplit = "s",
-		split = "i",
-		quit = "q",
-		scroll_down = "<C-f>",
-		scroll_up = "<C-b>",
-	},
-	code_action_keys = {
-		quit = "q",
-		exec = "<CR>",
-	},
-	rename_action_keys = {
-		quit = "<C-c>",
-		exec = "<CR>",
-	},
-	definition_preview_icon = "  ",
-	-- ueb28
-	border_style = "single",
-	rename_prompt_prefix = "➤",
-	rename_output_qflist = {
+	lightbulb = {
 		enable = false,
-		auto_open_qflist = false,
+		sign = false,
 	},
-	server_filetype_map = {},
-	diagnostic_prefix_format = "%d. ",
-	diagnostic_message_format = "%m %c",
-	highlight_prefix = false,
+	outline = {
+		layout = "float",
+		max_height = 0.7,
+		left_width = 0.4,
+	},
+	ui = { border = "rounded" },
+	symbol_in_winbar = {
+		enable = true,
+		folder_level = 2,
+	},
+	diagnostic = {
+		max_height = 0.8,
+		keys = {
+			quit = { "q", "<ESC>" },
+		},
+	},
+	keys = {
+		{
+			"<leader>gj",
+			"<cmd>Lspsaga diagnostic_jump_next<CR>",
+			mode = "n",
+			noremap = true,
+			silent = true,
+			desc = "Diagnostics: Jump next (lspsaga)",
+		},
+		{
+			"<leader>gk",
+			"<cmd>Lspsaga diagnostic_jump_prev<CR>",
+			mode = "n",
+			noremap = true,
+			silent = true,
+			desc = "Diagnostics: Jump next (lspsaga)",
+		},
+		{
+			"<leader>k",
+			"<cmd>Lspsaga hover_doc<CR>",
+			mode = "n",
+			noremap = true,
+			silent = true,
+			desc = "Documentation on hover (lspsaga)",
+		},
+		{
+			"<leader>cd",
+			"<cmd>Lspsaga show_line_diagnostics<CR>",
+			mode = "n",
+			noremap = true,
+			silent = true,
+			desc = "Diagnostics: Show line's (lspsaga)",
+		},
+		{
+			"<leader>db",
+			"<Cmd>Lspsaga show_buf_diagnostics<CR>",
+			mode = "n",
+			noremap = true,
+			silent = true,
+			desc = "Diagnostics: Show buffer's (lspsaga)",
+		},
+		{
+			"<leader>fs",
+			"<Cmd>Lspsaga finder<CR>",
+			mode = "n",
+			noremap = true,
+			silent = true,
+			desc = "Find references (lspsaga)",
+		},
+		{
+			"<leader>gp",
+			"<Cmd>Lspsaga peek_definition<CR>",
+			mode = "n",
+			noremap = true,
+			silent = true,
+			desc = "Peek definition (lspsaga)",
+		},
+		{
+			"<leader>gt",
+			"<cmd>Lspsaga peek_type_definition<CR>",
+			mode = "n",
+			noremap = true,
+			silent = true,
+			desc = "Peek type definition (lspsaga)",
+		},
+		{
+			"<leader>rn",
+			"<cmd>Lspsaga rename<CR>",
+			mode = "n",
+			noremap = true,
+			silent = true,
+			desc = "Rename (lspsaga)",
+		},
+		{
+			"<leader>o",
+			"<cmd>Lspsaga outline<CR>",
+			mode = "n",
+			noremap = true,
+			silent = true,
+			desc = "Show file outline (lspsaga) - 'e' to jump, 'o' to toggle",
+		},
+		{
+			"<leader>ca",
+			"<cmd>Lspsaga code_action<CR>",
+			mode = { "n", "v" },
+			desc = "Show code action (lspsaga)",
+		},
+		{
+			"<C-j>",
+			"<cmd>Lspsaga term_toggle<CR>",
+			mode = "n",
+			noremap = true,
+			silent = true,
+			desc = "Toggle terminal (lspsaga)",
+		},
+	},
 })
-
---- In lsp attach function
-local keymap = vim.keymap.set
-
--- Rename
-keymap("n", "<leader>rn", "<cmd>Lspsaga rename<cr>", { silent = true })
--- Code action
-keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", { silent = true })
--- Range code action (visual mode)
-keymap("x", "gx", ":<c-u>Lspsaga range_code_action<cr>", { silent = true })
--- Hover Doc
-keymap("n", "K", "<cmd>Lspsaga hover_doc<cr>", { silent = true })
--- Show line diagnostics
-keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
--- Show cursor diagnostics
-keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
--- Jump diagnostic next
-keymap("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", { silent = true })
--- Jump diagnostic previous
-keymap("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { silent = true })
--- Finder
-keymap("n", "gh", "<cmd>lua require'lspsaga.provider'.lsp_finder()<CR>", { silent = true })
--- Float terminal
--- keymap("n", "<A-t>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
--- keymap("n", "<A-c>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
-
-keymap("n", "<c-u>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>", {})
-keymap("n", "<c-d>", "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>", {})

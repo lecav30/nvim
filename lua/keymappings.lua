@@ -6,7 +6,7 @@ end
 -- Save and Close
 mapper("n", "<Leader>ww", ":w<CR>")
 mapper("n", "<Leader>wa", ":wa<CR>")
-mapper("n", "<Leader>wq", ":wqa<CR>")
+mapper("n", "<Leader>wq", ":wq!<CR>")
 mapper("n", "<Leader>qq", ":q!<CR>")
 mapper("n", "<Leader>qa", ":qa!<CR>")
 
