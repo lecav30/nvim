@@ -49,7 +49,7 @@ o.showcmd = true
 o.encoding = "utf-8"
 
 -- Window options
-o.foldmethod = "manual" -- indentation folds
+-- o.foldmethod = "manual" -- indentation folds
 o.relativenumber = true
 o.number = true
 o.signcolumn = "yes" -- make sure this is on for gitsigns.nvim, otherwise the signcolumn changes size constantly

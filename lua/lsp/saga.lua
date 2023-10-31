@@ -118,3 +118,8 @@ lspsaga.setup({
 		},
 	},
 })
+
+--- In lsp attach function
+local keymap = vim.keymap.set
+
+keymap("n", "<C-j>", "<cmd>Lspsaga term_toggle<cr>", { silent = true })

@@ -144,4 +144,5 @@ require("lazy").setup({
 	"lervag/vimtex", -- Latex
 	"github/copilot.vim", -- Github copilot
 	"windwp/nvim-autopairs", -- Autopairs
+	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" }, -- Fold
 })
