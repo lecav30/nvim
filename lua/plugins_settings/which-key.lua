@@ -22,9 +22,10 @@ wk.register({
 		o = { "<cmd>Lspsaga outline<cr>", "Outline" },
 		f = {
 			name = "+find",
-			s = { "<cmd>Lspsaga finder<cr>", "Fin uses" },
 			f = { "<cmd>Telescope find_files<cr>", "Find File" },
-			w = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Find Word" },
+			g = { "<cmd>Telescope live_grep<cr>", "Live grep" },
+			s = { "<cmd>Lspsaga finder<cr>", "Fin uses" },
+			w = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Current Buffer Fuzzy" },
 			o = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		},
 		g = {
