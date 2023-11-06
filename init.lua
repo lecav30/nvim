@@ -1,3 +1,6 @@
+local o = vim.o
+o.termguicolors = true
+
 if vim.g.vscode then
 	require("keymappings")
 	require("settings")
@@ -9,10 +12,7 @@ else
 	require("keymappings")
 	require("settings")
 
-	local o = vim.o
 	local cmd = vim.cmd
-
-	o.termguicolors = true
 	o.background = "dark"
 
 	-- Themes and configs

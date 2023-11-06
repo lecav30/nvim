@@ -27,6 +27,9 @@ mapper("t", "<Esc>", "<C-\\><C-n>")
 mapper("x", "K", ":move '<-2<CR>gv-gv")
 mapper("x", "J", ":move '>+1<CR>gv-gv")
 
+-- Clear highlights
+mapper("n", "<F9>", ":noh<CR>")
+
 -- Compiler C++
 vim.api.nvim_command("autocmd filetype cpp nnoremap <f5> :w <bar> !g++ % <cr>")
 -- Compiler C

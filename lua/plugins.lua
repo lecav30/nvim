@@ -131,6 +131,19 @@ require("lazy").setup({
 	"alvan/vim-closetag", -- Close
 	"AndrewRadev/tagalong.vim", -- Rename
 	---------------------------------------------------------------------------------
+	-------------------------------- VimFeatures ------------------------------------
+	---------------------------------------------------------------------------------
+	"windwp/nvim-autopairs", -- Autopairs
+	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" }, -- Fold
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	},
+	---------------------------------------------------------------------------------
 	---------------------------------- Extras ---------------------------------------
 	---------------------------------------------------------------------------------
 	{
@@ -143,6 +156,6 @@ require("lazy").setup({
 	}, -- Which key
 	"lervag/vimtex", -- Latex
 	"github/copilot.vim", -- Github copilot
-	"windwp/nvim-autopairs", -- Autopairs
-	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" }, -- Fold
+	"norcalli/nvim-colorizer.lua", -- Colorizer
+	"RRethy/vim-illuminate", -- Highlight word under cursor
 })
