@@ -14,3 +14,9 @@ require("noice").setup({
 		lsp_doc_border = false, -- add a border to hover docs and signature help
 	},
 })
+
+require("notify").setup({
+  -- Posición de las notificaciones
+  render = "wrapped-compact", -- "default" "minimal" "simple" "wrapped-compact"
+  top_down = false,
+})
