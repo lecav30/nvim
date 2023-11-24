@@ -154,7 +154,6 @@ require("lazy").setup({
 			require("which-key").setup({})
 		end,
 	}, -- Which key
-	"lervag/vimtex", -- Latex
 	"github/copilot.vim", -- Github copilot
 	"norcalli/nvim-colorizer.lua", -- Colorizer
 	"RRethy/vim-illuminate", -- Highlight word under cursor
