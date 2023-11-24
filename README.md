@@ -8,6 +8,8 @@
 
 `pip install autopep8`
 
+Or just use Mason
+
 ## NPM (NodeJS):
 
 - Angular Language Server
@@ -24,13 +26,15 @@
 
 `npm install -g intelephense @volar/vue-language-server tailwindcss @angular/language-server emmet-ls prettier pyright typescript typescript-language-server vscode-langservers-extracted anguageserver`
 
+Or just use Mason
+
 ## Cargo (Rust):
 
 - Stylua
 
-`cargon install stylua`
+`cargo install stylua`
 
 ## Programs for TreeSitter:
 
-- Visual Studio Build Tools
-- Clang (LLVM) 
+- Option 1: Visual Studio Build Tools: Clang | MSBuildTools && Tools for development with C++
+- Option 2: Clang (LLVM) && MinGW
