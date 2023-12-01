@@ -16,12 +16,12 @@ require("mason-lspconfig").setup({
 		"emmet_ls",
 		"tsserver",
 		"tailwindcss",
-		"pyright",
-		"clangd",
 		"volar",
 		"angularls",
 		"astro",
 		"diagnosticls",
+		-- "pyright",
+		-- "clangd",
 	},
 })
 
@@ -46,11 +46,11 @@ local servers = {
 	"tsserver",
 	"eslint", -- https://github.com/hrsh7th/vscode-langservers-extracted
 	"tailwindcss",
-	"pyright",
 	"volar",
 	"angularls",
 	"astro",
 	"diagnosticls",
+	-- "pyright",
 }
 
 for _, lsp in ipairs(servers) do
@@ -104,10 +104,10 @@ end
 
 capabilities.offsetEncoding = { "utf-16" }
 
-nvim_lsp.clangd.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
+-- nvim_lsp.clangd.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- })
 
 vim.o.updatetime = 250
 vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])

@@ -156,5 +156,5 @@ require("lazy").setup({
 	}, -- Which key
 	"github/copilot.vim", -- Github copilot
 	"norcalli/nvim-colorizer.lua", -- Colorizer
-	"RRethy/vim-illuminate", -- Highlight word under cursor
+	-- "RRethy/vim-illuminate", -- Highlight word under cursor
 })
