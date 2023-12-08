@@ -16,12 +16,12 @@ require("mason-lspconfig").setup({
 		"emmet_ls",
 		"tsserver",
 		"tailwindcss",
-		"pyright",
-		"clangd",
-		"volar",
-		"angularls",
-		"astro",
 		"diagnosticls",
+		"astro",
+		-- "clangd",
+		-- "pyright",
+		-- "angularls",
+		-- "volar",
 	},
 })
 
@@ -46,11 +46,11 @@ local servers = {
 	"tsserver",
 	"eslint", -- https://github.com/hrsh7th/vscode-langservers-extracted
 	"tailwindcss",
-	"pyright",
-	"volar",
-	"angularls",
 	"astro",
 	"diagnosticls",
+	-- "volar",
+	-- "pyright",
+	-- "angularls",
 }
 
 for _, lsp in ipairs(servers) do
