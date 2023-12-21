@@ -16,7 +16,7 @@ require("noice").setup({
 })
 
 require("notify").setup({
-  -- Posición de las notificaciones
-  render = "wrapped-compact", -- "default" "minimal" "simple" "wrapped-compact"
-  top_down = false,
+	-- Posición de las notificaciones
+	render = "wrapped-compact", -- "default" "minimal" "simple" "wrapped-compact"
+	top_down = false,
 })

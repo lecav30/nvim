@@ -1,6 +1,6 @@
 -- Reference:
 -- https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#center-a-floating-nvim-tree-window
---
+
 local function my_on_attach(bufnr)
 	local api = require("nvim-tree.api")
 
@@ -10,7 +10,6 @@ local function my_on_attach(bufnr)
 
 	-- default mappings
 	api.config.mappings.default_on_attach(bufnr)
-
 	-- remove mappings
 	vim.keymap.del("n", "<C-e>", { buffer = bufnr })
 	vim.keymap.del("n", "<Tab>", { buffer = bufnr })
@@ -22,10 +21,6 @@ local WIDTH_RATIO = 0.5
 require("nvim-tree").setup({
 	hijack_cursor = true,
 	sort_by = "case_sensitive",
-	-- view = {
-	-- 	adaptive_size = true,
-	-- 	side = "left",
-	-- },
 	view = {
 		float = {
 			enable = true,
@@ -55,6 +50,7 @@ require("nvim-tree").setup({
 	renderer = {
 		indent_markers = {
 			enable = true,
+			inline_arrows = true,
 		},
 	},
 	filters = {
@@ -62,6 +58,9 @@ require("nvim-tree").setup({
 	},
 	diagnostics = {
 		enable = true,
+	},
+	actions = {
+		use_system_clipboard = true,
 	},
 	on_attach = my_on_attach,
 })

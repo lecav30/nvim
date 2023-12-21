@@ -26,6 +26,7 @@ mapper("t", "<Esc>", "<C-\\><C-n>")
 -- Move
 mapper("x", "K", ":move '<-2<CR>gv-gv")
 mapper("x", "J", ":move '>+1<CR>gv-gv")
+mapper("i", "<C-BS>", "<Esc>caw")
 
 -- Clear highlights
 mapper("n", "<F9>", ":noh<CR>")
