@@ -6,8 +6,6 @@ wk.register({
 			name = "+buffer",
 			l = { "<cmd>Telescope buffers<cr>", "Buffers" },
 			d = { "<cmd>bdelete<cr>", "Delete Buffer" },
-			s = { "<cmd>split<cr>", "Split Buffer" },
-			v = { "<cmd>vsplit<cr>", "VSplit Buffer" },
 		},
 		c = {
 			name = "+code",

@@ -35,22 +35,10 @@ require("telescope").setup({
 	scroll_strategy = "cycle",
 	sorting_strategy = "ascending",
 	file_ignore_patterns = ignore_these,
-	layout_config = {
-		prompt_position = "top",
-		horizontal = {
-			mirror = true,
-			preview_cutoff = 100,
-			preview_width = 0.5,
+	pickers = {
+		find_files = {
+			theme = "dropdown",
 		},
-		vertical = {
-			mirror = true,
-			preview_cutoff = 0.4,
-		},
-		flex = {
-			flip_columns = 110,
-		},
-		height = 0.94,
-		width = 0.86,
 	},
 })
 
