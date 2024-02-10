@@ -4,8 +4,11 @@
 
 ## NPM (NodeJS):
 
-`sudo pacman -S nodejs npm`
-
 ## Programs for TreeSitter:
 
-- Clang (LLVM) `sudo pacman -S clang`
+- Clang (LLVM) *It's installed by default*
+
+## NullLS
+
+- Stylua `brew install stylua`
+
