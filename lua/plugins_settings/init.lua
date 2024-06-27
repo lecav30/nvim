@@ -1,4 +1,3 @@
-require("plugins_settings.impatient")
 require("plugins_settings.treesitter")
 require("plugins_settings.cmp")
 require("plugins_settings.devicons")

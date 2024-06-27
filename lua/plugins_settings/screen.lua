@@ -25,15 +25,16 @@ math.randomseed(os.time()) -- For random header.
 -- └──────────────────────────────────────────────────────────┘
 
 Header = {
-	"          ▀████▀▄▄              ▄█ ",
-	"            █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ ",
-	"    ▄        █          ▀▀▀▀▄  ▄▀  ",
-	"   ▄▀ ▀▄      ▀▄              ▀▄▀  ",
-	"  ▄▀    █     █▀   ▄█▀▄      ▄█    ",
-	"  ▀▄     ▀▄  █     ▀██▀     ██▄█   ",
-	"   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ",
-	"    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ",
-	"   █   █  █      ▄▄           ▄▀   ",
+	[[                                                                     ]],
+	[[       ███████████           █████      ██                     ]],
+	[[      ███████████             █████                             ]],
+	[[      ████████████████ ███████████ ███   ███████     ]],
+	[[     ████████████████ ████████████ █████ ██████████████   ]],
+	[[    █████████████████████████████ █████ █████ ████ █████   ]],
+	[[  ██████████████████████████████████ █████ █████ ████ █████  ]],
+	[[ ██████  ███ █████████████████ ████ █████ █████ ████ ██████ ]],
+	[[ ██████   ██  ███████████████   ██ █████████████████ ]],
+	[[ ██████   ██  ███████████████   ██ █████████████████ ]],
 }
 
 Headers = {
@@ -126,12 +127,12 @@ Headers = {
 dashboard.section.header.val = Header
 
 dashboard.section.buttons.val = {
-	dashboard.button("e", "  > New file", ":ene <CR>"),
-	dashboard.button("f", "  > Find file", ":Telescope find_files<CR>"), -- ea6d
-	dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
-	dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
-	dashboard.button("u", "  > Update", ":Lazy update<CR>"),
-	dashboard.button("q", "󰗼  > Quit NVIM", ":qa<CR>"), -- f05fc
+	dashboard.button("e", " New file", ":ene <CR>"),
+	dashboard.button("f", " Find file", ":Telescope find_files<CR>"), -- ea6d
+	dashboard.button("r", " Recent", ":Telescope oldfiles<CR>"),
+	dashboard.button("s", " Settings", ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
+	dashboard.button("u", " Update", ":Lazy update<CR>"),
+	dashboard.button("q", "󰗼 Quit NVIM", ":qa<CR>"), -- f05fc
 }
 
 local function footer()

@@ -1,5 +1,6 @@
 local o = vim.o
 o.termguicolors = true
+vim.loader.enable()
 
 if vim.g.vscode then
 	require("keymappings")
@@ -16,8 +17,10 @@ else
 	o.background = "dark"
 
 	-- Themes and configs
-	--   vim.g.neosolarized_italic = 1
-  cmd("colorscheme catppuccin-mocha")
+	  vim.g.neosolarized_italic = 1
+  -- cmd("colorscheme NeoSolarized")
+  -- cmd("colorscheme catppuccin-mocha")
+  cmd("colorscheme moonfly")
 end
 
 -- Mapping helper

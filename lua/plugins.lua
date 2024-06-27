@@ -9,18 +9,22 @@ if not vim.loop.fs_stat(lazypath) then
 		lazypath,
 	})
 end
-vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 -- Set leader key to space
 vim.g.mapleader = " "
 
 require("lazy").setup({
-	"lewis6991/impatient.nvim", -- Better time loading lua modules
+	checker = { enabled = true }, -- automatically check for plugin updates
+
+	-- Not required as of Neovim 0.9.0
+	-- "lewis6991/impatient.nvim", -- Better time loading lua modules
+
 	---------------------------------------------------------------------------------
 	----------------------------------- Themes --------------------------------------
 	---------------------------------------------------------------------------------
-	"bluz71/vim-moonfly-colors", -- Moonfly theme
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- catppuccin theme
+	{ "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 }, -- Moonfly theme
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- Catppuccin theme
 	"overcache/NeoSolarized", -- NeoSolarized theme
 	-- "shaunsingh/nord.nvim", -- Nord theme
 	-- "luisiacc/gruvbox-baby", -- Gruvbox baby theme
@@ -34,8 +38,12 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
+		opts_extend = { "ensure_installed" },
 		dependencies = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
+			"windwp/nvim-ts-autotag",
+			"nvim-treesitter/nvim-treesitter-textobjects",
 		}, -- Comments for tsx and jsx
 	}, -- Treesitter (Highlighting)
 	"nvim-tree/nvim-web-devicons", -- Icons for nerd fonts
@@ -44,7 +52,7 @@ require("lazy").setup({
 	---------------------------------------------------------------------------------
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.5",
+		tag = "0.1.8",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
@@ -57,7 +65,7 @@ require("lazy").setup({
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
-			-- "3rd/image.nvim",
+			-- "3rd/image.nvim"
 		},
 	}, -- Better Tree
 	-- {
@@ -118,7 +126,7 @@ require("lazy").setup({
 	{
 		"willothy/nvim-cokeline",
 		dependencies = {
-			"nvim-lua/plenary.nvim", -- Required for v0.4.0+
+			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- If you want devicons
 		},
 		config = true,
@@ -130,9 +138,7 @@ require("lazy").setup({
 	-- "Bekaboo/dropbar.nvim", -- BreadCrumb ONLY WORKING in Neovim Nightly
 	{
 		"numToStr/Comment.nvim",
-		opts = {
-			-- add any options here
-		},
+		opts = {},
 		lazy = false,
 	}, -- Better comments for neovim
 	---------------------------------------------------------------------------------
