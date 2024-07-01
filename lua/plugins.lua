@@ -118,11 +118,10 @@ require("lazy").setup({
 	----------------------------------- Screen --------------------------------------
 	---------------------------------------------------------------------------------
 	{
-		"goolord/alpha-nvim",
-		config = function()
-			require("alpha").setup(require("alpha.themes.dashboard").opts)
-		end,
-	}, -- Start
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	}, -- Screen start
 	{
 		"willothy/nvim-cokeline",
 		dependencies = {
