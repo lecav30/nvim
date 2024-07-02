@@ -11,6 +11,7 @@ wk.register({
 			name = "+code",
 			a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
 			d = { "<cmd>Lspsaga show_line_diagnostics<CR>", "Code Diagnostics" },
+      e = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 			f = { "<cmd>lua vim.lsp.buf.format({ timeout_ms = 2000 })<cr>", "Format Code" },
 			l = { "Comment Line" },
 			b = { "Comment Block" },

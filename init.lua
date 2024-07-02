@@ -18,9 +18,7 @@ else
 
 	-- Themes and configs
 	  vim.g.neosolarized_italic = 1
-  -- cmd("colorscheme NeoSolarized")
-  -- cmd("colorscheme catppuccin-mocha")
-  cmd("colorscheme moonfly")
+  cmd("colorscheme tokyonight-night")
 end
 
 -- Mapping helper

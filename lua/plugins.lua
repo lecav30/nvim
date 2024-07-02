@@ -26,8 +26,14 @@ require("lazy").setup({
 	{ "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 }, -- Moonfly theme
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 }, -- Catppuccin theme
 	"overcache/NeoSolarized", -- NeoSolarized theme
-	-- "shaunsingh/nord.nvim", -- Nord theme
-	-- "luisiacc/gruvbox-baby", -- Gruvbox baby theme
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	}, -- Tokyonight theme
+	"shaunsingh/nord.nvim", -- Nord theme
+	"luisiacc/gruvbox-baby", -- Gruvbox baby theme
 	-- "sainnhe/sonokai", -- Sonokai theme
 	-- "jacoborus/tender.vim", -- Tender theme
 	---------------------------------------------------------------------------------
