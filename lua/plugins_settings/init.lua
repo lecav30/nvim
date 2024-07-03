@@ -1,6 +1,7 @@
 require("plugins_settings.treesitter")
 require("plugins_settings.cmp")
-require("plugins_settings.devicons")
+-- require("plugins_settings.devicons")
+require("plugins_settings.mini-icons")
 require("plugins_settings.which-key")
 require("plugins_settings.ufo")
 require("plugins_settings.dashboard")
