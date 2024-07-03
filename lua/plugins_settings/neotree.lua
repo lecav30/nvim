@@ -3,9 +3,34 @@ require("neo-tree").setup({
 	popup_border_style = "rounded",
 	open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
 	sort_case_insensitive = true,
+	source_selector = {
+		winbar = true,
+	},
+	sources = {
+		"filesystem",
+		"buffers",
+		"git_status",
+		"document_symbols",
+	},
 	default_component_configs = {
 		container = {
 			enable_character_fade = true,
+		},
+		event_handlers = {
+			{
+				event = "file_opened",
+				handler = function()
+					require("neo-tree.command").execute({ action = "close" })
+				end,
+			},
+		},
+		diagnostics = {
+			symbols = {
+				hint = "",
+				info = "",
+				warn = "",
+				error = "",
+			},
 		},
 		icon = {
 			folder_closed = "",
