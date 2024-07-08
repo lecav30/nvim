@@ -17,8 +17,8 @@ else
 	o.background = "dark"
 
 	-- Themes and configs
-	  vim.g.neosolarized_italic = 1
-  cmd("colorscheme tokyonight-night")
+	--  vim.g.neosolarized_italic = 1
+  -- cmd("colorscheme nord")
 end
 
 -- Mapping helper

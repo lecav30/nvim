@@ -17,6 +17,10 @@ mapper("n", "<S-Tab>", ":bprevious<Return>")
 -- Delete buffers
 mapper("n", "<Leader>bd", ":bdelete<CR>")
 
+-- Split window
+mapper("n", "ss", ":split<Return>")
+mapper("n", "sv", ":vsplit<Return>")
+
 -- Select All
 mapper("n", "<C-a>", "gg<S-v>G")
 

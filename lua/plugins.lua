@@ -16,10 +16,6 @@ vim.g.mapleader = " "
 
 require("lazy").setup({
 	checker = { enabled = true }, -- automatically check for plugin updates
-
-	-- Not required as of Neovim 0.9.0
-	-- "lewis6991/impatient.nvim", -- Better time loading lua modules
-
 	---------------------------------------------------------------------------------
 	----------------------------------- Themes --------------------------------------
 	---------------------------------------------------------------------------------
@@ -33,13 +29,10 @@ require("lazy").setup({
 		opts = {},
 	}, -- Tokyonight theme
 	"shaunsingh/nord.nvim", -- Nord theme
-	"luisiacc/gruvbox-baby", -- Gruvbox baby theme
-	-- "sainnhe/sonokai", -- Sonokai theme
-	-- "jacoborus/tender.vim", -- Tender theme
 	---------------------------------------------------------------------------------
-	----------------------------- Indent, color, icons ------------------------------
+	--------------------------------- Indent, color ---------------------------------
 	---------------------------------------------------------------------------------
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- Indentation guides
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl" }, -- Indentation guides
 	"p00f/nvim-ts-rainbow", -- Rainbow brackets
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -51,24 +44,29 @@ require("lazy").setup({
 			"windwp/nvim-ts-autotag",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		}, -- Comments for tsx and jsx
-	}, -- Treesitter (Highlighting)
-	-- "nvim-tree/nvim-web-devicons", -- Icons for nerd fonts
-	{
-		"echasnovski/mini.icons",
-		opts = {},
-		lazy = true,
-		specs = {
-			{ "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
-		},
-		init = function()
-			package.preload["nvim-web-devicons"] = function()
-				-- needed since it will be false when loading and mini will fail
-				package.loaded["nvim-web-devicons"] = {}
-				require("mini.icons").mock_nvim_web_devicons()
-				return package.loaded["nvim-web-devicons"]
-			end
-		end,
-	},
+	}, -- Treesitter (Highlighting) [LSPSaga]
+	-- {
+	-- 	"echasnovski/mini.icons",
+	-- 	opts = {},
+	-- 	lazy = true,
+	-- 	specs = {
+	-- 		{ "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
+	-- 	},
+	-- 	init = function()
+	-- 		package.preload["nvim-web-devicons"] = function()
+	-- 			-- needed since it will be false when loading and mini will fail
+	-- 			package.loaded["nvim-web-devicons"] = {}
+	-- 			require("mini.icons").mock_nvim_web_devicons()
+	-- 			return package.loaded["nvim-web-devicons"]
+	-- 		end
+	-- 	end,
+	-- },
+	---------------------------------------------------------------------------------
+	-------------------------------- Dependencies -----------------------------------
+	---------------------------------------------------------------------------------
+	"nvim-lua/plenary.nvim", -- [Telescope, NullLS, Cokeline]
+	"MunifTanjim/nui.nvim", -- UI Component Library for Neovim.
+	"nvim-tree/nvim-web-devicons", -- Icons for nerd fonts [Telescope, Dashboard, Cokeline, Lualine]
 	---------------------------------------------------------------------------------
 	------------------------------- File explorer -----------------------------------
 	---------------------------------------------------------------------------------
@@ -76,20 +74,17 @@ require("lazy").setup({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
 		dependencies = {
-			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-file-browser.nvim", -- File browser
 		},
-		name = "telescope",
-	}, -- Telescope
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-			-- "3rd/image.nvim"
-		},
-	}, -- Better Tree
+	}, -- Telescope [Gitignore]
+	-- {
+	-- 	"nvim-neo-tree/neo-tree.nvim",
+	-- 	branch = "v3.x",
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		-- "3rd/image.nvim"
+	-- 	},
+	-- }, -- Better Tree
 	---------------------------------------------------------------------------------
 	------------------------------ LSP / CMP Snippets -------------------------------
 	---------------------------------------------------------------------------------
@@ -105,14 +100,8 @@ require("lazy").setup({
 	---------------------------------------------------------------------------------
 	---------------------------- Better performance LSP -----------------------------
 	---------------------------------------------------------------------------------
-	"onsails/lspkind.nvim", -- Icons
-	{
-		"nvimdev/lspsaga.nvim",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter", -- optional
-			"nvim-tree/nvim-web-devicons", -- optional
-		},
-	}, -- UI
+	"onsails/lspkind.nvim", -- Icons for LSP
+	"nvimdev/lspsaga.nvim", -- UI
 	---------------------------------------------------------------------------------
 	----------------------------------- Mason ---------------------------------------
 	---------------------------------------------------------------------------------
@@ -121,42 +110,30 @@ require("lazy").setup({
 	---------------------------------------------------------------------------------
 	----------------------------------- Null-LS -------------------------------------
 	---------------------------------------------------------------------------------
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
+	"jose-elias-alvarez/null-ls.nvim",
 	---------------------------------------------------------------------------------
 	------------------------------------ Git ----------------------------------------
 	---------------------------------------------------------------------------------
 	"lewis6991/gitsigns.nvim", -- Git signs
-	{
-		"wintermute-cell/gitignore.nvim", -- Gitignore
-		dependencies = { "nvim-telescope/telescope.nvim" }, -- optional: for multi-select
-	},
+	"wintermute-cell/gitignore.nvim", -- Gitignore
 	---------------------------------------------------------------------------------
 	----------------------------------- Screen --------------------------------------
 	---------------------------------------------------------------------------------
 	{
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
 	}, -- Screen start
 	{
 		"willothy/nvim-cokeline",
 		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- If you want devicons
+			"stevearc/resession.nvim",
 		},
 		config = true,
-	}, -- Bufferline
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	}, -- Lualine
+	},
+	"nvim-lualine/lualine.nvim", -- Statusline
 	-- "Bekaboo/dropbar.nvim", -- BreadCrumb ONLY WORKING in Neovim Nightly
 	{
 		"numToStr/Comment.nvim",
-		opts = {},
 		lazy = false,
 	}, -- Better comments for neovim
 	---------------------------------------------------------------------------------
@@ -173,7 +150,6 @@ require("lazy").setup({
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		dependencies = {
-			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
 		},
 	},
@@ -185,7 +161,6 @@ require("lazy").setup({
 		config = function()
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
-			require("which-key").setup({})
 		end,
 	}, -- Which key
 	"lervag/vimtex", -- Latex

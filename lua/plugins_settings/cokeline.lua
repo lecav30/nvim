@@ -94,6 +94,30 @@ local components = {
 		delete_buffer_on_left_click = true,
 		truncation = { priority = 1 },
 	},
+
+	begin_section_separator = {
+		text = "",
+		fg = function(buffer)
+			return buffer.is_focused and get_hex("Normal", "fg") or get_hex("ColorColumn", "bg")
+		end,
+		bg = function(buffer)
+			return buffer.is_focused and get_hex("ColorColumn", "fg") or get_hex("Normal", "bg")
+		end,
+		style = "bold",
+		truncation = { priority = 1 },
+	},
+
+	end_section_separator = {
+		text = "",
+		fg = function(buffer)
+			return buffer.is_focused and get_hex("Normal", "fg") or get_hex("ColorColumn", "bg")
+		end,
+		bg = function(buffer)
+			return buffer.is_focused and get_hex("ColorColumn", "fg") or get_hex("Normal", "bg")
+		end,
+		style = "bold",
+		truncation = { priority = 1 },
+	},
 }
 
 require("cokeline").setup({
@@ -118,6 +142,7 @@ require("cokeline").setup({
 	},
 
 	components = {
+		components.begin_section_separator,
 		components.space,
 		components.devicon,
 		components.space,
@@ -128,5 +153,6 @@ require("cokeline").setup({
 		components.two_spaces,
 		components.close_or_unsaved,
 		components.space,
+		components.end_section_separator,
 	},
 })
