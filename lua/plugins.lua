@@ -26,7 +26,6 @@ require("lazy").setup({
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
-		opts = {},
 	}, -- Tokyonight theme
 	"shaunsingh/nord.nvim", -- Nord theme
 	---------------------------------------------------------------------------------
@@ -162,6 +161,16 @@ require("lazy").setup({
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
 		end,
+		event = "VeryLazy",
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
 	}, -- Which key
 	"lervag/vimtex", -- Latex
 	"github/copilot.vim", -- Github copilot

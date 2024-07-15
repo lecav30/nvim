@@ -18,7 +18,7 @@ else
 
 	-- Themes and configs
 	--  vim.g.neosolarized_italic = 1
-  -- cmd("colorscheme nord")
+  cmd("colorscheme nord")
 end
 
 -- Mapping helper
