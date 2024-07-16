@@ -3,19 +3,9 @@ local mapper = function(mode, key, result)
 	vim.api.nvim_set_keymap(mode, key, result, { noremap = true, silent = true })
 end
 
--- Save and Close
-mapper("n", "<Leader>ww", ":w<CR>")
-mapper("n", "<Leader>wa", ":wa<CR>")
-mapper("n", "<Leader>wq", ":wq!<CR>")
-mapper("n", "<Leader>qq", ":q!<CR>")
-mapper("n", "<Leader>qa", ":qa!<CR>")
-
 -- Change Buffers
 mapper("n", "<Tab>", ":bnext<CR>")
 mapper("n", "<S-Tab>", ":bprevious<Return>")
-
--- Delete buffers
-mapper("n", "<Leader>bd", ":bdelete<CR>")
 
 -- Split window
 mapper("n", "ss", ":split<Return>")
