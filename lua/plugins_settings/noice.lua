@@ -13,6 +13,18 @@ require("noice").setup({
 		inc_rename = false, -- enables an input dialog for inc-rename.nvim
 		lsp_doc_border = false, -- add a border to hover docs and signature help
 	},
+	-- filters
+	routes = {
+		{
+			-- avoid annoying message
+			filter = {
+				event = "notify",
+				find = "No information available",
+			},
+			opts = { skip = true },
+		},
+	},
+	top_down = false,
 })
 
 require("notify").setup({
