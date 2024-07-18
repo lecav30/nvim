@@ -124,13 +124,13 @@ require("lazy").setup({
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
 	}, -- Screen start
-	{
+	--[[ {
 		"willothy/nvim-cokeline",
 		dependencies = {
 			"stevearc/resession.nvim",
 		},
 		config = true,
-	},
+	}, -- Buufer line ]]
 	"nvim-lualine/lualine.nvim", -- Statusline
 	-- "Bekaboo/dropbar.nvim", -- BreadCrumb ONLY WORKING in Neovim Nightly
 	{
