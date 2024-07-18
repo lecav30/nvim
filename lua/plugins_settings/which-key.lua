@@ -6,6 +6,11 @@ wk.setup({
 })
 
 wk.add({
+	{
+		"<leader><leader>",
+		"<CMD>lua require 'telescope'.extensions.find_pickers.find_pickers()<CR>",
+		desc = "Find Pickers",
+	},
 	{ "<leader>b", group = "buffer" },
 	{ "<leader>bl ", "<cmd>Telescope buffers<cr>", desc = "List Buffers" },
 	{ "<leader>bd", "<cmd>bdelete<cr>", desc = "Delete Buffer" },
@@ -56,4 +61,5 @@ wk.add({
 	{ "<leader>ve", "<cmd>VimtexErrors<cr>", desc = "Errors" },
 	{ "<leader>vs", "<cmd>VimtexStatus<cr>", desc = "Status" },
 	{ "<leader>vt", "<cmd>VimtexStop<cr>", desc = "Stop" },
+	{ "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" },
 })

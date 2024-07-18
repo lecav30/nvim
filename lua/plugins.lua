@@ -63,8 +63,8 @@ require("lazy").setup({
 	---------------------------------------------------------------------------------
 	-------------------------------- Dependencies -----------------------------------
 	---------------------------------------------------------------------------------
-	"nvim-lua/plenary.nvim", -- [Telescope, NullLS, Cokeline]
-	"MunifTanjim/nui.nvim", -- UI Component Library for Neovim.
+	"nvim-lua/plenary.nvim", -- [Telescope, NullLS, Cokeline, Hardtime]
+	"MunifTanjim/nui.nvim", -- UI Component Library for Neovim. [Hardtime]
 	"nvim-tree/nvim-web-devicons", -- Icons for nerd fonts [Telescope, Dashboard, Cokeline, Lualine]
 	---------------------------------------------------------------------------------
 	------------------------------- File explorer -----------------------------------
@@ -75,7 +75,7 @@ require("lazy").setup({
 		dependencies = {
 			"nvim-telescope/telescope-file-browser.nvim", -- File browser
 		},
-	}, -- Telescope [Gitignore]
+	}, -- Telescope [Gitignore, NeoClip]
 	-- {
 	-- 	"nvim-neo-tree/neo-tree.nvim",
 	-- 	branch = "v3.x",
@@ -88,11 +88,13 @@ require("lazy").setup({
 	------------------------------ LSP / CMP Snippets -------------------------------
 	---------------------------------------------------------------------------------
 	"neovim/nvim-lspconfig",
+	"keyvchan/telescope-find-pickers.nvim", -- Telescope picker
+	"hrsh7th/nvim-cmp", -- Completion engine
 	"hrsh7th/cmp-nvim-lsp", -- Snippets LSP
 	"hrsh7th/cmp-buffer", -- Buffer Snippets
 	"hrsh7th/cmp-path", -- Path Snippets
 	"hrsh7th/cmp-cmdline", -- Cmdline Snippets
-	"hrsh7th/nvim-cmp", -- Completion engine
+	"hrsh7th/cmp-vsnip", -- Nvim-cmp  for vim-vsnip
 	"L3MON4D3/LuaSnip", -- Snippets
 	"saadparwaiz1/cmp_luasnip", -- Snippets with cmp
 	"rafamadriz/friendly-snippets", -- Friendly snippets
@@ -177,4 +179,19 @@ require("lazy").setup({
 	"norcalli/nvim-colorizer.lua", -- Colorizer
 	"RRethy/vim-illuminate", -- Highlight word under cursor
 	"eandrju/cellular-automaton.nvim", -- This is just fun
+	{
+		"AckslD/nvim-neoclip.lua",
+		dependencies = { "kkharji/sqlite.lua", module = "sqlite" },
+	}, -- Clipboard
+	"m4xshen/hardtime.nvim", -- Quit bad habits
+	---------------------------------------------------------------------------------
+	---------------------------------- Smooth----------------------------------------
+	---------------------------------------------------------------------------------
+	"nacro90/numb.nvim", -- Peek lines
+	"gen740/SmoothCursor.nvim", -- Smooth cursor
+	---------------------------------------------------------------------------------
+	------------------------------------ Zen ----------------------------------------
+	---------------------------------------------------------------------------------
+	"folke/zen-mode.nvim", -- Zen mode
+	"folke/twilight.nvim", -- Twilight
 })

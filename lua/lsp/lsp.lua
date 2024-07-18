@@ -19,7 +19,6 @@ require("mason-lspconfig").setup({
 		"diagnosticls",
 		-- "astro",
 		-- "clangd",
-		-- "pyright",
 		-- "angularls",
 		-- "volar",
 	},
@@ -47,9 +46,11 @@ local servers = {
 	"eslint", -- https://github.com/hrsh7th/vscode-langservers-extracted
 	"tailwindcss",
 	"diagnosticls",
+	"pyright",
+	"python-lsp-server",
+	"pylint",
 	-- "astro",
 	-- "volar",
-	-- "pyright",
 	-- "angularls",
 }
 
