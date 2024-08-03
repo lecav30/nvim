@@ -108,6 +108,7 @@ Headers = {
 
 require("dashboard").setup({
 	theme = "hyper",
+	change_to_vcs_root = true,
 	config = {
 		-- week_header = { enable = true },
 		header = {
@@ -154,13 +155,6 @@ require("dashboard").setup({
 				action = "Telescope live_grep",
 				key = "g",
 			},
-			--[[ {
-				icon = " ",
-				icon_hl = "Boolean",
-				desc = "Settings ",
-				action = "e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd",
-				key = "s",
-      }, ]]
 			{
 				icon = "󰗼 ",
 				desc = "Quit ",
@@ -169,6 +163,8 @@ require("dashboard").setup({
 				key = "q",
 			},
 		},
+		project = { limit = 8 },
+		mru = { limit = 10, cwd_only = true },
 		hide = {
 			statusline = false,
 		},

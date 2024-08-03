@@ -22,13 +22,11 @@ wk.add({
 	{ "<leader>cl", desc = "Comment Line" },
 	{ "<leader>cb", desc = "Comment Block", mode = "v" },
 	{ "<leader>db", "<cmd>Lspsaga show_buf_diagnostics<cr>", desc = "Diagnostics" },
-	--[[
-  { "<leader>e", group = "explorer" },
+	{ "<leader>e", group = "explorer" },
 	{ "<leader>ee", "<cmd>Neotree float toggle reveal_force_cwd<cr>", desc = "File Explorer" },
 	{ "<leader>eb", "<cmd>Neotree float toggle buffers<cr>", desc = "Buffers" },
 	{ "<leader>es", "<cmd>Neotree float toggle git_status<cr>", desc = "Git Status" },
 	{ "<leader>ed", "<cmd>Neotree float toggle document_symbols<cr>", desc = "Document Symbolys" },
-  ]]
 	{ "<leader>o", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
 	{ "<leader>f", group = "find" },
 	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },

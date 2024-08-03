@@ -64,7 +64,7 @@ require("lazy").setup({
 	-------------------------------- Dependencies -----------------------------------
 	---------------------------------------------------------------------------------
 	"nvim-lua/plenary.nvim", -- [Telescope, NullLS, Cokeline, Hardtime]
-	"MunifTanjim/nui.nvim", -- UI Component Library for Neovim. [Hardtime]
+	"MunifTanjim/nui.nvim", -- UI Component Library for Neovim. [Hardtime, Neotree]
 	"nvim-tree/nvim-web-devicons", -- Icons for nerd fonts [Telescope, Dashboard, Cokeline, Lualine]
 	---------------------------------------------------------------------------------
 	------------------------------- File explorer -----------------------------------
@@ -76,14 +76,10 @@ require("lazy").setup({
 			"nvim-telescope/telescope-file-browser.nvim", -- File browser
 		},
 	}, -- Telescope [Gitignore, NeoClip]
-	-- {
-	-- 	"nvim-neo-tree/neo-tree.nvim",
-	-- 	branch = "v3.x",
-	-- 	dependencies = {
-	-- 		"MunifTanjim/nui.nvim",
-	-- 		-- "3rd/image.nvim"
-	-- 	},
-	-- }, -- Better Tree
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+	}, -- Better Tree
 	---------------------------------------------------------------------------------
 	------------------------------ LSP / CMP Snippets -------------------------------
 	---------------------------------------------------------------------------------

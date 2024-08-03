@@ -40,7 +40,6 @@ null_ls.setup({
 		null_ls.builtins.formatting.autopep8, -- Python
 		null_ls.builtins.formatting.stylua, -- Lua
 		null_ls.builtins.code_actions.gitsigns,
-		null_ls.builtins.code_actions.eslint, -- JavaScript, TypeScript
 		null_ls.builtins.diagnostics.pylint, -- Python
 	},
 	diagnostics_format = "[#{c}] #{m} (#{s})",

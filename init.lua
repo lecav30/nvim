@@ -2,6 +2,8 @@ local o = vim.o
 o.termguicolors = true
 vim.loader.enable()
 
+  -- set rtp+=/opt/homebrew/opt/fzf
+
 if vim.g.vscode then
 	require("keymappings")
 	require("settings")
