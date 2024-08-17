@@ -76,10 +76,14 @@ require("lazy").setup({
 			"nvim-telescope/telescope-file-browser.nvim", -- File browser
 		},
 	}, -- Telescope [Gitignore, NeoClip]
+	-- {
+	-- 	"nvim-neo-tree/neo-tree.nvim",
+	-- 	branch = "v3.x",
+	-- }, -- Better Tree
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-	}, -- Better Tree
+		"mikavilpas/yazi.nvim",
+		event = "VeryLazy",
+	}, -- File explorer
 	---------------------------------------------------------------------------------
 	------------------------------ LSP / CMP Snippets -------------------------------
 	---------------------------------------------------------------------------------

@@ -20,7 +20,7 @@ else
 
 	-- Themes and configs
 	--  vim.g.neosolarized_italic = 1
-  cmd("colorscheme nord")
+  cmd("colorscheme catppuccin-mocha")
 end
 
 -- Mapping helper
