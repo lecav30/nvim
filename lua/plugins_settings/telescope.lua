@@ -98,6 +98,7 @@ require("telescope").setup({
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("neoclip")
 require("telescope").load_extension("find_pickers")
+-- require("telescope").load_extension("dap")
 
 -- local builtin = function(mapping, picker, is_custom)
 -- 	local module = is_custom and "plugins_settings.telescope" or "telescope.builtin"

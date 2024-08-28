@@ -2,7 +2,7 @@ local o = vim.o
 o.termguicolors = true
 vim.loader.enable()
 
-  -- set rtp+=/opt/homebrew/opt/fzf
+-- set rtp+=/opt/homebrew/opt/fzf
 
 if vim.g.vscode then
 	require("keymappings")
@@ -20,7 +20,7 @@ else
 
 	-- Themes and configs
 	--  vim.g.neosolarized_italic = 1
-  cmd("colorscheme catppuccin-mocha")
+	cmd("colorscheme catppuccin-mocha")
 end
 
 -- Mapping helper

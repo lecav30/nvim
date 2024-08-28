@@ -64,7 +64,7 @@ require("lazy").setup({
 	-------------------------------- Dependencies -----------------------------------
 	---------------------------------------------------------------------------------
 	"nvim-lua/plenary.nvim", -- [Telescope, NullLS, Cokeline, Hardtime]
-	"MunifTanjim/nui.nvim", -- UI Component Library for Neovim. [Hardtime, Neotree]
+	"MunifTanjim/nui.nvim", -- UI Component Library for Neovim. [Hardtime, Neotree]plugin
 	"nvim-tree/nvim-web-devicons", -- Icons for nerd fonts [Telescope, Dashboard, Cokeline, Lualine]
 	---------------------------------------------------------------------------------
 	------------------------------- File explorer -----------------------------------
@@ -118,6 +118,15 @@ require("lazy").setup({
 	"lewis6991/gitsigns.nvim", -- Git signs
 	"wintermute-cell/gitignore.nvim", -- Gitignore
 	---------------------------------------------------------------------------------
+	----------------------------------- Debug ---------------------------------------
+	---------------------------------------------------------------------------------
+	"mfussenegger/nvim-dap", -- DAP
+	"theHamsta/nvim-dap-virtual-text", -- DAP Virtual Text
+	{ "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } }, -- DAP UI
+	"Pocco81/DAPInstall.nvim", -- DAPInstall
+	"jay-babu/mason-nvim-dap.nvim", -- Mason DAP
+	-- "mxsdev/nvim-dap-vscode-js", -- DAP VSCode JS [JavaScript, TypeScript]
+	---------------------------------------------------------------------------------
 	----------------------------------- Screen --------------------------------------
 	---------------------------------------------------------------------------------
 	{
@@ -153,7 +162,7 @@ require("lazy").setup({
 		dependencies = {
 			"rcarriga/nvim-notify",
 		},
-	},
+	}, -- Notifications
 	---------------------------------------------------------------------------------
 	---------------------------------- Extras ---------------------------------------
 	---------------------------------------------------------------------------------
@@ -183,7 +192,14 @@ require("lazy").setup({
 		"AckslD/nvim-neoclip.lua",
 		dependencies = { "kkharji/sqlite.lua", module = "sqlite" },
 	}, -- Clipboard
-	"m4xshen/hardtime.nvim", -- Quit bad habits
+	{
+		"jackMort/ChatGPT.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"folke/trouble.nvim",
+		},
+	}, -- ChatGPT
+	-- "m4xshen/hardtime.nvim", -- Quit bad habits
 	---------------------------------------------------------------------------------
 	---------------------------------- Smooth----------------------------------------
 	---------------------------------------------------------------------------------

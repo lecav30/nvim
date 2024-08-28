@@ -1,29 +1,3 @@
-require("mason").setup({
-	ui = {
-		icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗",
-		},
-	},
-	PATH = "prepend",
-})
-
-require("mason-lspconfig").setup({
-	ensure_installed = {
-		"cssls",
-		"html",
-		"emmet_ls",
-		"tsserver",
-		"tailwindcss",
-		"diagnosticls",
-		-- "astro",
-		-- "clangd",
-		-- "angularls",
-		-- "volar",
-	},
-})
-
 local nvim_lsp = require("lspconfig")
 
 local on_attach = function(client, bufnr)
@@ -47,8 +21,8 @@ local servers = {
 	"tailwindcss",
 	"diagnosticls",
 	"pyright",
-	"python-lsp-server",
-	"pylint",
+	-- "python-lsp-server",
+	-- "pylint",
 	-- "astro",
 	-- "volar",
 	-- "angularls",
