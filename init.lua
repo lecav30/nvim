@@ -2,18 +2,14 @@ local o = vim.o
 o.termguicolors = true
 vim.loader.enable()
 
--- set rtp+=/opt/homebrew/opt/fzf
-
 if vim.g.vscode then
-	require("keymappings")
-	require("settings")
+	require("core.settings")
+	require("core.keymaps")
 else
 	vim.g.mapleader = " "
-	require("plugins")
-	require("plugins_settings")
+	require("core")
 	require("lsp")
-	require("keymappings")
-	require("settings")
+	require("plugins_settings")
 
 	local cmd = vim.cmd
 	o.background = "dark"

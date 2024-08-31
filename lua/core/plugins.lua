@@ -123,9 +123,7 @@ require("lazy").setup({
 	"mfussenegger/nvim-dap", -- DAP
 	"theHamsta/nvim-dap-virtual-text", -- DAP Virtual Text
 	{ "rcarriga/nvim-dap-ui", dependencies = { "nvim-neotest/nvim-nio" } }, -- DAP UI
-	"Pocco81/DAPInstall.nvim", -- DAPInstall
 	"jay-babu/mason-nvim-dap.nvim", -- Mason DAP
-	-- "mxsdev/nvim-dap-vscode-js", -- DAP VSCode JS [JavaScript, TypeScript]
 	---------------------------------------------------------------------------------
 	----------------------------------- Screen --------------------------------------
 	---------------------------------------------------------------------------------
@@ -141,7 +139,6 @@ require("lazy").setup({
 		config = true,
 	}, -- Buufer line ]]
 	"nvim-lualine/lualine.nvim", -- Statusline
-	-- "Bekaboo/dropbar.nvim", -- BreadCrumb ONLY WORKING in Neovim Nightly
 	{
 		"numToStr/Comment.nvim",
 		lazy = false,
@@ -199,7 +196,6 @@ require("lazy").setup({
 			"folke/trouble.nvim",
 		},
 	}, -- ChatGPT
-	-- "m4xshen/hardtime.nvim", -- Quit bad habits
 	---------------------------------------------------------------------------------
 	---------------------------------- Smooth----------------------------------------
 	---------------------------------------------------------------------------------

@@ -9,6 +9,3 @@
 - Clang (LLVM) *It's installed by default*
 
 ## NullLS
-
-- Stylua `brew install stylua`
-
