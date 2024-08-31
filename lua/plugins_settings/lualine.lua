@@ -71,5 +71,5 @@ require("lualine").setup({
 		lualine_y = { "progress" },
 		lualine_z = { "os.date('%F')", "location" },
 	},
-	extensions = { "neo-tree", "mason", "lazy" }, -- nvim-tree
+	extensions = { "neo-tree", "mason", "lazy", "nvim-dap-ui" }, -- nvim-tree
 })
