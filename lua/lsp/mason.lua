@@ -13,10 +13,11 @@ require("mason-nvim-dap").setup()
 
 require("mason-lspconfig").setup({
 	ensure_installed = {
-		"cssls",
 		"html",
+		"cssls",
 		"emmet_ls",
 		"tsserver",
+    "eslint",
 		"tailwindcss",
 		"diagnosticls",
 		-- "astro",

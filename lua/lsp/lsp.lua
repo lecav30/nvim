@@ -13,14 +13,15 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local servers = {
-	"cssls",
 	"html",
+	"cssls",
 	"emmet_ls",
 	"tsserver",
-	"eslint", -- https://github.com/hrsh7th/vscode-langservers-extracted
+	"eslint",
 	"tailwindcss",
 	"diagnosticls",
-	"pyright",
+  "neocmake",
+	-- "pyright",
 	-- "python-lsp-server",
 	-- "pylint",
 	-- "astro",

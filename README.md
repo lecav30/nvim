@@ -1,11 +1,7 @@
 # Neovim Files of Sebastian Levano
 
-# Requeriments:
+## Requeriments:
 
-## NPM (NodeJS):
-
-## Programs for TreeSitter:
-
-- Clang (LLVM) *It's installed by default*
-
-## NullLS
+- ![Node (NPM)](https://formulae.brew.sh/formula/node)
+- ![Clang (LLVM)](https://formulae.brew.sh/formula/llvm)
+- ![Cargo (Rust) ](https://doc.rust-lang.org/cargo/getting-started/installation.html)
