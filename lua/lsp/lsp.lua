@@ -20,7 +20,7 @@ local servers = {
 	"eslint",
 	"tailwindcss",
 	"diagnosticls",
-  "neocmake",
+	"neocmake",
 	-- "pyright",
 	-- "python-lsp-server",
 	-- "pylint",
@@ -81,6 +81,9 @@ end
 capabilities.offsetEncoding = { "utf-16" }
 
 nvim_lsp.clangd.setup({
+  -- To recognize packages from vcpkg and cmake use the flag in cmake:
+  -- -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+	cmd = { "clangd", "--compile-commands-dir=./build" },
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
