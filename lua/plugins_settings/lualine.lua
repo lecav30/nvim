@@ -7,12 +7,12 @@ require("lualine").setup({
 		-- component_separators = { left = "", right = "" },
 		--
 		-- Circle
-		-- section_separators = { left = "", right = "" },
-		-- component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
+		component_separators = { left = "", right = "" },
 		--
 		-- Triangle
-		section_separators = { left = "", right = "" },
-		component_separators = { left = "", right = "" },
+		-- section_separators = { left = "", right = "" },
+		-- component_separators = { left = "", right = "" },
 		disabled_filetypese = { "packer" },
 		always_divide_middle = true,
 		symbols = {
@@ -34,8 +34,7 @@ require("lualine").setup({
 		lualine_a = { "mode" },
 		lualine_b = { "buffers" },
 		lualine_c = {},
-		lualine_x = {},
-		lualine_y = {
+		lualine_x = {
 			{
 				"diagnostics",
 				sources = { "nvim_diagnostic", "nvim_lsp" },
@@ -51,8 +50,7 @@ require("lualine").setup({
 			},
 			"require'lsp-status'.status()",
 		},
-		lualine_z = {
-			"branch",
+		lualine_y = {
 			{
 				"diff",
 				diff_color = {
@@ -61,6 +59,9 @@ require("lualine").setup({
 					removed = "DiffDelete",
 				},
 			},
+		},
+		lualine_z = {
+			"branch",
 		},
 	},
 	inactive_sections = {
