@@ -47,7 +47,13 @@ require("telescope").setup({
 			theme = "dropdown",
 		},
 		find_files = {
-			layout_config = { prompt_position = "top" },
+			layout_config = {
+				prompt_position = "top",
+				width = 0.70,
+				height = 0.90,
+			},
+			layout_strategy = "vertical",
+			theme = "dropdown",
 		},
 		diagnostics = {
 			theme = "ivy",
