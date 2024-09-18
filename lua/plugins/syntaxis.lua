@@ -37,5 +37,18 @@ return {
 	---------------------------------------------------------------------------------
 	"alvan/vim-closetag", -- Close
 	"AndrewRadev/tagalong.vim", -- Rename
-	"norcalli/nvim-colorizer.lua", -- Colorizer
+	{
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	}, -- Colorizer
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup()
+		end,
+	}, -- Surrounding delimiter pairs
 }
