@@ -28,13 +28,22 @@ return {
 	---------------------------------------------------------------------------------
 	------------------------------------ IA -----------------------------------------
 	---------------------------------------------------------------------------------
-	"github/copilot.vim", -- Github copilot
+	{
+		"supermaven-inc/supermaven-nvim",
+		config = function()
+			require("supermaven-nvim").setup({})
+		end,
+	}, -- Supermaven
+	{
+		"github/copilot.vim",
+		enabled = false, -- This is a paid plugin
+	}, -- Github copilot
 	{
 		"jackMort/ChatGPT.nvim",
 		event = "VeryLazy",
 		dependencies = {
 			"folke/trouble.nvim",
 		},
-		enabled = false,
+		enabled = false, -- This is a paid plugin (requires GPT KEY with credits)
 	}, -- ChatGPT
 }

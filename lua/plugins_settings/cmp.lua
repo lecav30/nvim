@@ -15,6 +15,10 @@ cmp.setup({
 		format = lspkind.cmp_format({
 			mode = "symbol_text",
 			maxwidth = 50,
+      -- lspkind-nvim with supermaven
+			symbol_map = {
+				Supermaven = "",
+			},
 			menu = {
 				buffer = "[Buffer]",
 				nvim_lsp = "[LSP]",
@@ -68,6 +72,7 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "vsnip" },
+		{ name = "supermaven" },
 	}),
 })
 
