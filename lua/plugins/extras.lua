@@ -25,6 +25,14 @@ return {
 		"AckslD/nvim-neoclip.lua",
 		dependencies = { "kkharji/sqlite.lua", module = "sqlite" },
 	}, -- Clipboard
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup()
+		end,
+	}, -- Surrounding delimiter pairs
 	---------------------------------------------------------------------------------
 	------------------------------------ IA -----------------------------------------
 	---------------------------------------------------------------------------------

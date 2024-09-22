@@ -31,9 +31,12 @@ return {
 	-- 		end
 	-- 	end,
 	-- },
+	---------------------------------------------------------------------------------
+	------------------------------------ Latex --------------------------------------
+	---------------------------------------------------------------------------------
 	"lervag/vimtex", -- Latex
 	---------------------------------------------------------------------------------
-	--------------------------------- HTML tag --------------------------------------
+	------------------------------------- HTML --------------------------------------
 	---------------------------------------------------------------------------------
 	"alvan/vim-closetag", -- Close
 	"AndrewRadev/tagalong.vim", -- Rename
@@ -43,12 +46,13 @@ return {
 			require("colorizer").setup()
 		end,
 	}, -- Colorizer
+	---------------------------------------------------------------------------------
+	----------------------------------- Markdown ------------------------------------
+	---------------------------------------------------------------------------------
 	{
-		"kylechui/nvim-surround",
-		version = "*",
-		event = "VeryLazy",
-		config = function()
-			require("nvim-surround").setup()
-		end,
-	}, -- Surrounding delimiter pairs
+		"MeanderingProgrammer/render-markdown.nvim",
+		opts = {},
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+	},
 }
