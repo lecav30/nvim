@@ -4,7 +4,7 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		null_ls.builtins.formatting.prettier.with({
-			extra_args = { "--single-quote", "--tab-width", "4", "--trailing-comma", "all" },
+			extra_args = { "--single-quote", "--tab-width", "2", "--trailing-comma", "all" },
 			filetypes = {
 				"javascript",
 				"typescript",
