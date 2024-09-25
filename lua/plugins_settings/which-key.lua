@@ -70,7 +70,7 @@ wk.add({
 	{ "<leader>gd", desc = "Go to Definition" },
 	{ "<leader>gD", desc = "Go to Declaration" },
 	{ "<leader>gi", desc = "Go to Implementation" },
-	{ "<leader>lg", "<cmd>Lazygit<cr>", desc = "LazyGit" },
+	{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
 	{ "<leader>k", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover Doc" },
 	{ "<leader>q", group = "quit" },
 	{ "<leader>qq", ":q!<CR>", desc = "Quit current file" },
