@@ -18,8 +18,3 @@ else
 	vim.g.neosolarized_italic = 1
 	cmd("colorscheme catppuccin-mocha")
 end
-
--- Mapping helper
--- local mapper = function(mode, key, result)
---   vim.api.nvim_set_keymap(mode, key, result, {noremap = true, silent = true})
--- end
