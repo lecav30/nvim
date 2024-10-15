@@ -3,12 +3,12 @@ require("lualine").setup({
 		icons_enabled = true,
 		theme = "auto",
 		-- Square
-		-- section_separators = { left = "", right = "" },
-		-- component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
+		component_separators = { left = "", right = "" },
 		--
 		-- Circle
-		section_separators = { left = "", right = "" },
-		component_separators = { left = "", right = "" },
+		-- section_separators = { left = "", right = "" },
+		-- component_separators = { left = "", right = "" },
 		--
 		-- Triangle
 		-- section_separators = { left = "", right = "" },
@@ -30,9 +30,14 @@ require("lualine").setup({
 		colored = true,
 		source = nil,
 	},
+	tabline = {
+		lualine_a = {
+			"buffers",
+		},
+	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "buffers" },
+		lualine_b = {},
 		lualine_c = {},
 		lualine_x = {
 			{
