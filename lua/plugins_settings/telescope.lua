@@ -55,6 +55,15 @@ require("telescope").setup({
 			layout_strategy = "vertical",
 			theme = "dropdown",
 		},
+		live_grep = {
+			layout_config = {
+				prompt_position = "top",
+				width = 0.70,
+				height = 0.90,
+			},
+			layout_strategy = "vertical",
+			theme = "dropdown",
+		},
 		diagnostics = {
 			theme = "ivy",
 			initial_mode = "normal",

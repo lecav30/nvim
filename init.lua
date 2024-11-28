@@ -12,9 +12,9 @@ else
 	require("plugins_settings")
 
 	local cmd = vim.cmd
-	o.background = "dark"
+	-- o.background = "dark"
 
 	-- Themes and configs
 	vim.g.neosolarized_italic = 1
-	cmd("colorscheme catppuccin-mocha")
+	cmd("colorscheme gruvbox")
 end

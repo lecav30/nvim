@@ -47,6 +47,8 @@ o.showmatch = true
 o.ruler = true
 o.showcmd = true
 o.encoding = "utf-8"
+o.fileencoding = "utf-8"
+o.fileencodings = "utf-8"
 
 -- Window options
 -- o.foldmethod = "manual" -- indentation folds

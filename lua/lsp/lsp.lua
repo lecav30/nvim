@@ -17,7 +17,7 @@ local servers = {
 	"cssls",
 	"emmet_ls",
 	"ts_ls",
-	"eslint",
+	-- "eslint",
 	"tailwindcss",
 	"diagnosticls",
 	"neocmake",
@@ -99,14 +99,20 @@ end
 nvim_lsp.clangd.setup({
 	-- To recognize packages from vcpkg and cmake use the flag in cmake:
 	-- -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-	-- cmd = { "clangd", "--compile-commands-dir=./build" }, -- For cmake
 	cmd = {
-		"clangd",
-		"--compile-commands-dir=" .. find_compile_commands_dir(),
+    "clangd",
+    "--compile-commands-dir=./build",
 		"--background-index",
 		"--clang-tidy",
 		"--log=verbose",
-	}, -- For sub directories
+  }, -- For cmake
+	-- cmd = {
+	-- 	"clangd",
+	-- 	"--compile-commands-dir=" .. find_compile_commands_dir(),
+	-- 	"--background-index",
+	-- 	"--clang-tidy",
+	-- 	"--log=verbose",
+	-- }, -- For sub directories
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
