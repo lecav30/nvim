@@ -9,6 +9,7 @@ return {
 			"nvim-telescope/telescope-file-browser.nvim", -- File browser
 		},
 	}, -- Telescope [Gitignore, NeoClip]
+	"keyvchan/telescope-find-pickers.nvim", -- Telescope picker
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
