@@ -1,6 +1,7 @@
 require("plugins_settings.treesitter")
 require("plugins_settings.cmp")
 require("plugins_settings.saga")
+require("plugins_settings.conform")
 require("plugins_settings.devicons")
 require("plugins_settings.which-key")
 require("plugins_settings.ufo")
