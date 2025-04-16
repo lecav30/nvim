@@ -172,13 +172,24 @@ do
 	}
 end
 
+vim.diagnostic.config({
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "",
+		},
+	},
+})
+
 local Diagnostics = {
 	condition = conditions.has_diagnostics,
 	static = {
-		error_icon = fn.sign_define("DiagnosticSignError", { text = "" }),
-		warn_icon = fn.sign_define("DiagnosticSignWarn", { text = "" }),
-		info_icon = fn.sign_define("DiagnosticSignInfo", { text = "" }),
-		hint_icon = fn.sign_define("DiagnosticSignHint", { text = "" }),
+		error_icon = "",
+		warn_icon = "",
+		info_icon = "",
+		hint_icon = "",
 	},
 	init = function(self)
 		self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })

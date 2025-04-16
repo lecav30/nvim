@@ -60,5 +60,8 @@ return {
 	}, -- Tokyonight theme
 	"shaunsingh/nord.nvim", -- Nord theme
 	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... }, -- Gruvbox theme
-	"rebelot/kanagawa.nvim", -- Kanagawa theme
+	{
+		"fynnfluegge/monet.nvim",
+		name = "monet",
+	}, -- Monet theme
 }
