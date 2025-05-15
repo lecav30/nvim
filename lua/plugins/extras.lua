@@ -46,10 +46,6 @@ return {
 		end,
 	}, -- Supermaven
 	{
-		"github/copilot.vim",
-		enabled = false, -- This is a paid plugin
-	}, -- Github copilot
-	{
 		"jackMort/ChatGPT.nvim",
 		event = "VeryLazy",
 		dependencies = {

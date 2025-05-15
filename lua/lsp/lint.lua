@@ -1,9 +1,9 @@
 require("lint").linters_by_ft = {
-	html = { "eslint" },
+	html = { "eslint_d" },
 	css = { "stylelint" },
-	javascript = { "eslint" },
-	typescript = { "eslint" },
-	json = { "eslint" },
+	javascript = { "biomejs" },
+	typescript = { "biomejs" },
+	json = { "biomejs" },
 	yaml = { "yamllint" },
 	markdown = { "markdownlint" },
 	lua = { "luacheck" },
