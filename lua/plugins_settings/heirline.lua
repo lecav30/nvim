@@ -175,10 +175,10 @@ end
 vim.diagnostic.config({
 	signs = {
 		text = {
-			[vim.diagnostic.severity.ERROR] = "",
-			[vim.diagnostic.severity.WARN] = "",
-			[vim.diagnostic.severity.INFO] = "",
-			[vim.diagnostic.severity.HINT] = "",
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.INFO] = " ",
+			[vim.diagnostic.severity.HINT] = " ",
 		},
 	},
 })
@@ -186,10 +186,10 @@ vim.diagnostic.config({
 local Diagnostics = {
 	condition = conditions.has_diagnostics,
 	static = {
-		error_icon = "",
-		warn_icon = "",
-		info_icon = "",
-		hint_icon = "",
+		error_icon = " ",
+		warn_icon = " ",
+		info_icon = " ",
+		hint_icon = " ",
 	},
 	init = function(self)
 		self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })

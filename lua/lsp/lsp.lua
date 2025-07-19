@@ -1,39 +1,45 @@
 local nvim_lsp = require("lspconfig")
 
 -- local on_attach = function(client, bufnr)
-	-- Mappings.
-	-- local bufopts = { noremap = true, silent = true, buffer = bufnr }
+-- Mappings.
+-- local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-	-- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-	-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
-	-- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+-- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+-- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
 -- end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local servers = {
 	"html",
 	"cssls",
 	"emmet_ls",
-	"ts_ls",
-	-- "eslint",
+	-- "ts_ls", -- replace for https://github.com/pmizio/typescript-tools.nvim
+	"biome",
 	"tailwindcss",
 	"diagnosticls",
-	"neocmake",
+	-- "eslint",
 	-- "pyright",
 	-- "python-lsp-server",
 	-- "pylint",
 	-- "astro",
 	-- "volar",
-	"angularls",
+	-- "angularls",
 }
+
+local util = require("lspconfig.util")
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup({
 		-- on_attach = on_attach,
 		capabilities = capabilities,
 	})
+	if lsp == "tailwindcss" then
+		nvim_lsp[lsp].setup({
+			root_dir = util.root_pattern("tailwind.config.js", "tailwind.config.cjs", "package.json", ".git"),
+		})
+	end
 	if lsp == "eslint" then
 		nvim_lsp[lsp].setup({
 			filetypes = {
@@ -100,12 +106,12 @@ nvim_lsp.clangd.setup({
 	-- To recognize packages from vcpkg and cmake use the flag in cmake:
 	-- -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 	cmd = {
-    "clangd",
-    "--compile-commands-dir=./build",
+		"clangd",
+		"--compile-commands-dir=" .. find_compile_commands_dir(),
 		"--background-index",
 		"--clang-tidy",
 		"--log=verbose",
-  }, -- For cmake
+	}, -- For cmake
 	-- cmd = {
 	-- 	"clangd",
 	-- 	"--compile-commands-dir=" .. find_compile_commands_dir(),
@@ -119,3 +125,9 @@ nvim_lsp.clangd.setup({
 
 vim.o.updatetime = 250
 vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+vim.diagnostic.config({
+	float = { border = "rounded" },
+	virtual_text = true,
+	signs = true,
+	update_in_insert = false,
+})
