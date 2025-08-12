@@ -6,6 +6,12 @@
 - [Clang (LLVM)](https://formulae.brew.sh/formula/llvm)
 - [Cargo (Rust) ](https://doc.rust-lang.org/cargo/getting-started/installation.html)
 
+## Installation with Homebrew:
+
+```bash
+brew install neovim
+```
+
 ## Installation with Scoop:
 
 ```powershell

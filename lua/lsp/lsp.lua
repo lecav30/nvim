@@ -15,17 +15,17 @@ local servers = {
 	"html",
 	"cssls",
 	"emmet_ls",
-	-- "ts_ls", -- replace for https://github.com/pmizio/typescript-tools.nvim
-	"biome",
 	"tailwindcss",
 	"diagnosticls",
-	-- "eslint",
-	-- "pyright",
-	-- "python-lsp-server",
-	-- "pylint",
+	"eslint",
+	-- "ts_ls", -- replace for https://github.com/pmizio/typescript-tools.nvim
+	-- "biome",
 	-- "astro",
 	-- "volar",
 	-- "angularls",
+	-- "pyright",
+	-- "python-lsp-server",
+	-- "pylint",
 }
 
 local util = require("lspconfig.util")
