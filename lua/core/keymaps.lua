@@ -4,8 +4,12 @@ local mapper = function(mode, key, result)
 end
 
 -- Change Buffers
-mapper("n", "<Tab>", ":bnext<CR>")
-mapper("n", "<S-Tab>", ":bprevious<Return>")
+-- mapper("n", "<Tab>", ":bnext<CR>")
+-- mapper("n", "<S-Tab>", ":bprevious<Return>")
+
+-- Bufferline visual change
+mapper("n", "<Tab>", ":BufferLineCycleNext<CR>")
+mapper("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
 
 -- Split window
 mapper("n", "ss", ":split<Return>")

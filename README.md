@@ -19,5 +19,5 @@ scoop install main/neovim
 ```
 
 ```powershell
-scoop install llvm biome tree-sitter ripgrep fd yazi unzip wget gzip
+scoop install llvmtree-sitter ripgrep fd yazi unzip wget gzip
 ```

@@ -246,7 +246,7 @@ local ScrollBar = {
 
 require("heirline").setup({
 	statusline = {
-		{ ViMode, Space, Git, Ruler, Space, ScrollBar, Space, Lsp, Diagnostics },
+		{ Space, ViMode, Space, Git, Ruler, Space, ScrollBar, Space, Lsp, Diagnostics },
 	},
 	-- opts = {
 	-- 	colors = colors,

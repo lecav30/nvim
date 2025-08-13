@@ -87,7 +87,7 @@ end
 capabilities.offsetEncoding = { "utf-16" }
 
 -- Function to find the appropriate build directory
-local function find_compile_commands_dir()
+--[[ local function find_compile_commands_dir()
 	local build_dir = "./build"
 	local dirs = {}
 
@@ -100,9 +100,9 @@ local function find_compile_commands_dir()
 	end
 
 	return build_dir -- Fallback to the default build directory if no subdirectories contain the file
-end
+end ]]
 
-nvim_lsp.clangd.setup({
+--[[ nvim_lsp.clangd.setup({
 	-- To recognize packages from vcpkg and cmake use the flag in cmake:
 	-- -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 	cmd = {
@@ -121,7 +121,7 @@ nvim_lsp.clangd.setup({
 	-- }, -- For sub directories
 	-- on_attach = on_attach,
 	capabilities = capabilities,
-})
+}) ]]
 
 vim.o.updatetime = 250
 vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])

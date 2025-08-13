@@ -128,7 +128,7 @@ local highlights = { -- {{{
 
 require("bufferline").setup({
 	-- highlights = highlights[vim.g.colors_name] and highlights[vim.g.colors_name] or {},
-	highlights = highlights["gruvbox-material"],
+	-- highlights = highlights["gruvbox-material"],
 	options = {
 		separator_style = "slant", -- 'thick' | 'thin' | { 'any', 'any' },
 
