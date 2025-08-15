@@ -79,6 +79,7 @@ wk.add({
 	{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
 	{ "<leader>k", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover Doc" },
 	{ "<leader>q", group = "quit" },
+	{ "<leader>qs", ":close<CR>", desc = "Close current sliding window" },
 	{ "<leader>qq", ":q!<CR>", desc = "Quit current file" },
 	{ "<leader>qa", ":qa!<CR>", desc = "Quit all" },
 	{ "<leader>rn", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
