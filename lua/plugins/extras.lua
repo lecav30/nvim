@@ -24,9 +24,9 @@ return {
 	{
 		"AckslD/nvim-neoclip.lua",
 		dependencies = { "kkharji/sqlite.lua", module = "sqlite" },
-    config = function()
-      require('neoclip').setup()
-    end,
+		config = function()
+			require("neoclip").setup()
+		end,
 	}, -- Clipboard
 	{
 		"kylechui/nvim-surround",
@@ -36,6 +36,7 @@ return {
 			require("nvim-surround").setup()
 		end,
 	}, -- Surrounding delimiter pairs
+	{ "echasnovski/mini.bufremove", version = "*" }, -- Delete buffer
 	---------------------------------------------------------------------------------
 	------------------------------------ IA -----------------------------------------
 	---------------------------------------------------------------------------------
