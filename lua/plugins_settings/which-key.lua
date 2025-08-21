@@ -13,7 +13,14 @@ wk.add({
 	},
 	{ "<leader>b", group = "buffer" },
 	{ "<leader>bl", "<cmd>Telescope buffers<cr>", desc = "List Buffers" },
-	{ "<leader>bw", "<cmd>bdelete<cr>", desc = "Delete Buffer" },
+	-- { "<leader>bw", "<cmd>bdelete<cr>", desc = "Delete Buffer" },
+	{
+		"<leader>bw",
+		function()
+			require("mini.bufremove").delete(0, false)
+		end,
+		desc = "Delete Buffer",
+	},
 	{ "<leader>bd", "<cmd>Lspsaga show_buf_diagnostics<cr>", desc = "Diagnostics" },
 	{ "<leader>c", group = "code" },
 	{ "<leader>ca", "<cmd>Lspsaga code_action<cr>", desc = "Code Action", mode = "n" },
@@ -81,8 +88,8 @@ wk.add({
 	{ "<leader>k", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover Doc" },
 	{ "<leader>q", group = "quit" },
 	{ "<leader>qs", ":close<CR>", desc = "Close current sliding window" },
-	{ "<leader>qq", ":q!<CR>", desc = "Quit current file" },
-	{ "<leader>qa", ":qa!<CR>", desc = "Quit all" },
+	-- { "<leader>qq", ":q!<CR>", desc = "Quit current file" },
+	{ "<leader>qq", ":qa!<CR>", desc = "Quit" },
 	{ "<leader>rn", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
 	{ "<leader>w", group = "save" },
 	{ "<leader>ww", ":w<CR>", desc = "Save file" },
