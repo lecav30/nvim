@@ -1,5 +1,10 @@
 local Menu = require("org-modern.menu")
 require("orgmode").setup({
+	mappings = {
+		org = {
+			org_toggle_checkbox = "<leader>x",
+		},
+	},
 	org_agenda_files = "~/org/**/*",
 	org_default_notes_file = "~/org/refile.org",
 	org_todo_keywords = {
@@ -17,7 +22,7 @@ require("orgmode").setup({
 		DONE = ":foreground green :weight bold",
 		CANCELLED = ":foreground gray :slant italic",
 	},
-  -- Plugin Agenda
+	-- Plugin Agenda
 	ui = {
 		menu = {
 			handler = function(data)
