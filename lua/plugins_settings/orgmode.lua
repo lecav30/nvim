@@ -1,3 +1,4 @@
+local Menu = require("org-modern.menu")
 require("orgmode").setup({
 	org_agenda_files = "~/org/**/*",
 	org_default_notes_file = "~/org/refile.org",
@@ -16,4 +17,16 @@ require("orgmode").setup({
 		DONE = ":foreground green :weight bold",
 		CANCELLED = ":foreground gray :slant italic",
 	},
+  -- Plugin Agenda
+	ui = {
+		menu = {
+			handler = function(data)
+				Menu:new():open(data)
+			end,
+		},
+	},
 })
+
+-- Plugins
+require("org-bullets").setup()
+require("headlines").setup()
