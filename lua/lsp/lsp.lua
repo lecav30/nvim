@@ -124,10 +124,10 @@ end ]]
 }) ]]
 
 vim.o.updatetime = 250
-vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
-vim.diagnostic.config({
-	float = { border = "rounded" },
-	virtual_text = true,
-	signs = true,
-	update_in_insert = false,
-})
+-- vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
+-- vim.diagnostic.config({
+-- 	float = { border = "rounded" },
+-- 	virtual_text = true,
+-- 	signs = true,
+-- 	update_in_insert = false,
+-- })

@@ -31,4 +31,5 @@ require("notify").setup({
 	-- Posición de las notificaciones
 	render = "wrapped-compact", -- "default" "minimal" "simple" "wrapped-compact"
 	top_down = false,
+  background_colour = "#000000",
 })

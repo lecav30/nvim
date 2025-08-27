@@ -47,6 +47,13 @@ lspsaga.setup({
 			desc = "Toggle terminal (lspsaga)",
 		},
 	},
+	finder_action_keys = {
+		open = "o",
+		vsplit = "<CR>",
+		split = "s",
+		tabe = "t",
+		quit = { "q", "<ESC>" },
+	},
 })
 
 --- In lsp attach function
