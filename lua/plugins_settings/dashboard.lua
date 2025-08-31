@@ -231,7 +231,7 @@ local center_items = {
 }
 
 -- local random_header = headers[math.random(#headers)]
-local random_header = headers[10]
+local random_header = headers[6]
 
 require("dashboard").setup({
 	theme = "doom",
@@ -244,5 +244,6 @@ require("dashboard").setup({
 			"",
 		}),
 		center = center_items,
+		vertical_center = true,
 	},
 })
