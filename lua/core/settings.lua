@@ -61,9 +61,9 @@ o.wrap = false -- text autofit in a line
 o.completeopt = "menuone,noselect"
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "org",
-  callback = function()
-    vim.wo.foldmethod = "manual"
-    vim.wo.foldlevel = 99
-  end,
+	pattern = "org",
+	callback = function()
+		vim.wo.foldmethod = "manual"
+		vim.wo.foldlevel = 99
+	end,
 })

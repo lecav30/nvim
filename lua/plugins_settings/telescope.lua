@@ -36,6 +36,10 @@ end
 
 -- TELESCOPE CONFIG
 require("telescope").setup({
+	defaults = {
+		path_display = { "smart" },
+		cwd = vim.loop.cwd(),
+	},
 	color_devicons = true,
 	scroll_strategy = "cycle",
 	sorting_strategy = "ascending",
@@ -113,7 +117,7 @@ require("telescope").setup({
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("neoclip")
 require("telescope").load_extension("find_pickers")
-require('telescope').load_extension("notify")
+require("telescope").load_extension("notify")
 -- require("telescope").load_extension("dap")
 
 -- local builtin = function(mapping, picker, is_custom)

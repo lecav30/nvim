@@ -79,10 +79,5 @@ return {
 		ft = { "org" },
 	},
 	"akinsho/org-bullets.nvim",
-	{
-		"lukas-reineke/headlines.nvim",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-		config = true, -- or `opts = {}`
-	},
 	"danilshvalov/org-modern.nvim",
 }

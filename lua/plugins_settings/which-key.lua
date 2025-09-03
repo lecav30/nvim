@@ -33,8 +33,6 @@ wk.add({
 		end,
 		desc = "Format Code",
 	},
-	{ "<leader>cl", desc = "Comment Line" },
-	{ "<leader>cb", desc = "Comment Block", mode = "v" },
 	{ "<leader>d", group = "Debug" },
 	{ "<leader>dR", "<cmd>lua require'dap'.run_to_cursor()<cr>", desc = "Run to Cursor" },
 	{ "<leader>dE", "<cmd>lua require'dapui'.eval(vim.fn.input '[Expression] > ')<cr>", desc = "Evaluate Input" },

@@ -11,7 +11,7 @@
 ## Installation with Homebrew:
 
 ```bash
-brew install neovim
+brew install neovim yazi ast-grep
 ```
 
 ## Mason to PATH
@@ -29,5 +29,18 @@ scoop install main/neovim
 ```
 
 ```powershell
-scoop install llvmtree-sitter ripgrep fd yazi unzip wget gzip
+scoop install llvmtree-sitter ripgrep fd yazi unzip wget gzip coreutils ast-grep
+```
+
+### For VimTex
+
+```powershell
+scoop install miktex perl
+```
+
+## Providers
+
+```bash
+npm install -g neovim
+pip install pynvim
 ```

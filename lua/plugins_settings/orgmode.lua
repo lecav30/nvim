@@ -1,3 +1,5 @@
+vim.opt.shellslash = true
+
 local Menu = require("org-modern.menu")
 require("orgmode").setup({
 	mappings = {
@@ -34,4 +36,3 @@ require("orgmode").setup({
 
 -- Plugins
 require("org-bullets").setup()
-require("headlines").setup()

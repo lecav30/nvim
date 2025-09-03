@@ -32,9 +32,6 @@ return {
 		"kylechui/nvim-surround",
 		version = "*",
 		event = "VeryLazy",
-		config = function()
-			require("nvim-surround").setup()
-		end,
 	}, -- Surrounding delimiter pairs
 	{ "echasnovski/mini.bufremove", version = "*" }, -- Delete buffer
 	---------------------------------------------------------------------------------
