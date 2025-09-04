@@ -70,14 +70,4 @@ return {
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
 		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
 	},
-	---------------------------------------------------------------------------------
-	-------------------------------------- ORG --------------------------------------
-	---------------------------------------------------------------------------------
-	{
-		"nvim-orgmode/orgmode",
-		event = "VeryLazy",
-		ft = { "org" },
-	},
-	"akinsho/org-bullets.nvim",
-	"danilshvalov/org-modern.nvim",
 }
