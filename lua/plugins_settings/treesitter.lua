@@ -17,15 +17,17 @@ require("nvim-treesitter.configs").setup({
 		"css",
 		"javascript",
 		"typescript",
-		-- "vue",
 		"tsx",
 		"lua",
 		"json",
 		"markdown",
 		"markdown_inline",
 		"latex",
+		-- "rust"
+		-- "toml"
 		-- "fish",
 		-- "astro",
+		-- "vue",
 		-- "php",
 		-- "kotlin",
 		-- "dart",

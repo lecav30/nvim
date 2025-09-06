@@ -15,7 +15,7 @@ cmp.setup({
 		format = lspkind.cmp_format({
 			mode = "symbol_text",
 			maxwidth = 50,
-      -- lspkind-nvim with supermaven
+			-- lspkind-nvim with supermaven
 			symbol_map = {
 				Supermaven = "",
 			},
@@ -73,6 +73,7 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "vsnip" },
 		{ name = "supermaven" },
+		{ name = "crates" },
 	}),
 })
 

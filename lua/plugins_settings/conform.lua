@@ -9,6 +9,7 @@ require("conform").setup({
 		json = { "prettier", "prettierd", stop_after_first = true },
 		html = { "prettier", "prettierd", stop_after_first = true },
 		css = { "prettier", "prettierd", stop_after_first = true },
+		rust = { "rustfmt", lsp_format = "fallback" }, -- via rustup
 	},
 	--[[ formatters = {
 		biome = {
