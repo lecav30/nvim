@@ -82,7 +82,6 @@ wk.add({
 	{ "<leader>gi", "<cmd>Lspsaga incoming_calls<cr>", desc = "Incoming calls" },
 	{ "<leader>gf", "<cmd>Lspsaga finder tyd+ref+imp+def<cr>", desc = "Find references" },
 	{ "<leader>go", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
-	{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
 	{ "<leader>k", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover Doc" },
 	{ "<leader>q", group = "quit" },
 	{ "<leader>qs", ":close<CR>", desc = "Close current sliding window" },
