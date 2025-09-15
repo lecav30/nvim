@@ -43,12 +43,4 @@ return {
 			require("supermaven-nvim").setup({})
 		end,
 	}, -- Supermaven
-	{
-		"jackMort/ChatGPT.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"folke/trouble.nvim",
-		},
-		enabled = false, -- This is a paid plugin (requires GPT KEY with credits)
-	}, -- ChatGPT
 }
