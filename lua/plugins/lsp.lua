@@ -9,7 +9,18 @@ return {
 	"L3MON4D3/LuaSnip", -- Snippets
 	{
 		"saghen/blink.cmp",
-		dependencies = { "rafamadriz/friendly-snippets" },
+		version = "1.*",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			{
+				"supermaven-inc/supermaven-nvim",
+				opts = {
+					disable_inline_completion = true, -- disables inline completion for use with cmp
+					disable_keymaps = true, -- disables built in keymaps for more manual control
+				},
+			},
+			"huijiro/blink-cmp-supermaven",
+		},
 	},
 	{
 		"mlaursen/vim-react-snippets",

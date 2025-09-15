@@ -30,6 +30,6 @@ else
 
 	-- Themes and configs
 	vim.g.neosolarized_italic = 1
-	-- cmd("colorscheme gruvbox")
-	cmd("colorscheme monet")
+	cmd("colorscheme gruvbox")
+	-- cmd("colorscheme monet")
 end
