@@ -77,7 +77,7 @@ return {
 			require("crates").setup({
 				completion = {
 					cmp = {
-						enabled = true,
+						enabled = false,
 					},
 				},
 			})

@@ -1,3 +1,13 @@
+-- Install in plugins/lsp.lua
+-- "hrsh7th/nvim-cmp", -- Completion engine
+-- "hrsh7th/cmp-nvim-lsp", -- Snippets LSP
+-- "hrsh7th/cmp-buffer", -- Buffer Snippets
+-- "hrsh7th/cmp-path", -- Path Snippets
+-- "hrsh7th/cmp-cmdline", -- Cmdline Snippets
+-- "hrsh7th/cmp-vsnip", -- Nvim-cmp  for vim-vsnip
+-- "saadparwaiz1/cmp_luasnip", -- Snippets with cmp
+-- "rafamadriz/friendly-snippets", -- Friendly snippets
+
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
