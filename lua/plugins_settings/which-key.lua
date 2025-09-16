@@ -59,7 +59,6 @@ wk.add({
 	{ "<leader>dx", "<cmd>lua require'dap'.terminate()<cr>", desc = "Terminate" },
 	{ "<leader>du", "<cmd>lua require'dap'.step_out()<cr>", desc = "Step Out" },
 	{ "<leader>e", group = "Explorer" },
-	{ "<leader>ey", "<cmd>Yazi<cr>", desc = "File Explorer" },
 	-- { "<leader>ee", "<cmd>Neotree toggle reveal_force_cwd<cr>", desc = "Editor File Explorer" },
 	{ "<leader>ee", "<cmd>Neotree float toggle reveal_force_cwd<cr>", desc = "Editor File Explorer Float" },
 	{ "<leader>eb", "<cmd>Neotree float toggle buffers<cr>", desc = "Buffers" },

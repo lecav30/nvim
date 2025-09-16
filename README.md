@@ -11,7 +11,7 @@
 ## Installation with Homebrew:
 
 ```bash
-brew install neovim yazi ast-grep
+brew install neovim ast-grep
 ```
 
 ## Mason to PATH
@@ -29,7 +29,7 @@ scoop install main/neovim
 ```
 
 ```powershell
-scoop install llvmtree-sitter ripgrep fd yazi unzip wget gzip coreutils ast-grep
+scoop install llvmtree-sitter ripgrep fd unzip wget gzip coreutils ast-grep
 ```
 
 ### For VimTex
