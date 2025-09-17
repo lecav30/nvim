@@ -22,7 +22,6 @@ blink.setup({
 	appearance = {
 		kind_icons = {
 			Supermaven = "",
-			-- Puedes agregar otros icons si los necesitas
 		},
 	},
 	completion = {
@@ -48,10 +47,12 @@ blink.setup({
 		},
 	},
 	cmdline = {
-		enabled = true, -- asegúrate de habilitarlo si lo quieres
+		keymap = { preset = "cmdline" },
+		enabled = true,
 		sources = {
-			["/"] = { "buffer" },
-			[":"] = { "path", "cmdline" },
+			"buffer",
+			"path",
+			"cmdline",
 		},
 	},
 	fuzzy = { implementation = "prefer_rust_with_warning" },
