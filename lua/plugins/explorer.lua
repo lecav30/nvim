@@ -11,9 +11,10 @@ return {
 	}, -- Telescope [Gitignore, NeoClip]
 	"keyvchan/telescope-find-pickers.nvim", -- Telescope picker
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-	}, -- Better Tree
+		"stevearc/oil.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		lazy = false,
+	},
 	---------------------------------------------------------------------------------
 	------------------------------- Search engine -----------------------------------
 	---------------------------------------------------------------------------------
