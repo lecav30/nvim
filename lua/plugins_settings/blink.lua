@@ -1,5 +1,7 @@
 local blink = require("blink.cmp")
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 blink.setup({
 	keymap = {
 		preset = "default",

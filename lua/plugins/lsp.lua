@@ -6,7 +6,12 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = { "saghen/blink.cmp" },
 	},
-	"L3MON4D3/LuaSnip", -- Snippets
+	{
+		"L3MON4D3/LuaSnip",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+		},
+	}, -- Snippets
 	{
 		"saghen/blink.cmp",
 		version = "1.*",
@@ -20,6 +25,7 @@ return {
 				},
 			},
 			"huijiro/blink-cmp-supermaven",
+			"mlaursen/vim-react-snippets",
 		},
 	},
 	{
@@ -27,11 +33,6 @@ return {
 		dependencies = { "L3MON4D3/LuaSnip" },
 		config = function()
 			require("vim-react-snippets").lazy_load()
-
-			local config = require("vim-react-snippets.config")
-			-- config.readonly_props = false -- Si no quieres envolver props como Readonly<T>
-			-- config.test_framework = "vitest" -- Para usar Vitest en tus tests
-			-- config.test_renderer_path = "@/test-utils" -- Para personalizar el path del renderer
 		end,
 	}, -- React snippets
 	---------------------------------------------------------------------------------
