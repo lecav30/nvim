@@ -16,7 +16,6 @@ return {
 		"saghen/blink.cmp",
 		version = "1.*",
 		dependencies = {
-			"rafamadriz/friendly-snippets",
 			{
 				"supermaven-inc/supermaven-nvim",
 				opts = {
@@ -24,6 +23,7 @@ return {
 					disable_keymaps = true, -- disables built in keymaps for more manual control
 				},
 			},
+			"rafamadriz/friendly-snippets",
 			"huijiro/blink-cmp-supermaven",
 			"mlaursen/vim-react-snippets",
 		},

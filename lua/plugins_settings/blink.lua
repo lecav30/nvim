@@ -8,13 +8,17 @@ blink.setup({
 		-- Check : https://cmp.saghen.dev/configuration/keymap.html#default
 	},
 	sources = {
-		default = { "lsp", "snippets", "buffer", "path" },
+		default = { "lsp", "supermaven", "snippets", "buffer", "path" },
 		providers = {
+			lsp = { name = "[LSP]" },
 			supermaven = {
-				name = "supermaven",
+				name = "[AI]",
 				module = "blink-cmp-supermaven",
 				async = true,
 			},
+			snippets = { name = "[Snip]" },
+			buffer = { name = "[Buffer]" },
+			path = { name = "[Path]" },
 		},
 	},
 	signature = { enabled = true },
@@ -28,14 +32,15 @@ blink.setup({
 	},
 	completion = {
 		list = {
-			selection = { preselect = true, auto_insert = true },
+			selection = { preselect = false, auto_insert = false },
 		},
 		menu = {
 			auto_show = true,
 			draw = {
 				columns = {
-					{ "label", "label_description", gap = 1 },
-					{ "kind_icon", "kind" },
+					{ "label", "label_description", gap = 2 },
+					{ "kind_icon", gap = 2, "kind" },
+					{ "source_name" },
 				},
 			},
 		},
@@ -44,8 +49,8 @@ blink.setup({
 			auto_show_delay_ms = 500,
 		},
 		ghost_text = {
-			enabled = false,
-			show_with_menu = false,
+			enabled = true,
+			show_with_menu = true,
 		},
 	},
 	cmdline = {
