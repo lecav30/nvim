@@ -32,9 +32,7 @@ return {
 	"AndrewRadev/tagalong.vim", -- Rename
 	{
 		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
+    opts = {}
 	}, -- Colorizer
 	---------------------------------------------------------------------------------
 	---------------------------------- TypeScript -----------------------------------
@@ -71,7 +69,7 @@ return {
 	---------------------------------------------------------------------------------
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-		opts = {},
 		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+		opts = {},
 	},
 }
