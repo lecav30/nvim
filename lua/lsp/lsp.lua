@@ -19,6 +19,8 @@ local servers = {
 	"tailwindcss",
 	"diagnosticls",
 	"eslint",
+  "lua_ls",
+  "rust_analyzer",
 	-- "ts_ls", -- replace for https://github.com/pmizio/typescript-tools.nvim
 	-- "biome",
 	-- "astro",

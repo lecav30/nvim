@@ -3,5 +3,4 @@
 ---------------------------------------------------------------------------------
 return {
 	"lewis6991/gitsigns.nvim", -- Git signs
-	"wintermute-cell/gitignore.nvim", -- Gitignore
 }

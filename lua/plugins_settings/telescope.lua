@@ -109,13 +109,13 @@ require("telescope").setup({
 				},
 			},
 		},
-		neoclip = {},
+		-- neoclip = {},
 		find_pickers = {},
 	},
 })
 
 require("telescope").load_extension("file_browser")
-require("telescope").load_extension("neoclip")
+-- require("telescope").load_extension("neoclip")
 require("telescope").load_extension("find_pickers")
 require("telescope").load_extension("notify")
 -- require("telescope").load_extension("dap")

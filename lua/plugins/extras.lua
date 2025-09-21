@@ -19,15 +19,14 @@ return {
 			},
 		},
 	}, -- Which key
-	-- "RRethy/vim-illuminate", -- Highlight word under cursor
-	"eandrju/cellular-automaton.nvim", -- This is just fun
-	{
-		"AckslD/nvim-neoclip.lua",
-		dependencies = { "kkharji/sqlite.lua", module = "sqlite" },
-		config = function()
-			require("neoclip").setup()
-		end,
-	}, -- Clipboard
+	-- "eandrju/cellular-automaton.nvim", -- This is just fun
+	-- {
+	-- 	"AckslD/nvim-neoclip.lua",
+	-- 	dependencies = { "kkharji/sqlite.lua", module = "sqlite" },
+	-- 	config = function()
+	-- 		require("neoclip").setup()
+	-- 	end,
+	-- }, -- Clipboard
 	{
 		"kylechui/nvim-surround",
 		version = "*",

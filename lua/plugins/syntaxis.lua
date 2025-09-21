@@ -10,7 +10,6 @@ return {
 	--------------------------------- Indent, color ---------------------------------
 	---------------------------------------------------------------------------------
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl" }, -- Indentation guides
-	"p00f/nvim-ts-rainbow", -- Rainbow brackets
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
