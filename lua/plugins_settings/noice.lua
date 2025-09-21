@@ -5,6 +5,10 @@ require("noice").setup({
 			["vim.lsp.util.stylize_markdown"] = true,
 			["cmp.entry.get_documentation"] = true,
 		},
+		progress = { enabled = true },
+		hover = { enabled = true },
+		signature = { enabled = true },
+		message = { enabled = true },
 	},
 	presets = {
 		bottom_search = true, -- use a classic bottom cmdline for search
@@ -31,5 +35,5 @@ require("notify").setup({
 	-- Posición de las notificaciones
 	render = "wrapped-compact", -- "default" "minimal" "simple" "wrapped-compact"
 	top_down = false,
-  background_colour = "#000000",
+	background_colour = "#000000",
 })

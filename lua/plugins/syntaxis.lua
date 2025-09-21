@@ -20,7 +20,7 @@ return {
 			"windwp/nvim-ts-autotag",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		}, -- Comments for tsx and jsx
-	}, -- Treesitter (Highlighting) [LSPSaga]
+	}, -- Treesitter (Highlighting)
 	---------------------------------------------------------------------------------
 	------------------------------------ Latex --------------------------------------
 	---------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ return {
 	"AndrewRadev/tagalong.vim", -- Rename
 	{
 		"norcalli/nvim-colorizer.lua",
-    opts = {}
+		opts = {},
 	}, -- Colorizer
 	---------------------------------------------------------------------------------
 	---------------------------------- TypeScript -----------------------------------

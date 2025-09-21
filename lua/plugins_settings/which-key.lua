@@ -21,10 +21,31 @@ wk.add({
 		end,
 		desc = "Delete Buffer",
 	},
-	{ "<leader>bd", "<cmd>Lspsaga show_buf_diagnostics<cr>", desc = "Diagnostics" },
+	-- { "<leader>bd", "<cmd>Lspsaga show_buf_diagnostics<cr>", desc = "Diagnostics" },
+	{
+		"<leader>bd",
+		function()
+			vim.diagnostic.setloclist()
+		end,
+		desc = "Buffer Diagnostics",
+	},
 	{ "<leader>c", group = "Code" },
-	{ "<leader>ca", "<cmd>Lspsaga code_action<cr>", desc = "Code Action", mode = "n" },
-	{ "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Code Diagnostics" },
+	-- { "<leader>ca", "<cmd>Lspsaga code_action<cr>", desc = "Code Action", mode = "n" },
+	{
+		"<leader>ca",
+		function()
+			vim.lsp.buf.code_action()
+		end,
+		desc = "Code Action",
+	},
+	-- { "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Code Diagnostics" },
+	{
+		"<leader>cd",
+		function()
+			vim.diagnostic.open_float()
+		end,
+		desc = "Line Diagnostics",
+	},
 	{ "<leader>ce", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
 	{
 		"<leader>cf",
@@ -58,13 +79,7 @@ wk.add({
 	{ "<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Toggle Breakpoint" },
 	{ "<leader>dx", "<cmd>lua require'dap'.terminate()<cr>", desc = "Terminate" },
 	{ "<leader>du", "<cmd>lua require'dap'.step_out()<cr>", desc = "Step Out" },
-	-- { "<leader>e", group = "Explorer" },
 	{ "<leader>e", "<cmd>Oil<cr>", desc = "Buffer File Explorer" },
-	-- { "<leader>ee", "<cmd>Neotree toggle reveal_force_cwd<cr>", desc = "Editor File Explorer" },
-	-- { "<leader>ee", "<cmd>Neotree float toggle reveal_force_cwd<cr>", desc = "Editor File Explorer Float" },
-	-- { "<leader>eb", "<cmd>Neotree float toggle buffers<cr>", desc = "Buffers" },
-	-- { "<leader>es", "<cmd>Neotree float toggle git_status<cr>", desc = "Git Status" },
-	-- { "<leader>ed", "<cmd>Neotree float toggle document_symbols<cr>", desc = "Document Symbolys" },
 	{ "<leader>f", group = "Find" },
 	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
 	{ "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "File Browser" },
@@ -75,25 +90,148 @@ wk.add({
 	{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Git Branches" },
 	{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits" },
 	{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Git Status" },
-	{ "<leader>gt", "<cmd>Lspsaga peek_type_definition<cr>", desc = "Peek type definition" },
-	{ "<leader>gp", "<cmd>Lspsaga peek_definition<cr>", desc = "Peek definition" },
-	{ "<leader>gd", "<cmd>Lspsaga goto_definition<cr>", desc = "Go to Definition" },
+	-- { "<leader>gt", "<cmd>Lspsaga peek_type_definition<cr>", desc = "Peek type definition" },
+	-- { "<leader>gp", "<cmd>Lspsaga peek_definition<cr>", desc = "Peek definition" },
+	-- No replace
+	-- { "<leader>gd", "<cmd>Lspsaga goto_definition<cr>", desc = "Go to Definition" },
 	-- { "<leader>gD", desc = "Go to Declaration" },
-	{ "<leader>gi", "<cmd>Lspsaga incoming_calls<cr>", desc = "Incoming calls" },
-	{ "<leader>gf", "<cmd>Lspsaga finder tyd+ref+imp+def<cr>", desc = "Find references" },
-	{ "<leader>go", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
-	{ "<leader>k", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover Doc" },
+	-- { "<leader>gi", "<cmd>Lspsaga incoming_calls<cr>", desc = "Incoming calls" },
+	-- { "<leader>gf", "<cmd>Lspsaga finder tyd+ref+imp+def<cr>", desc = "Find references" },
+	-- { "<leader>go", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
+	-- { "<leader>k", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover Doc" },
+	--{ "<leader>gd", function() vim.lsp.buf.definition() end, desc = "Go to Definition" },
+	{
+		"<leader>gD",
+		function()
+			vim.lsp.buf.declaration()
+		end,
+		desc = "Go to Declaration",
+	},
+	{
+		"<leader>gi",
+		function()
+			local method = "textDocument/prepareCallHierarchy"
+			local clients = vim.lsp.get_clients({ bufnr = 0 })
+			local params, client
+
+			-- buscar cliente válido
+			for _, c in ipairs(clients) do
+				if c.supports_method and c:supports_method(method) then
+					client = c
+					params = vim.lsp.util.make_position_params(0, c.offset_encoding)
+					break
+				end
+			end
+
+			if not client then
+				vim.notify("No LSP client supports call hierarchy", vim.log.levels.WARN)
+				return
+			end
+
+			-- preparar jerarquía
+			client.request(method, params, function(err, result)
+				if err or not result or vim.tbl_isempty(result) then
+					vim.notify("No incoming calls available", vim.log.levels.INFO)
+					return
+				end
+
+				-- ahora pedimos incoming calls solo a este cliente
+				client.request("callHierarchy/incomingCalls", { item = result[1] }, function(call_err, calls)
+					if call_err or not calls or vim.tbl_isempty(calls) then
+						vim.notify("No incoming calls found", vim.log.levels.INFO)
+						return
+					end
+
+					local pickers = require("telescope.pickers")
+					local finders = require("telescope.finders")
+					local conf = require("telescope.config").values
+					local actions = require("telescope.actions")
+					local action_state = require("telescope.actions.state")
+
+					local entries = {}
+					for _, call in ipairs(calls) do
+						local from = call.from
+						local loc = from.selectionRange.start
+						table.insert(entries, {
+							filename = vim.uri_to_fname(from.uri),
+							lnum = loc.line + 1,
+							col = loc.character + 1,
+							text = from.name,
+						})
+					end
+
+					pickers
+						.new({}, {
+							prompt_title = "Incoming Calls",
+							finder = finders.new_table({
+								results = entries,
+								entry_maker = function(e)
+									return {
+										value = e,
+										display = e.text .. " -> " .. e.filename,
+										ordinal = e.text .. " " .. e.filename,
+										filename = e.filename,
+										lnum = e.lnum,
+										col = e.col,
+									}
+								end,
+							}),
+							sorter = conf.generic_sorter({}),
+							previewer = conf.qflist_previewer({}),
+							attach_mappings = function(prompt_bufnr, _)
+								actions.select_default:replace(function()
+									local selection = action_state.get_selected_entry()
+									actions.close(prompt_bufnr)
+									vim.cmd("edit " .. selection.filename)
+									vim.api.nvim_win_set_cursor(0, { selection.lnum, selection.col - 1 })
+								end)
+								return true
+							end,
+						})
+						:find()
+				end)
+			end, 0)
+		end,
+		desc = "Incoming calls (Telescope)",
+	},
+	{
+		"<leader>gf",
+		function()
+			require("telescope.builtin").lsp_references()
+		end,
+		desc = "Find References",
+	},
+	{
+		"<leader>go",
+		function()
+			require("telescope.builtin").lsp_document_symbols()
+		end,
+		desc = "Outline",
+	},
+	{
+		"<leader>k",
+		function()
+			vim.lsp.buf.hover()
+		end,
+		desc = "Hover Documentation",
+	},
 	{ "<leader>q", group = "quit" },
 	{ "<leader>qs", ":close<CR>", desc = "Close current sliding window" },
 	-- { "<leader>qq", ":q!<CR>", desc = "Quit current file" },
 	{ "<leader>qq", ":qa!<CR>", desc = "Quit" },
-	{ "<leader>rn", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
+	-- { "<leader>rn", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
+	{
+		"<leader>rn",
+		function()
+			vim.lsp.buf.rename()
+		end,
+		desc = "Rename",
+	},
 	{
 		"<leader>s",
 		"<cmd>lua require'spectre'.toggle()<cr>",
 		desc = "Toggle Spectre",
 	},
-	{ "<leader>ww", ":w<CR>", desc = "Save file" },
 	{ "<leader>w", group = "Save" },
 	{ "<leader>ww", ":w<CR>", desc = "Save file" },
 	{ "<leader>wa", ":wa<CR>", desc = "Save all files" },
