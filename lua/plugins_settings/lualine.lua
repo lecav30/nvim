@@ -47,7 +47,7 @@ require("lualine").setup({
 		lualine_x = {
 			{
 				"diagnostics",
-				sources = { "nvim_diagnostic", "nvim_lsp" },
+				sources = { "nvim_diagnostic" },
 				sections = { "error", "warn", "info", "hint" },
 				diagnostics_color = {
 					error = "DiagnosticError",
@@ -58,7 +58,6 @@ require("lualine").setup({
 				update_in_insert = false,
 				always_visible = false,
 			},
-			"require'lsp-status'.status()",
 		},
 		lualine_y = {
 			{

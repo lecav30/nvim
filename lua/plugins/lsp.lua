@@ -47,8 +47,4 @@ return {
 	-- "williamboman/mason-lspconfig.nvim", -- Install LSP servers and provide configurations
 	-- It's not strictly necessary, but it's usefull if you want to use the LSP servers
 	-- that are installed by Mason without worrying about the configurations.
-	---------------------------------------------------------------------------------
-	----------------------------------- Utility -------------------------------------
-	---------------------------------------------------------------------------------
-	"nvim-lua/lsp-status.nvim",
 }
