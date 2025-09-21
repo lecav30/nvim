@@ -21,7 +21,6 @@ wk.add({
 		end,
 		desc = "Delete Buffer",
 	},
-	-- { "<leader>bd", "<cmd>Lspsaga show_buf_diagnostics<cr>", desc = "Diagnostics" },
 	{
 		"<leader>bd",
 		function()
@@ -30,7 +29,6 @@ wk.add({
 		desc = "Buffer Diagnostics",
 	},
 	{ "<leader>c", group = "Code" },
-	-- { "<leader>ca", "<cmd>Lspsaga code_action<cr>", desc = "Code Action", mode = "n" },
 	{
 		"<leader>ca",
 		function()
@@ -38,7 +36,6 @@ wk.add({
 		end,
 		desc = "Code Action",
 	},
-	-- { "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Code Diagnostics" },
 	{
 		"<leader>cd",
 		function()
@@ -90,16 +87,6 @@ wk.add({
 	{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Git Branches" },
 	{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits" },
 	{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Git Status" },
-	-- { "<leader>gt", "<cmd>Lspsaga peek_type_definition<cr>", desc = "Peek type definition" },
-	-- { "<leader>gp", "<cmd>Lspsaga peek_definition<cr>", desc = "Peek definition" },
-	-- No replace
-	-- { "<leader>gd", "<cmd>Lspsaga goto_definition<cr>", desc = "Go to Definition" },
-	-- { "<leader>gD", desc = "Go to Declaration" },
-	-- { "<leader>gi", "<cmd>Lspsaga incoming_calls<cr>", desc = "Incoming calls" },
-	-- { "<leader>gf", "<cmd>Lspsaga finder tyd+ref+imp+def<cr>", desc = "Find references" },
-	-- { "<leader>go", "<cmd>Lspsaga outline<cr>", desc = "Outline" },
-	-- { "<leader>k", "<cmd>Lspsaga hover_doc<cr>", desc = "Hover Doc" },
-	--{ "<leader>gd", function() vim.lsp.buf.definition() end, desc = "Go to Definition" },
 	{
 		"<leader>gD",
 		function()
@@ -219,7 +206,6 @@ wk.add({
 	{ "<leader>qs", ":close<CR>", desc = "Close current sliding window" },
 	-- { "<leader>qq", ":q!<CR>", desc = "Quit current file" },
 	{ "<leader>qq", ":qa!<CR>", desc = "Quit" },
-	-- { "<leader>rn", "<cmd>Lspsaga rename<cr>", desc = "Rename" },
 	{
 		"<leader>rn",
 		function()

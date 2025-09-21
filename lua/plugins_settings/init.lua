@@ -1,7 +1,6 @@
 require("plugins_settings.vimtex")
 require("plugins_settings.treesitter")
 require("plugins_settings.blink")
--- require("plugins_settings.saga")
 require("plugins_settings.conform")
 require("plugins_settings.devicons")
 require("plugins_settings.which-key")
