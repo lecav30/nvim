@@ -88,11 +88,18 @@ wk.add({
 	{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits" },
 	{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Git Status" },
 	{
-		"<leader>gD",
+		"<leader>gd",
 		function()
 			vim.lsp.buf.declaration()
 		end,
 		desc = "Go to Declaration",
+	},
+	{
+		"<leader>gD",
+		function()
+			vim.lsp.buf.definition()
+		end,
+		desc = "Go to Definition",
 	},
 	{
 		"<leader>gi",
