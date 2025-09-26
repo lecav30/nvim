@@ -12,10 +12,33 @@ local ignore_these = {
 	"package%-lock.json",
 }
 
+local telescope = require("telescope")
 local actions = require("telescope.actions")
 local fb_actions = require("telescope").extensions.file_browser.actions
 local function telescope_buffer_dir()
 	return vim.fn.expand("%:p:h")
+end
+
+local is_windows = vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1
+local vimfnameescape = vim.fn.fnameescape
+local winfnameescape = function(path)
+	local escaped_path = vimfnameescape(path)
+	if is_windows then
+		local need_extra_esc = path:find("[%[%]`%$~]")
+		local esc = need_extra_esc and "\\\\" or "\\"
+		escaped_path = escaped_path:gsub("\\[%(%)%^&;]", esc .. "%1")
+		if need_extra_esc then
+			escaped_path = escaped_path:gsub("\\\\['` ]", "\\%1")
+		end
+	end
+	return escaped_path
+end
+
+local select_default = function(prompt_bufnr)
+	vim.fn.fnameescape = winfnameescape
+	local result = actions.select_default(prompt_bufnr, "default")
+	vim.fn.fnameescape = vimfnameescape
+	return result
 end
 
 -- TELESCOPE CONFIG
@@ -23,6 +46,14 @@ require("telescope").setup({
 	defaults = {
 		path_display = { "smart" },
 		cwd = vim.loop.cwd(),
+		mappings = {
+			i = {
+				["<cr>"] = select_default,
+			},
+			n = {
+				["<cr>"] = select_default,
+			},
+		},
 	},
 	color_devicons = true,
 	scroll_strategy = "cycle",
@@ -42,15 +73,6 @@ require("telescope").setup({
 			},
 			layout_strategy = "vertical",
 			theme = "dropdown",
-      -- Temporal fix for scaped characters in windows
-			find_command = {
-				"rg",
-				"--files",
-				"--glob",
-				"!{.git/*,.svelte-kit/*,target/*,node_modules/*}",
-				"--path-separator",
-				"/",
-			},
 		},
 		live_grep = {
 			layout_config = {
@@ -102,13 +124,11 @@ require("telescope").setup({
 				},
 			},
 		},
-		-- neoclip = {},
 		find_pickers = {},
 	},
 })
 
 require("telescope").load_extension("file_browser")
--- require("telescope").load_extension("neoclip")
 require("telescope").load_extension("find_pickers")
 require("telescope").load_extension("notify")
 -- require("telescope").load_extension("dap")
