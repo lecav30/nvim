@@ -44,3 +44,22 @@ scoop install miktex perl
 npm install -g neovim
 pip install pynvim
 ```
+
+# Linux
+
+## Installation with Scoop:
+
+```bash
+pacman -Syu neovim
+```
+
+```bash
+pacman -Syu node npm llvm clang unzip rust tree-sitter 
+```
+
+```bash
+cargo install tree-sitter-cli
+```
+
+And you have to add it to your PATH
+

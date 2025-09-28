@@ -1,5 +1,3 @@
-local nvim_lsp = require("lspconfig")
-
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local servers = {
@@ -24,16 +22,16 @@ local servers = {
 local util = require("lspconfig.util")
 
 for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp].setup({
+	vim.lsp.config(lsp, {
 		capabilities = capabilities,
 	})
 	if lsp == "tailwindcss" then
-		nvim_lsp[lsp].setup({
+		vim.lsp.config(lsp, {
 			root_dir = util.root_pattern("tailwind.config.js", "tailwind.config.cjs", "package.json", ".git"),
 		})
 	end
 	if lsp == "eslint" then
-		nvim_lsp[lsp].setup({
+		vim.lsp.config(lsp, {
 			filetypes = {
 				"javascript",
 				"javascriptreact",
@@ -45,7 +43,7 @@ for _, lsp in ipairs(servers) do
 		})
 	end
 	if lsp == "html" then
-		nvim_lsp[lsp].setup({
+		vim.lsp.config(lsp, {
 			filetypes = {
 				"html",
 				"htmldjango",
@@ -53,7 +51,7 @@ for _, lsp in ipairs(servers) do
 		})
 	end
 	if lsp == "emmet_ls" then
-		nvim_lsp[lsp].setup({
+		vim.lsp.config(lsp, {
 			filetypes = {
 				"html",
 				"htmldjango",
@@ -68,7 +66,7 @@ for _, lsp in ipairs(servers) do
 		})
 	end
 	if lsp == "intelephense" then
-		nvim_lsp[lsp].setup({
+		vim.lsp.config(lsp, {
 			root_dir = function()
 				return vim.loop.cwd()
 			end,
