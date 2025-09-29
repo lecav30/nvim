@@ -9,7 +9,7 @@ local servers = {
 	"eslint",
 	"lua_ls",
 	"rust_analyzer",
-	-- "ts_ls", -- replace for https://github.com/pmizio/typescript-tools.nvim
+	-- "ts_ls", -- replaced for https://github.com/pmizio/typescript-tools.nvim
 	-- "biome",
 	-- "astro",
 	-- "volar",
@@ -25,11 +25,11 @@ for _, lsp in ipairs(servers) do
 	vim.lsp.config(lsp, {
 		capabilities = capabilities,
 	})
-	if lsp == "tailwindcss" then
-		vim.lsp.config(lsp, {
-			root_dir = util.root_pattern("tailwind.config.js", "tailwind.config.cjs", "package.json", ".git"),
-		})
-	end
+	-- if lsp == "tailwindcss" then
+	-- 	vim.lsp.config(lsp, {
+	-- 		root_dir = util.root_pattern("tailwind.config.js", "tailwind.config.cjs", "package.json", ".git"),
+	-- 	})
+	-- end
 	if lsp == "eslint" then
 		vim.lsp.config(lsp, {
 			filetypes = {
@@ -72,6 +72,8 @@ for _, lsp in ipairs(servers) do
 			end,
 		})
 	end
+
+	vim.lsp.enable(lsp)
 end
 
 capabilities.offsetEncoding = { "utf-16" }
