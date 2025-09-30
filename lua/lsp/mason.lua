@@ -15,11 +15,12 @@ require("mason").setup({
 -- css-lsp
 -- diagnostic-languageserver
 -- emmet-ls
--- eslint-lsp
 -- html-lsp
 -- prettier
 -- rustywind
 -- stylua
 -- tailwindcss-language-server
+-- typescript-language-server
+
 
 require("mason-nvim-dap").setup()
