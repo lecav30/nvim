@@ -131,7 +131,6 @@ require("telescope").setup({
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("find_pickers")
 require("telescope").load_extension("notify")
--- require("telescope").load_extension("dap")
 
 -- Functions
 -- https://github.com/nvim-telescope/telescope.nvim#default-mappings

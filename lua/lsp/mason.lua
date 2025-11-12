@@ -21,6 +21,3 @@ require("mason").setup({
 -- stylua
 -- tailwindcss-language-server
 -- typescript-language-server
-
-
-require("mason-nvim-dap").setup()
