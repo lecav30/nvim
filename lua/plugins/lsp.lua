@@ -8,8 +8,10 @@ return {
 	},
 	{
 		"L3MON4D3/LuaSnip",
+		version = "v2.*",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
+			{ "mlaursen/vim-react-snippets", opts = {} }, -- React snippets
 		},
 	}, -- Snippets
 	{
@@ -28,14 +30,7 @@ return {
 			"mlaursen/vim-react-snippets",
 		},
 	},
-	{
-		"mlaursen/vim-react-snippets",
-		dependencies = { "L3MON4D3/LuaSnip" },
-		config = function()
-			require("vim-react-snippets").lazy_load()
-		end,
-	}, -- React snippets
-	---------------------------------------------------------------------------------
+  ---------------------------------------------------------------------------------
 	---------------------------- Better performance LSP -----------------------------
 	---------------------------------------------------------------------------------
 	"onsails/lspkind.nvim", -- Icons for LSP
