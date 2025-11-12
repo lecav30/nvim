@@ -8,7 +8,7 @@ wk.setup({
 wk.add({
 	{
 		"<leader><leader>",
-		"<CMD>lua require 'telescope'.extensions.find_pickers.find_pickers()<CR>",
+		"<cmd>Telescope builtin<CR>",
 		desc = "Find Pickers",
 	},
 	{ "<leader>b", group = "Buffer" },

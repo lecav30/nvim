@@ -51,6 +51,4 @@ return {
 			},
 		},
 	}, -- Catppuccin theme
-	"overcache/NeoSolarized", -- NeoSolarized theme
-	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... }, -- Gruvbox theme
 }

@@ -17,14 +17,16 @@ return {
 		opts_extend = { "ensure_installed" },
 		dependencies = {
 			"JoosepAlviste/nvim-ts-context-commentstring",
-			"windwp/nvim-ts-autotag",
+			{
+				"windwp/nvim-ts-autotag",
+				opts = {},
+			}, -- Rename
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		}, -- Comments for tsx and jsx
 	}, -- Treesitter (Highlighting)
 	---------------------------------------------------------------------------------
 	------------------------------------- HTML --------------------------------------
 	---------------------------------------------------------------------------------
-	"AndrewRadev/tagalong.vim", -- Rename
 	{
 		"norcalli/nvim-colorizer.lua",
 		opts = {},

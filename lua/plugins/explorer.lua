@@ -11,7 +11,6 @@ return {
 			"nvim-tree/nvim-web-devicons", -- Icons for nerd fonts
 		},
 	}, -- Telescope
-	"keyvchan/telescope-find-pickers.nvim", -- Telescope picker
 	{
 		"stevearc/oil.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },

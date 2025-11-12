@@ -124,12 +124,10 @@ require("telescope").setup({
 				},
 			},
 		},
-		find_pickers = {},
 	},
 })
 
 require("telescope").load_extension("file_browser")
-require("telescope").load_extension("find_pickers")
 require("telescope").load_extension("notify")
 
 -- Functions
