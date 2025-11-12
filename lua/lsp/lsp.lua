@@ -7,7 +7,7 @@ local servers = {
 	"tailwindcss",
 	"diagnosticls",
 	"lua_ls",
-	"rust_analyzer",
+	-- "rust_analyzer",
 	"ts_ls",
 }
 
