@@ -14,6 +14,7 @@ return {
 		"kylechui/nvim-surround",
 		version = "*",
 		event = "VeryLazy",
+		opts = {},
 	}, -- Surrounding delimiter pairs
 	{ "echasnovski/mini.bufremove", version = "*" }, -- Delete buffer
 	---------------------------------------------------------------------------------
