@@ -2,6 +2,28 @@ local o = vim.o
 o.termguicolors = true
 vim.loader.enable()
 
+-- Queue notifications that fire before noice is active (pre-VimEnter)
+-- so they don't trigger the "Press ENTER" hit-enter prompt.
+local _notify_queue = {}
+local _orig_notify = vim.api.nvim_notify
+---@diagnostic disable-next-line: duplicate-set-field
+vim.api.nvim_notify = function(msg, level, opts)
+	if vim.v.vim_did_enter == 0 then
+		table.insert(_notify_queue, { msg, level, opts })
+		return
+	end
+	return _orig_notify(msg, level, opts)
+end
+vim.api.nvim_create_autocmd("VimEnter", {
+	once = true,
+	callback = function()
+		vim.api.nvim_notify = _orig_notify
+		for _, n in ipairs(_notify_queue) do
+			vim.schedule(function() _orig_notify(n[1], n[2], n[3]) end)
+		end
+	end,
+})
+
 -- Detect OS
 local sysname = vim.loop.os_uname().sysname
 

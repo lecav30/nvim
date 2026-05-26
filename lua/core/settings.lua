@@ -4,6 +4,12 @@ local cmd = vim.cmd
 local fn = vim.fn
 local cmd = vim.cmd
 
+-- Replace deprecated vim.tbl_flatten so legacy plugins don't generate startup messages
+---@diagnostic disable-next-line: duplicate-set-field
+vim.tbl_flatten = function(t)
+	return vim.iter(t):flatten(math.huge):totable()
+end
+
 -- Enable syntax highlighting and filetype plugins
 cmd("syntax enable")
 cmd("filetype plugin on")

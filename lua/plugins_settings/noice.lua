@@ -20,10 +20,27 @@ require("noice").setup({
 	-- filters
 	routes = {
 		{
-			-- avoid annoying message
 			filter = {
 				event = "notify",
 				find = "No information available",
+			},
+			opts = { skip = true },
+		},
+		{
+			filter = {
+				any = {
+					{ event = "notify", find = "nvim%-cmp is not available" },
+					{ event = "msg_show", find = "nvim%-cmp is not available" },
+				},
+			},
+			opts = { skip = true },
+		},
+		{
+			filter = {
+				any = {
+					{ event = "notify", find = "tbl_flatten" },
+					{ event = "msg_show", find = "tbl_flatten" },
+				},
 			},
 			opts = { skip = true },
 		},
