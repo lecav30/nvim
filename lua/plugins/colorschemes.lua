@@ -51,4 +51,14 @@ return {
 			},
 		},
 	}, -- Catppuccin theme
+	{
+		"nyoom-engineering/oxocarbon.nvim",
+	},
+	{
+		"jacoborus/tender.vim",
+	},
+	{
+		"zenbones-theme/zenbones.nvim",
+		dependencies = "rktjmp/lush.nvim",
+	},
 }

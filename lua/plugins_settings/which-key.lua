@@ -6,14 +6,16 @@ wk.setup({
 })
 
 wk.add({
+	-- Pickers
 	{
 		"<leader><leader>",
 		"<cmd>Telescope builtin<CR>",
 		desc = "Find Pickers",
 	},
+
+	-- Buffers
 	{ "<leader>b", group = "Buffer" },
 	{ "<leader>bl", "<cmd>Telescope buffers<cr>", desc = "List Buffers" },
-	-- { "<leader>bw", "<cmd>bdelete<cr>", desc = "Delete Buffer" },
 	{
 		"<leader>bw",
 		function()
@@ -21,13 +23,8 @@ wk.add({
 		end,
 		desc = "Delete Buffer",
 	},
-	{
-		"<leader>bd",
-		function()
-			vim.diagnostic.setloclist()
-		end,
-		desc = "Buffer Diagnostics",
-	},
+
+	-- Code actions
 	{ "<leader>c", group = "Code" },
 	{
 		"<leader>ca",
@@ -51,17 +48,29 @@ wk.add({
 		end,
 		desc = "Format Code",
 	},
-	{ "<leader>e", "<cmd>Oil<cr>", desc = "Buffer File Explorer" },
+
+	-- Harpoon mappings live in plugins_settings.harpoon
+	{ "<leader>d", group = "Harpoon" },
+
+	-- Files and search
+	{ "<leader>e", "<cmd>Oil<cr>", desc = "Oil Explorer" },
 	{ "<leader>f", group = "Find" },
 	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
 	{ "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "File Browser" },
-	{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
-	{ "<leader>fw", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current Buffer Fuzzy" },
+	{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
+	{ "<leader>fh", desc = "Find Harpoon Files" },
 	{ "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File" },
+	{ "<leader>fw", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current Buffer Fuzzy" },
+	{
+		"<leader>s",
+		"<cmd>lua require'spectre'.toggle()<cr>",
+		desc = "Toggle Spectre",
+	},
+
+	-- Git and direct LSP jumps
 	{ "<leader>g", group = "Git & LSP" },
 	{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Git Branches" },
 	{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits" },
-	{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Git Status" },
 	{
 		"<leader>gd",
 		function()
@@ -76,107 +85,9 @@ wk.add({
 		end,
 		desc = "Go to Definition",
 	},
-	{
-		"<leader>gi",
-		function()
-			local method = "textDocument/prepareCallHierarchy"
-			local clients = vim.lsp.get_clients({ bufnr = 0 })
-			local params, client
+	{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Git Status" },
 
-			-- buscar cliente válido
-			for _, c in ipairs(clients) do
-				if c.supports_method and c:supports_method(method) then
-					client = c
-					params = vim.lsp.util.make_position_params(0, c.offset_encoding)
-					break
-				end
-			end
-
-			if not client then
-				vim.notify("No LSP client supports call hierarchy", vim.log.levels.WARN)
-				return
-			end
-
-			-- preparar jerarquía
-			client.request(method, params, function(err, result)
-				if err or not result or vim.tbl_isempty(result) then
-					vim.notify("No incoming calls available", vim.log.levels.INFO)
-					return
-				end
-
-				-- ahora pedimos incoming calls solo a este cliente
-				client.request("callHierarchy/incomingCalls", { item = result[1] }, function(call_err, calls)
-					if call_err or not calls or vim.tbl_isempty(calls) then
-						vim.notify("No incoming calls found", vim.log.levels.INFO)
-						return
-					end
-
-					local pickers = require("telescope.pickers")
-					local finders = require("telescope.finders")
-					local conf = require("telescope.config").values
-					local actions = require("telescope.actions")
-					local action_state = require("telescope.actions.state")
-
-					local entries = {}
-					for _, call in ipairs(calls) do
-						local from = call.from
-						local loc = from.selectionRange.start
-						table.insert(entries, {
-							filename = vim.uri_to_fname(from.uri),
-							lnum = loc.line + 1,
-							col = loc.character + 1,
-							text = from.name,
-						})
-					end
-
-					pickers
-						.new({}, {
-							prompt_title = "Incoming Calls",
-							finder = finders.new_table({
-								results = entries,
-								entry_maker = function(e)
-									return {
-										value = e,
-										display = e.text .. " -> " .. e.filename,
-										ordinal = e.text .. " " .. e.filename,
-										filename = e.filename,
-										lnum = e.lnum,
-										col = e.col,
-									}
-								end,
-							}),
-							sorter = conf.generic_sorter({}),
-							previewer = conf.qflist_previewer({}),
-							attach_mappings = function(prompt_bufnr, _)
-								actions.select_default:replace(function()
-									local selection = action_state.get_selected_entry()
-									actions.close(prompt_bufnr)
-									vim.cmd("edit " .. selection.filename)
-									vim.api.nvim_win_set_cursor(0, { selection.lnum, selection.col - 1 })
-								end)
-								return true
-							end,
-						})
-						:find()
-				end)
-			end, 0)
-		end,
-		desc = "Incoming calls (Telescope)",
-	},
-	{
-		"<leader>gf",
-		function()
-			require("telescope.builtin").lsp_references()
-		end,
-		desc = "Find References",
-	},
-	{
-		"<leader>go",
-		function()
-			require("telescope.builtin").lsp_document_symbols()
-		end,
-		desc = "Outline",
-	},
+	-- LSP actions that Trouble does not replace
 	{
 		"<leader>k",
 		function()
@@ -184,10 +95,6 @@ wk.add({
 		end,
 		desc = "Hover Documentation",
 	},
-	{ "<leader>q", group = "quit" },
-	{ "<leader>qs", ":close<CR>", desc = "Close current sliding window" },
-	-- { "<leader>qq", ":q!<CR>", desc = "Quit current file" },
-	{ "<leader>qq", ":qa!<CR>", desc = "Quit" },
 	{
 		"<leader>rn",
 		function()
@@ -195,20 +102,44 @@ wk.add({
 		end,
 		desc = "Rename",
 	},
-	{
-		"<leader>s",
-		"<cmd>lua require'spectre'.toggle()<cr>",
-		desc = "Toggle Spectre",
-	},
+
+	-- Session and windows
+	{ "<leader>q", group = "Quit" },
+	{ "<leader>qq", ":qa!<CR>", desc = "Quit" },
+	{ "<leader>qs", ":close<CR>", desc = "Close Window" },
 	{ "<leader>w", group = "Save" },
-	{ "<leader>ww", ":w<CR>", desc = "Save file" },
-	{ "<leader>wa", ":wa<CR>", desc = "Save all files" },
-	{ "<leader>wq", ":wq!<CR>", desc = "Save all files and quit" },
-	{ "<leader>v", group = "Vimtex" },
+	{ "<leader>wa", ":wa<CR>", desc = "Save All Files" },
+	{ "<leader>wq", ":wq!<CR>", desc = "Save and Quit" },
+	{ "<leader>ww", ":w<CR>", desc = "Save File" },
+
+	-- Trouble
+	{ "<leader>x", group = "Trouble" },
+	{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Workspace Diagnostics" },
+	{ "<leader>xb", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics" },
+	{ "<leader>xd", "<cmd>Trouble lsp_definitions toggle<cr>", desc = "Definitions" },
+	{ "<leader>xD", "<cmd>Trouble lsp_declarations toggle<cr>", desc = "Declarations" },
+	{ "<leader>xi", "<cmd>Trouble lsp_incoming_calls toggle<cr>", desc = "Incoming Calls" },
+	{
+		"<leader>xl",
+		"<cmd>Trouble lsp toggle<cr>",
+		desc = "LSP Definitions / References",
+	},
+	{ "<leader>xm", "<cmd>Trouble lsp_implementations toggle<cr>", desc = "Implementations" },
+	{ "<leader>xo", "<cmd>Trouble lsp_outgoing_calls toggle<cr>", desc = "Outgoing Calls" },
+	{ "<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List" },
+	{ "<leader>xr", "<cmd>Trouble lsp_references toggle<cr>", desc = "References" },
+	{ "<leader>xs", "<cmd>Trouble symbols toggle focus=true<cr>", desc = "Document Symbols" },
+	{ "<leader>xt", "<cmd>Trouble lsp_type_definitions toggle<cr>", desc = "Type Definitions" },
+	{ "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List" },
+
+	-- VimTeX
+	{ "<leader>v", group = "VimTeX" },
 	{ "<leader>vc", "<cmd>VimtexCompile<cr>", desc = "Compile" },
-	{ "<leader>vv", "<cmd>VimtexView<cr>", desc = "View" },
 	{ "<leader>ve", "<cmd>VimtexErrors<cr>", desc = "Errors" },
 	{ "<leader>vs", "<cmd>VimtexStatus<cr>", desc = "Status" },
 	{ "<leader>vt", "<cmd>VimtexStop<cr>", desc = "Stop" },
+	{ "<leader>vv", "<cmd>VimtexView<cr>", desc = "View" },
+
+	-- Focus mode
 	{ "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" },
 })

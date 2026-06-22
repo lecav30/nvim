@@ -1,6 +1,6 @@
 -- Mapping helper
-local mapper = function(mode, key, result)
-	vim.api.nvim_set_keymap(mode, key, result, { noremap = true, silent = true })
+local mapper = function(mode, key, result, desc)
+	vim.keymap.set(mode, key, result, { noremap = true, silent = true, desc = desc })
 end
 
 -- Change Buffers
@@ -8,30 +8,45 @@ end
 -- mapper("n", "<S-Tab>", ":bprevious<Return>")
 
 -- Bufferline visual change
-mapper("n", "<Tab>", ":BufferLineCycleNext<CR>")
-mapper("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
+mapper("n", "<Tab>", ":BufferLineCycleNext<CR>", "Next Buffer")
+mapper("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", "Previous Buffer")
 
 -- Split window
-mapper("n", "ss", ":split<Return>")
-mapper("n", "sv", ":vsplit<Return>")
+mapper("n", "ss", ":split<Return>", "Horizontal Split")
+mapper("n", "sv", ":vsplit<Return>", "Vertical Split")
 
 -- Select All
-mapper("n", "<C-a>", "gg<S-v>G")
+mapper("n", "<C-a>", "gg<S-v>G", "Select All")
 
 -- Terminal
-mapper("t", "<Esc>", "<C-\\><C-n>")
+mapper("t", "<Esc>", "<C-\\><C-n>", "Exit Terminal Mode")
 
 -- Move
-mapper("x", "K", ":move '<-2<CR>gv-gv")
-mapper("x", "J", ":move '>+1<CR>gv-gv")
-mapper("i", "<C-BS>", "<Esc>caw")
+mapper("x", "K", ":move '<-2<CR>gv-gv", "Move Selection Up")
+mapper("x", "J", ":move '>+1<CR>gv-gv", "Move Selection Down")
+mapper("i", "<C-BS>", "<Esc>caw", "Delete Word Backward")
 
 -- Clear highlights
-mapper("n", "<F9>", ":noh<CR>")
+mapper("n", "<F9>", ":noh<CR>", "Clear Search Highlights")
 
 -- Compiler C++
-vim.api.nvim_command("autocmd filetype cpp nnoremap <f5> :w <bar> !g++ % <cr>")
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "cpp",
+	callback = function(event)
+		vim.keymap.set("n", "<F5>", ":w <bar> !g++ % <cr>", { buffer = event.buf, desc = "Compile C++ File" })
+	end,
+})
 -- Compiler C
-vim.api.nvim_command("autocmd filetype c nnoremap <f5> :w <bar> !gcc % <cr>")
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "c",
+	callback = function(event)
+		vim.keymap.set("n", "<F5>", ":w <bar> !gcc % <cr>", { buffer = event.buf, desc = "Compile C File" })
+	end,
+})
 -- Compiler Python
-vim.api.nvim_command("autocmd filetype python nnoremap <f5> :w <bar> !python % <cr>")
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "python",
+	callback = function(event)
+		vim.keymap.set("n", "<F5>", ":w <bar> !python % <cr>", { buffer = event.buf, desc = "Run Python File" })
+	end,
+})

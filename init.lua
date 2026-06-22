@@ -51,5 +51,5 @@ else
 	-- o.background = "dark"
 
 	-- Themes and configs
-	-- cmd("colorscheme catppuccin-mocha")
+	cmd("colorscheme oxocarbon")
 end

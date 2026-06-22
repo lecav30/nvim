@@ -7,6 +7,23 @@ return {
 		dependencies = { "saghen/blink.cmp" },
 	},
 	{
+		"folke/trouble.nvim",
+		cmd = "Trouble",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			focus = true,
+			-- win = {
+			-- 	type = "float",
+			-- 	relative = "editor",
+			-- 	position = { 0.5, 0.5 },
+			-- 	size = { width = 0.9, height = 0.85 },
+			-- 	border = "rounded",
+			-- 	title = " Trouble ",
+			-- 	title_pos = "center",
+			-- },
+		},
+	},
+	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
 		dependencies = {
