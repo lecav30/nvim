@@ -1,141 +1,104 @@
--- grey0   #7c6f64    bg0               #282828
--- grey1   #928374    bg1               #32302f
--- grey2   #a89984    bg3               #45403d
---                    bg5               #5a524c
--- fg0     #e2cca9
--- red     #f2594b    bg_statusline1    #32302f
--- orange  #f28534    bg_statusline2    #3a3735
--- yellow  #e9b143    bg_statusline3    #504945
--- green   #b0b846
--- aqua    #8bba7f    bg_diff_green     #34381b
--- blue    #80aa9e    bg_visual_green   #3b4439
--- purple  #d3869b    bg_diff_red       #402120
--- bg_red  #db4740    bg_visual_red     #4c3432
---                    bg_diff_blue      #0e363e
---                    bg_visual_blue    #374141
---                    bg_visual_yellow  #4f422e
---                    bg_current_word   #3c3836
+local function hex(value)
+	if not value then
+		return nil
+	end
+	return string.format("#%06x", value)
+end
 
--- BufferCurrent         s:palette.fg1     s:palette.bg5
--- BufferCurrentIndex    s:palette.fg1     s:palette.bg5
--- BufferCurrentMod      s:palette.blue    s:palette.bg5
--- BufferCurrentSign     s:palette.grey2   s:palette.bg5
--- BufferCurrentTarget   s:palette.red     s:palette.bg5   'bold'
+local function hl(name)
+	local ok, value = pcall(vim.api.nvim_get_hl, 0, { name = name, link = false })
+	return ok and value or {}
+end
 
--- BufferVisible         s:palette.fg1     s:palette.bg3
--- BufferVisibleIndex    s:palette.fg1     s:palette.bg3
--- BufferVisibleMod      s:palette.blue    s:palette.bg3
--- BufferVisibleSign     s:palette.grey2   s:palette.bg3
--- BufferVisibleTarget   s:palette.yellow  s:palette.bg3   'bold'
+local function hl_fg(name, fallback)
+	return hex(hl(name).fg) or fallback
+end
 
--- BufferInactive        s:palette.grey1   s:palette.bg3
--- BufferInactiveIndex   s:palette.grey1   s:palette.bg3
--- BufferInactiveMod     s:palette.grey1   s:palette.bg3
--- BufferInactiveSign    s:palette.grey0   s:palette.bg3
--- BufferInactiveTarget  s:palette.yellow  s:palette.bg3   'bold'
+local function hl_bg(name, fallback)
+	return hex(hl(name).bg) or fallback
+end
 
--- BufferTabpages        s:palette.bg0     s:palette.grey2 'bold'
--- BufferTabpageFill     s:palette.bg0     s:palette.bg0
+local function blend(fg, bg, alpha)
+	fg = tonumber(fg:sub(2), 16)
+	bg = tonumber(bg:sub(2), 16)
 
-local colors = {
-	gmd = { -- gruvbox-material dark
-		background = "#1E1E1E",
-		active_buf = { fg = "#e2cca9", bg = "#5a524c" },
-		visible_buf = { fg = "#e2cca9", bg = "#45403d" },
-		hidden_buf = { fg = "#928374", bg = "#45403d" },
-	},
-}
+	local function channel(offset)
+		local fg_channel = math.floor(fg / offset) % 256
+		local bg_channel = math.floor(bg / offset) % 256
+		return math.floor((alpha * fg_channel) + ((1 - alpha) * bg_channel))
+	end
 
-local highlights = { -- {{{
-	["gruvbox-material"] = {
-		fill = { -- background of the bufferline
-			guibg = colors.gmd.background,
-		},
-		-- tab = { -- non-active tabpage (in vim sence)
-		--    guifg = '#e9b143',
-		--    guibg = '#e9b143',
-		-- },
-		-- tab_selected = { -- non-active tabpage (in vim sence)
-		--    guifg = '#e9b143',
-		--    guibg = '#e9b143',
-		-- }
+	return string.format("#%02x%02x%02x", channel(0x10000), channel(0x100), channel(0x1))
+end
 
-		-- -- pick_selected = {
-		-- -- pick_visible = {
-		-- -- pick = {
-		--    -- guifg = '#e9b143',
-		--    guibg = '#e9b143',
-		-- }
+local function palette()
+	local bg = hl_bg("Normal", "#161616")
+	local fg = hl_fg("Normal", "#dde1e6")
+	local blue = hl_fg("Function", "#78a9ff")
+	local surface = hl_bg("StatusLineNC", blend(fg, bg, 0.12))
+	local surface_active = blend(blue, bg, 0.22)
+	local surface_visible = blend(fg, bg, 0.18)
 
-		-- Active buffer
-		buffer_selected = {
-			guifg = colors.gmd.active_buf.fg,
-			guibg = colors.gmd.active_buf.bg,
-		},
-		separator_selected = {
-			guifg = colors.gmd.background,
-			guibg = colors.gmd.active_buf.bg,
-		},
-		modified_selected = {
-			guifg = "#80aa9e",
-			guibg = colors.gmd.active_buf.bg,
-		},
-		close_button_selected = {
-			-- guifg = '',
-			guibg = colors.gmd.active_buf.bg,
-		},
+	return {
+		bg = bg,
+		fg = fg,
+		muted = hl_fg("Comment", blend(fg, bg, 0.45)),
+		surface = surface,
+		surface_active = surface_active,
+		surface_visible = surface_visible,
+		blue = blue,
+		yellow = hl_fg("DiagnosticWarn", "#f1c21b"),
+		red = hl_fg("DiagnosticError", "#ee5396"),
+	}
+end
 
-		-- Hidden buffers
-		separator = {
-			guifg = colors.gmd.background,
-			guibg = colors.gmd.hidden_buf.bg,
-		},
-		background = { -- the body of non-active buffer
-			guifg = colors.gmd.hidden_buf.fg,
-			guibg = colors.gmd.hidden_buf.bg,
-		},
-		modified = {
-			guifg = colors.gmd.hidden_buf.fg,
-			guibg = colors.gmd.hidden_buf.bg,
-		},
-		close_button = {
-			guibg = colors.gmd.hidden_buf.bg,
-		},
+local function highlights()
+	local colors = palette()
 
-		-- Buffer visible in non-active window
-		buffer_visible = { -- visible in non-active window
-			guifg = colors.gmd.visible_buf.fg,
-			guibg = colors.gmd.visible_buf.bg,
-		},
-		separator_visible = {
-			guifg = colors.gmd.background,
-			guibg = colors.gmd.visible_buf.bg,
-		},
-		indicator_selected = {
-			-- guifg = '#80aa9e',
-			-- guibg = colors.gmd.visible_buf.bg,
-		},
-		modified_visible = {
-			guifg = "#80aa9e",
-			guibg = colors.gmd.visible_buf.bg,
-		},
-		close_button_visible = {
-			-- guifg = '',
-			guibg = colors.gmd.visible_buf.bg,
-		},
-	},
-} --}}}
+	return {
+		fill = { bg = colors.bg },
 
-require("bufferline").setup({
-	-- highlights = highlights[vim.g.colors_name] and highlights[vim.g.colors_name] or {},
-	-- highlights = highlights["gruvbox-material"],
-	options = {
-		separator_style = "slant", -- 'thick' | 'thin' | { 'any', 'any' },
+		background = { fg = colors.muted, bg = colors.surface },
+		buffer_visible = { fg = colors.fg, bg = colors.surface_visible },
+		buffer_selected = { fg = colors.blue, bg = colors.surface_active, bold = true, italic = false },
 
-		-- sort_by = 'extension' | 'relative_directory' | 'directory' | function(buffer_a, buffer_b)
-		--   -- add custom logic
-		--   return buffer_a.modified > buffer_b.modified
-		-- end
-		sort_by = "relative_directory",
-	},
+		close_button = { fg = colors.muted, bg = colors.surface },
+		close_button_visible = { fg = colors.fg, bg = colors.surface_visible },
+		close_button_selected = { fg = colors.blue, bg = colors.surface_active },
+
+		modified = { fg = colors.yellow, bg = colors.surface },
+		modified_visible = { fg = colors.yellow, bg = colors.surface_visible },
+		modified_selected = { fg = colors.bg, bg = colors.yellow, bold = true },
+
+		separator = { fg = colors.bg, bg = colors.surface },
+		separator_visible = { fg = colors.bg, bg = colors.surface_visible },
+		separator_selected = { fg = colors.bg, bg = colors.surface_active },
+
+		indicator_selected = { fg = colors.blue, bg = colors.surface_active },
+
+		error = { fg = colors.red, bg = colors.surface },
+		error_visible = { fg = colors.red, bg = colors.surface_visible },
+		error_selected = { fg = colors.bg, bg = colors.red, bold = true },
+
+		warning = { fg = colors.yellow, bg = colors.surface },
+		warning_visible = { fg = colors.yellow, bg = colors.surface_visible },
+		warning_selected = { fg = colors.bg, bg = colors.yellow, bold = true },
+	}
+end
+
+local function setup()
+	require("bufferline").setup({
+		highlights = highlights(),
+		options = {
+			separator_style = "thick",
+			sort_by = "insert_after_current",
+		},
+	})
+end
+
+setup()
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	group = vim.api.nvim_create_augroup("BufferlineColors", { clear = true }),
+	callback = setup,
 })
