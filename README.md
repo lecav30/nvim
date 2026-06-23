@@ -11,7 +11,7 @@
 ## Installation with Homebrew:
 
 ```bash
-brew install neovim ast-grep
+brew install neovim ast-grep tree-sitter-cli
 ```
 
 ## Mason to PATH
@@ -62,4 +62,3 @@ cargo install tree-sitter-cli
 ```
 
 And you have to add it to your PATH
-

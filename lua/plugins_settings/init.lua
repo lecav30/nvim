@@ -1,5 +1,4 @@
 require("plugins_settings.noice")
-require("plugins_settings.treesitter")
 require("plugins_settings.blink")
 require("plugins_settings.conform")
 require("plugins_settings.devicons")
