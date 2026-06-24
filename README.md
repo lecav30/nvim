@@ -20,6 +20,19 @@ brew install neovim ast-grep tree-sitter-cli
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 ```
 
+## Post-install (first run)
+
+Open Neovim and run:
+
+```vim
+:Lazy sync
+:TSUpdate
+:TSInstall tsx typescript javascript
+:checkhealth nvim-treesitter
+```
+
+> Keep Neovim open until parser install finishes (`Compiling parser` / `Language installed`).
+
 # Windows
 
 ## Installation with Scoop:
