@@ -4,7 +4,7 @@ return {
 	---------------------------------------------------------------------------------
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
+		version = "*",
 		dependencies = {
 			"nvim-telescope/telescope-file-browser.nvim", -- File browser
 			"nvim-lua/plenary.nvim", -- required
