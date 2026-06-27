@@ -44,8 +44,6 @@ else
 	vim.g.mapleader = " "
 	require("core")
 	require("config.lazy")
-	require("lsp")
-	require("plugins_settings")
 
 	local cmd = vim.cmd
 	-- o.background = "dark"

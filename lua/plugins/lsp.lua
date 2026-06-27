@@ -4,7 +4,35 @@ return {
 	---------------------------------------------------------------------------------
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = { "saghen/blink.cmp" },
+		lazy = false,
+		dependencies = {
+			"saghen/blink.cmp",
+			"williamboman/mason.nvim",
+			{
+				"WhoIsSethDaniel/mason-tool-installer.nvim",
+				opts = {
+					ensure_installed = {
+						"css-lsp",
+						"diagnostic-languageserver",
+						"emmet-ls",
+						"html-lsp",
+						"lua-language-server",
+						"prettier",
+						"prettierd",
+						"stylua",
+						"tailwindcss-language-server",
+						"typescript-language-server",
+					},
+					auto_update = false,
+					run_on_start = true,
+					start_delay = 3000,
+					debounce_hours = 24,
+				},
+			},
+		},
+		config = function()
+			require("lsp.lsp")
+		end,
 	},
 	{
 		"folke/trouble.nvim",
@@ -34,6 +62,9 @@ return {
 	{
 		"saghen/blink.cmp",
 		version = "1.*",
+		config = function()
+			require("plugins_settings.blink")
+		end,
 		dependencies = {
 			{
 				"supermaven-inc/supermaven-nvim",
@@ -51,12 +82,25 @@ return {
 	---------------------------------------------------------------------------------
 	----------------------------------- Mason ---------------------------------------
 	---------------------------------------------------------------------------------
-	"williamboman/mason.nvim",
+	{
+		"williamboman/mason.nvim",
+		opts = {
+			ui = {
+				icons = {
+					package_installed = "✓",
+					package_pending = "➜",
+					package_uninstalled = "✗",
+				},
+			},
+			PATH = "prepend",
+		},
+	},
 	---------------------------------------------------------------------------------
 	---------------------------------- Status ---------------------------------------
 	---------------------------------------------------------------------------------
 	{
 		"j-hui/fidget.nvim",
+		event = "LspAttach",
 		opts = {},
 	},
 }

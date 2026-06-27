@@ -4,15 +4,34 @@ return {
 	---------------------------------------------------------------------------------
 	{
 		"stevearc/conform.nvim",
-		opts = {},
+		cmd = "ConformInfo",
+		opts = {
+			formatters_by_ft = {
+				lua = { "stylua" },
+				javascript = { "prettierd", "prettier", stop_after_first = true },
+				typescript = { "prettierd", "prettier", stop_after_first = true },
+				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+				markdown = { "prettierd", "prettier", stop_after_first = true },
+				json = { "prettierd", "prettier", stop_after_first = true },
+				html = { "prettierd", "prettier", stop_after_first = true },
+				css = { "prettierd", "prettier", stop_after_first = true },
+			},
+		},
 	}, -- Format
 	---------------------------------------------------------------------------------
 	--------------------------------- Indent, color ---------------------------------
 	---------------------------------------------------------------------------------
-	{ "nvim-mini/mini.indentscope", version = "*", opts = {} }, -- Indentation guides
+	{
+		"nvim-mini/mini.indentscope",
+		version = "*",
+		event = { "BufReadPre", "BufNewFile" },
+		opts = {},
+	}, -- Indentation guides
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("plugins_settings.treesitter")
 		end,
@@ -31,6 +50,7 @@ return {
 	---------------------------------------------------------------------------------
 	{
 		"norcalli/nvim-colorizer.lua",
+		event = { "BufReadPre", "BufNewFile" },
 		opts = {},
 	}, -- Colorizer
 }

@@ -5,7 +5,7 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		priority = 1000,
+		lazy = true,
 		opts = {
 			transparent_background = true,
 			integrations = {
@@ -53,12 +53,16 @@ return {
 	}, -- Catppuccin theme
 	{
 		"nyoom-engineering/oxocarbon.nvim",
+		lazy = false,
+		priority = 1000,
 	},
 	{
 		"jacoborus/tender.vim",
+		lazy = true,
 	},
 	{
 		"zenbones-theme/zenbones.nvim",
 		dependencies = "rktjmp/lush.nvim",
+		lazy = true,
 	},
 }
