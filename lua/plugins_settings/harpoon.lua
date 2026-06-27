@@ -1,9 +1,12 @@
-local harpoon = require("harpoon")
+local M = {}
 
-harpoon:setup()
+function M.setup()
+	require("harpoon"):setup()
+end
 
 local conf = require("telescope.config").values
-local function toggle_telescope(harpoon_files)
+function M.toggle_telescope()
+	local harpoon_files = require("harpoon"):list()
 	local file_paths = {}
 	for _, item in ipairs(harpoon_files.items) do
 		table.insert(file_paths, item.value)
@@ -21,32 +24,4 @@ local function toggle_telescope(harpoon_files)
 		:find()
 end
 
-vim.keymap.set("n", "<leader>a", function()
-	harpoon:list():add()
-end, { desc = "Add File to Harpoon" })
-vim.keymap.set("n", "<leader>dr", function()
-	require("harpoon"):list():remove()
-end, { desc = "Remove current file from Harpoon" })
-vim.keymap.set("n", "<leader>dC", function()
-	require("harpoon"):list():clear()
-end, { desc = "Clear all Harpoon marks" })
-
-vim.keymap.set("n", "<leader>h", function()
-	harpoon.ui:toggle_quick_menu(harpoon:list())
-end, { desc = "Harpoon Quick Menu" })
-vim.keymap.set("n", "<leader>fh", function()
-	toggle_telescope(harpoon:list())
-end, { desc = "Find Harpoon Files" })
-
-vim.keymap.set("n", "<leader>1", function()
-	harpoon:list():select(1)
-end, { desc = "Harpoon File 1" })
-vim.keymap.set("n", "<leader>2", function()
-	harpoon:list():select(2)
-end, { desc = "Harpoon File 2" })
-vim.keymap.set("n", "<leader>3", function()
-	harpoon:list():select(3)
-end, { desc = "Harpoon File 3" })
-vim.keymap.set("n", "<leader>4", function()
-	harpoon:list():select(4)
-end, { desc = "Harpoon File 4" })
+return M

@@ -99,7 +99,13 @@ return {
 	---------------------------------------------------------------------------------
 	------------------------------------ Zen ----------------------------------------
 	---------------------------------------------------------------------------------
-	{ "folke/zen-mode.nvim", cmd = "ZenMode" }, -- Zen mode
+	{
+		"folke/zen-mode.nvim",
+		cmd = "ZenMode",
+		keys = {
+			{ "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" },
+		},
+	}, -- Zen mode
 	---------------------------------------------------------------------------------
 	---------------------------------- Harpoon --------------------------------------
 	---------------------------------------------------------------------------------
@@ -108,18 +114,73 @@ return {
 		branch = "harpoon2",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		keys = {
-			"<leader>a",
-			"<leader>dr",
-			"<leader>dC",
-			"<leader>h",
-			"<leader>fh",
-			"<leader>1",
-			"<leader>2",
-			"<leader>3",
-			"<leader>4",
+			{
+				"<leader>a",
+				function()
+					require("harpoon"):list():add()
+				end,
+				desc = "Add File to Harpoon",
+			},
+			{
+				"<leader>dr",
+				function()
+					require("harpoon"):list():remove()
+				end,
+				desc = "Remove File from Harpoon",
+			},
+			{
+				"<leader>dC",
+				function()
+					require("harpoon"):list():clear()
+				end,
+				desc = "Clear Harpoon Marks",
+			},
+			{
+				"<leader>h",
+				function()
+					local harpoon = require("harpoon")
+					harpoon.ui:toggle_quick_menu(harpoon:list())
+				end,
+				desc = "Harpoon Quick Menu",
+			},
+			{
+				"<leader>fh",
+				function()
+					require("plugins_settings.harpoon").toggle_telescope()
+				end,
+				desc = "Find Harpoon Files",
+			},
+			{
+				"<leader>1",
+				function()
+					require("harpoon"):list():select(1)
+				end,
+				desc = "Harpoon File 1",
+			},
+			{
+				"<leader>2",
+				function()
+					require("harpoon"):list():select(2)
+				end,
+				desc = "Harpoon File 2",
+			},
+			{
+				"<leader>3",
+				function()
+					require("harpoon"):list():select(3)
+				end,
+				desc = "Harpoon File 3",
+			},
+			{
+				"<leader>4",
+				function()
+					require("harpoon"):list():select(4)
+				end,
+				desc = "Harpoon File 4",
+			},
 		},
 		config = function()
-			require("plugins_settings.harpoon")
+			require("plugins_settings.harpoon").setup()
 		end,
 	},
 	---------------------------------------------------------------------------------

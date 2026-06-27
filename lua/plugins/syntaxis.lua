@@ -5,6 +5,15 @@ return {
 	{
 		"stevearc/conform.nvim",
 		cmd = "ConformInfo",
+		keys = {
+			{
+				"<leader>cf",
+				function()
+					require("conform").format({ lsp_fallback = true, async = false, timeout_ms = 500 })
+				end,
+				desc = "Format Code",
+			},
+		},
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },

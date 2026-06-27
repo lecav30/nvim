@@ -17,7 +17,19 @@ return {
 		event = "VeryLazy",
 		opts = {},
 	}, -- Surrounding delimiter pairs
-	{ "echasnovski/mini.bufremove", version = "*", lazy = true }, -- Delete buffer
+	{
+		"echasnovski/mini.bufremove",
+		version = "*",
+		keys = {
+			{
+				"<leader>bw",
+				function()
+					require("mini.bufremove").delete(0, false)
+				end,
+				desc = "Delete Buffer",
+			},
+		},
+	}, -- Delete buffer
 	{
 		"nvim-tree/nvim-web-devicons",
 		lazy = true,

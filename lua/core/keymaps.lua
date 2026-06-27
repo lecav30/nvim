@@ -7,10 +7,6 @@ end
 -- mapper("n", "<Tab>", ":bnext<CR>")
 -- mapper("n", "<S-Tab>", ":bprevious<Return>")
 
--- Bufferline visual change
-mapper("n", "<Tab>", ":BufferLineCycleNext<CR>", "Next Buffer")
-mapper("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", "Previous Buffer")
-
 -- Split window
 mapper("n", "ss", ":split<Return>", "Horizontal Split")
 mapper("n", "sv", ":vsplit<Return>", "Vertical Split")
@@ -28,6 +24,16 @@ mapper("i", "<C-BS>", "<Esc>caw", "Delete Word Backward")
 
 -- Clear highlights
 mapper("n", "<F9>", ":noh<CR>", "Clear Search Highlights")
+
+-- Diagnostics, session and files
+mapper("n", "<leader>cd", function()
+	vim.diagnostic.open_float()
+end, "Line Diagnostics")
+mapper("n", "<leader>qq", "<cmd>qa!<CR>", "Quit")
+mapper("n", "<leader>qs", "<cmd>close<CR>", "Close Window")
+mapper("n", "<leader>wa", "<cmd>wa<CR>", "Save All Files")
+mapper("n", "<leader>wq", "<cmd>wq!<CR>", "Save and Quit")
+mapper("n", "<leader>ww", "<cmd>w<CR>", "Save File")
 
 -- Compiler C++
 vim.api.nvim_create_autocmd("FileType", {
