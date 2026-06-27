@@ -55,12 +55,41 @@ wk.add({
 	-- Files and search
 	{ "<leader>e", "<cmd>Oil<cr>", desc = "Oil Explorer" },
 	{ "<leader>f", group = "Find" },
-	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
-	{ "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "File Browser" },
-	{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
+	-- { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File" },
+	{
+		"<leader>ff",
+		function()
+			require("fff").find_files()
+		end,
+		desc = "FFFind files",
+	},
+	-- { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
+	{
+		"<leader>fg",
+		function()
+			require("fff").live_grep()
+		end,
+		desc = "LiFFFe grep",
+	},
+
+	{
+		"<leader>fz",
+		function()
+			require("fff").live_grep({ grep = { modes = { "fuzzy", "plain" } } })
+		end,
+		desc = "Live fffuzy grep",
+	},
 	{ "<leader>fh", desc = "Find Harpoon Files" },
 	{ "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File" },
-	{ "<leader>fw", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current Buffer Fuzzy" },
+	-- { "<leader>fw", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current Buffer Fuzzy" },
+	{
+		"<leader>fw",
+		function()
+			require("fff").live_grep_under_cursor()
+		end,
+		mode = { "n", "x" },
+		desc = "Search current word / selection",
+	},
 	{
 		"<leader>s",
 		"<cmd>lua require'spectre'.toggle()<cr>",
