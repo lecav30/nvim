@@ -42,6 +42,16 @@ return {
 				desc = "Code Action",
 			},
 			{
+				"<leader>co",
+				function()
+					vim.lsp.buf.code_action({
+						context = { only = { "source.organizeImports" } },
+						apply = true,
+					})
+				end,
+				desc = "Organize Imports",
+			},
+			{
 				"<leader>gd",
 				function()
 					vim.lsp.buf.declaration()
