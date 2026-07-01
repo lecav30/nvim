@@ -39,6 +39,7 @@ return {
 				function()
 					vim.lsp.buf.code_action()
 				end,
+				mode = { "n", "x" },
 				desc = "Code Action",
 			},
 			{
@@ -135,6 +136,24 @@ return {
 					disable_keymaps = true,
 					log_level = "off", -- suppress print() warnings before noice is active
 				},
+				config = function(_, opts)
+					local notify = vim.api.nvim_notify
+					vim.api.nvim_notify = function(message, ...)
+						if type(message) == "string" and message:find("nvim-cmp is not available", 1, true) then
+							return
+						end
+						return notify(message, ...)
+					end
+
+					local ok, err = xpcall(function()
+						require("supermaven-nvim").setup(opts)
+					end, debug.traceback)
+					vim.api.nvim_notify = notify
+
+					if not ok then
+						error(err)
+					end
+				end,
 			},
 			"rafamadriz/friendly-snippets",
 			"huijiro/blink-cmp-supermaven",
