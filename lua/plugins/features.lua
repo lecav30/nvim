@@ -58,6 +58,36 @@ return {
 		"lewis6991/gitsigns.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		opts = {
+			on_attach = function(bufnr)
+				local gs = require("gitsigns")
+
+				local map = function(mode, lhs, rhs, desc)
+					vim.keymap.set(mode, lhs, rhs, {
+						buffer = bufnr,
+						desc = desc,
+					})
+				end
+
+				map("n", "]h", function()
+					gs.nav_hunk("next")
+				end, "Next Git Hunk")
+
+				map("n", "[h", function()
+					gs.nav_hunk("prev")
+				end, "Previous Git Hunk")
+
+				map("n", "<leader>gp", gs.preview_hunk, "Preview Hunk")
+				map("n", "<leader>gh", gs.stage_hunk, "Stage/Unstage Hunk")
+				map("n", "<leader>gr", gs.reset_hunk, "Reset Hunk")
+
+				map("n", "<leader>gb", function()
+					gs.blame_line({ full = true })
+				end, "Blame Line")
+
+				map("n", "<leader>gB", gs.blame, "Blame buffer")
+
+				map({ "o", "x" }, "ih", gs.select_hunk, "Git Hunk")
+			end,
 			signs = {
 				add = { text = "│" },
 				change = { text = "│" },
@@ -66,33 +96,11 @@ return {
 				changedelete = { text = "~" },
 				untracked = { text = "┆" },
 			},
-			signcolumn = true,
-			numhl = false,
-			linehl = false,
-			word_diff = false,
-			watch_gitdir = {
-				interval = 1000,
-				follow_files = true,
-			},
 			attach_to_untracked = true,
 			current_line_blame = true,
-			current_line_blame_opts = {
-				virt_text = true,
-				virt_text_pos = "eol",
-				delay = 1000,
-				ignore_whitespace = false,
-			},
 			current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
-			sign_priority = 6,
-			update_debounce = 100,
-			status_formatter = nil,
-			max_file_length = 40000,
 			preview_config = {
 				border = "single",
-				style = "minimal",
-				relative = "cursor",
-				row = 0,
-				col = 1,
 			},
 		},
 	}, -- Git signs

@@ -11,7 +11,7 @@ return {
 			{ "<leader>bl", "<cmd>Telescope buffers<cr>", desc = "List Buffers" },
 			{ "<leader>ce", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
 			{ "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File" },
-			{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Git Branches" },
+			{ "<leader>gx", "<cmd>Telescope git_branches<cr>", desc = "Git Branches" },
 			{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits" },
 			{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Git Status" },
 		},
